@@ -5,6 +5,7 @@ namespace Modules\User\Modul;
 class Service{
     public $msg = [];
     public $id ;
+    public $user;
     public function register(){
         if(isset($_POST["username"],$_POST["email"],$_POST["password"],$_POST["password2"])){
             $verf = new \Modules\User\Modul\Verification();
@@ -37,24 +38,27 @@ class Service{
     }
     public function auth(){
         if(isset($_POST["username"],$_POST["password"])){
+            $this->user = new \Modules\User\Modul\Auth();
+            $this->user->user->set_username($_POST["username"])
+                ->set_password($_POST["password"]);
             $verf = new \Modules\User\Modul\Verification();
-            $verf->login($_POST["username"],$_POST["password"]);
+            $verf->login($this->user->user->get_username(),$this->user->user->get_password());
             if(!$verf->status){
                 $this->msg = $verf->msg;
                 return false;
             }
-            $log = new \Modules\User\Modul\Auth();
-            $log->set_user($_POST["username"],$_POST["password"]);
-            $res = $log->auth();
+
+            $res = $this->user->auth();
+
             if($res['success']){
-                $this->id = $res['id'];
+                $this->id = $this->user->user->get_id();
             }else{
                 $this->msg[] = $res["error"];
                 return $res['success'];
             }
 
-            $log->set_session($res['id'],$res['username'])
-                ->insert_token($res['id'])
+            $this->user->set_session($this->user->user->get_id(),$this->user->user->get_username())
+                ->insert_token($this->user->user->get_id())
                 ->set_cookie();
             return true;
 

@@ -3,7 +3,7 @@
 namespace Modules\User\Modul;
 use \Modules\User\Modul\User;
 class Auth{
-    private $user;
+    public $user;
     private $token;
 
     public function __construct(){
@@ -33,22 +33,19 @@ class Auth{
             if (!$user_data['is_active']) {
                 return ['success' => false, 'error' => 'Аккаунт деактивирован'];
             }
-
-            if ($user_data['is_banned']) {
-                return ['success' => false, 'error' => 'Аккаунт заблокирован'];
-            }
             $enc = new \Modules\User\Modul\Encoder;
             if (!$enc->verify($this->user->get_password(), $user_data['password_hash'])) {
                 return ['success' => false, 'error' => 'Неверный пароль'];
             }
 
-            $this->user->set_id($user_data['id']);
-            return [
-                'success' => true,
-                'id' => $user_data['id'],
-                'username' => $user_data['username'],
-                'email' => $user_data['email']
-            ];
+            if ($user_data['is_banned']) {
+                $this->user->set_ban($user_data['is_banned'], $user_data['ban_reason'], $user_data['ban_expiry_date']);
+                return ['success' => false, 'error' => 'Аккаунт заблокирован'];
+            }
+            $this->user->set_id($user_data['id'])
+                ->set_email($user_data['email']);
+            
+            return ['success' => true];
             
         } catch (\PDOException $e) {
             return ['success' => false, 'error' => 'Ошибка базы данных: ' . $e->getMessage()];

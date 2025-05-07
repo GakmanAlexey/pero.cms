@@ -23,6 +23,15 @@ class Core{
             
 
 /*
+
+            $_POST["username"]="log";
+            $_POST["password"]="11111111";
+            
+            $ver = new \Modules\User\Modul\Service;
+            $status = $ver->auth();
+            var_dump($status,"<br><br><br>");
+            var_dump($ver->msg);
+            
             $_POST["username"]="log";
             $_POST["password"]="11111111";
             $ver = new \Modules\User\Modul\Service;
