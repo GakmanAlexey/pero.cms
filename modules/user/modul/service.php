@@ -99,14 +99,34 @@ class Service{
         $log = new \Modules\User\Modul\Auth();
         $log->auth_to_cookie();
     }
-    
-    public function delete(){
-        
-    }
+
     public function ban(){
-        
+        if(isset($_POST["username"],$_POST["reason_ban"],$_POST["expiry_ban"])){
+            $this->user = new \Modules\User\Modul\User();
+            $this->user->set_username($_POST["username"])
+                ->set_ban(true, $_POST["reason_ban"], $_POST["expiry_ban"]);
+            $ban = new \Modules\User\Modul\Ban;
+            $ban->user = $this->user;
+            $ban->set_ban();
+        }else{
+            $config = \Modules\User\Modul\Config::get_instance();
+            $this->msg[] = $config->get_message('server_error');
+            return false;
+        }
     }
+
     public function unban(){
-        
+        if(isset($_POST["username"])){
+            $this->user = new \Modules\User\Modul\User();
+            $this->user->set_username($_POST["username"])
+                ->un_ban();
+            $ban = new \Modules\User\Modul\Ban;
+            $ban->user = $this->user;
+            $ban->unban();
+        }else{
+            $config = \Modules\User\Modul\Config::get_instance();
+            $this->msg[] = $config->get_message('server_error');
+            return false;
+        }
     }
 }
