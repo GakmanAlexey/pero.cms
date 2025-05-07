@@ -66,6 +66,27 @@ class Service{
         
     }
     public function logout(){
+        unset($_SESSION["id"]);
+        unset($_SESSION["username"]);
+
+        $cookie_name = 'user_token';
+        $cookie_path = '/';
+        $cookie_secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+        $cookie_http_only = true;
+        $cookie_same_site = 'Strict';
+    
+        setcookie(
+            $cookie_name,
+            '', 
+            [
+                'expires' => time() - 3600, 
+                'path' => $cookie_path,
+                'secure' => $cookie_secure,
+                'httponly' => $cookie_http_only,
+                'samesite' => $cookie_same_site
+            ]
+        );
+        unset($_COOKIE[$cookie_name]);
         
     }
     public function delete(){
