@@ -8,7 +8,34 @@ class User{
     private $email;
     private $password_hash;
     private $password;
+    private $password2;
+    private $token;
     private $is_active;
+    private $is_ban;
+    private $reason_ban;
+    private $expiry_ban;
+
+    public function set_ban($is_ban = true, $reason_ban = "Без коментария", $expiry_ban = 30000000){
+        $this->is_ban = $is_ban;
+        $this->reason_ban = $reason_ban;
+        $this->expiry_ban = $expiry_ban;
+        return $this; 
+    } 
+    public function un_ban(){
+        $this->is_ban = false;
+        $this->reason_ban = "";
+        $this->expiry_ban = 0;
+        return $this; 
+    } 
+
+    public function set_password2($password2){
+        $this->password2 = $password2;
+        return $this; 
+    } 
+    public function set_token($token){
+        $this->token = $token;
+        return $this; 
+    } 
 
     public function set_id($id){
         $this->id = $id;
@@ -50,6 +77,16 @@ class User{
     }
 
 
+    public function get_ban(){
+        return $this->is_ban; 
+    } 
+    public function get_ban_reason(){
+        return [
+            'status_ban' => $this->is_ban,
+            'reason_ban' => $this->reason_ban,
+            'expiry_ban' => $this->expiry_ban
+        ];
+    } 
     public function get_id(){
         return $this->id;
     }
@@ -58,6 +95,9 @@ class User{
     }
     public function get_password(){
         return $this->password;
+    }
+    public function get_password2(){
+        return $this->password2;
     }
 
     public function get_email(){
@@ -70,6 +110,10 @@ class User{
 
     public function get_active(){
         return $this->is_active;
+    }
+
+    public function get_token(){
+        return $this->token;
     }
 
 }
