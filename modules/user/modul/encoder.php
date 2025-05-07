@@ -13,6 +13,18 @@ class Encoder{
     public function verify($password, $hash){
         return password_verify($password, $hash);
     }
+
+    public function create_token($length = 40) {
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $charactersLength = strlen($characters);
+        $result = '';
+    
+        for ($i = 0; $i < $length; $i++) {
+            $result .= $characters[random_int(0, $charactersLength - 1)];
+        }
+    
+        return $result;
+    }
 }
 
     

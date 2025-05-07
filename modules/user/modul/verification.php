@@ -21,6 +21,23 @@ class Verification{
         return $this;
     }
 
+    public function login($username,$password){
+        $this->msg =  [];
+        $this->status =  true;
+        $this->ver_username($username)
+            ->ver_password($password)
+            ->ver_isset_auth();
+        return $this;
+    }
+    public function ver_isset_auth(){
+        if(isset($_SESSION["id"]) && $_SESSION["id"]>= 1){
+            $this->status = false;
+            $this->msg[] = $this->config->get_message('isset_auth');
+            return $this;
+        }
+        return $this;
+    }
+
     public function ver_username($username){
         if(mb_strlen($username) < $this->config->get('limits->min_username') ){
             $this->status = false;

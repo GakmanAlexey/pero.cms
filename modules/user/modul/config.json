@@ -8,6 +8,7 @@
         "username_too_long": "Имя не должено превышать {max_username} символов",
         "email_invalid": "Некорректный формат email",
         "common_required": "Поле обязательно для заполнения",
+        "isset_auth": "Вы уже авторизованы",
         "server_error": "Ошибка сервера, попробуйте позже"
     },
     "limits": {

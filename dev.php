@@ -7,13 +7,13 @@ function install() {
 function create($moduleName) {
     echo "Creating module '$moduleName'...\n";
     // Логика создания модуля
-    echo "✅ Module '$moduleName' created!\n";
+    echo "Module '$moduleName' created!\n";
 }
 
 function sql() {
     echo "Executing SQL: $query\n";
     // Логика выполнения SQL
-    echo "✅ Query executed!\n";
+    echo "Query executed!\n";
 }
 
 

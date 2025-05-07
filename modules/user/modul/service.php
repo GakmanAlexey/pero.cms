@@ -36,6 +36,33 @@ class Service{
 
     }
     public function auth(){
+        if(isset($_POST["username"],$_POST["password"])){
+            $verf = new \Modules\User\Modul\Verification();
+            $verf->login($_POST["username"],$_POST["password"]);
+            if(!$verf->status){
+                $this->msg = $verf->msg;
+                return false;
+            }
+            $log = new \Modules\User\Modul\Auth();
+            $log->set_user($_POST["username"],$_POST["password"]);
+            $res = $log->auth();
+            if($res['success']){
+                $this->id = $res['id'];
+            }else{
+                $this->msg[] = $res["error"];
+                return $res['success'];
+            }
+
+            $log->set_session($res['id'],$res['username'])
+                ->insert_token($res['id'])
+                ->set_cookie();
+            return true;
+
+        }else{
+            $config = \Modules\User\Modul\Config::get_instance();
+            $this->msg[] = $config->get_message('server_error');
+            return false;
+        }
         
     }
     public function logout(){

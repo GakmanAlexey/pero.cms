@@ -7,6 +7,7 @@ class User{
     private $username;
     private $email;
     private $password_hash;
+    private $password;
     private $is_active;
 
     public function set_id($id){
@@ -25,6 +26,11 @@ class User{
 
     public function set_password_hash($password_hash){
         $this->password_hash = $password_hash;
+        return $this; 
+    }  
+
+    public function set_password($password){
+        $this->password = $password;
         return $this; 
     } 
 
@@ -49,6 +55,9 @@ class User{
     }
     public function get_username(){
         return $this->username;
+    }
+    public function get_password(){
+        return $this->password;
     }
 
     public function get_email(){

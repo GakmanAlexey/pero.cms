@@ -14,10 +14,17 @@ class Core{
             if(Env::get("APP_INSTALL") == "true"){
                 \Modules\Core\Modul\Install::seach_files();
             } 
-            \Modules\Router\Modul\Loader::load_default_routes();
-
+            //\Modules\Router\Modul\Loader::load_default_routes();
+            session_start();
 
             \Modules\Router\Modul\Router::start();
+
+            $_POST["username"]="log";
+            $_POST["password"]="11111111";
+            $ver = new \Modules\User\Modul\Service;
+            $status = $ver->auth();
+            var_dump($status,"<br><br><br>");
+            var_dump($ver->msg);
 /*
             $_POST["username"]="log";
             $_POST["email"]="test@ya.ru";
