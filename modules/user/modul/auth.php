@@ -33,6 +33,10 @@ class Auth{
             if (!$user_data['is_active']) {
                 return ['success' => false, 'error' => 'Аккаунт деактивирован'];
             }
+
+            if ($user_data['is_banned']) {
+                return ['success' => false, 'error' => 'Аккаунт заблокирован'];
+            }
             $enc = new \Modules\User\Modul\Encoder;
             if (!$enc->verify($this->user->get_password(), $user_data['password_hash'])) {
                 return ['success' => false, 'error' => 'Неверный пароль'];

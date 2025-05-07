@@ -13,6 +13,9 @@ class User  extends \Modules\Abs\Install{
             email VARCHAR(100) NOT NULL,          
             password_hash VARCHAR(255) NOT NULL,
             is_active BOOLEAN DEFAULT TRUE,
+            `is_banned` BOOLEAN DEFAULT FALSE,
+            `ban_reason` VARCHAR(255) DEFAULT NULL,
+            `ban_expiry_date` DATETIME DEFAULT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )            

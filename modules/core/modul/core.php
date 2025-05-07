@@ -20,6 +20,7 @@ class Core{
             $auth_token->auth_to_cookie();
 
             \Modules\Router\Modul\Router::start();
+            
 
 /*
             $_POST["username"]="log";
