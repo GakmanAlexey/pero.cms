@@ -16,9 +16,10 @@ class Core{
             } 
             //\Modules\Router\Modul\Loader::load_default_routes();
             session_start();
+            $auth_token = new \Modules\User\Modul\Service;
+            $auth_token->auth_to_cookie();
 
             \Modules\Router\Modul\Router::start();
-
 
 /*
             $_POST["username"]="log";
@@ -27,7 +28,7 @@ class Core{
             $status = $ver->auth();
             var_dump($status,"<br><br><br>");
             var_dump($ver->msg);
-            
+
             $_POST["username"]="log";
             $_POST["email"]="test@ya.ru";
             $_POST["password"]="11111111";

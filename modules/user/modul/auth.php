@@ -99,7 +99,62 @@ class Auth{
         return $this;
     }
     
+    public function refresh_cookie(){
+        $cookie_name = 'user_token';
+        
+        if (!isset($_COOKIE[$cookie_name])) {
+            return $this;
+        }
+    
+        setcookie(
+            $cookie_name,
+            $_COOKIE[$cookie_name], 
+            [
+                'expires' => time() + (30 * 24 * 60 * 60), 
+                'path' => '/',
+                'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+                'httponly' => true,
+                'samesite' => 'Strict'
+            ]
+        );
+    
+        return $this;
+    }
 
+    public function auth_to_cookie(){
+        $cookie_name = 'user_token';
+
+        if (!isset($_COOKIE[$cookie_name])) {
+            return false;
+        }
+
+        $token = $_COOKIE[$cookie_name];
+
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+
+        $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_sessions WHERE token = ? LIMIT 1");
+        $stmt->execute([$token]);
+        $token_data = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$token_data) {
+            return false;
+        }
+
+        $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users WHERE id = ? LIMIT 1");
+        $stmt2->execute([$token_data["user_id"]]);
+        $user_data = $stmt2->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$user_data) {
+            return false;
+        }
+        $this->set_session($user_data["id"],$user_data["username"])
+            ->refresh_cookie();
+         
+        $expires_at = date('Y-m-d H:i:s', strtotime('+30 days'));
+        $stmt3 = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_sessions SET expires_at = ? WHERE token = ? ");
+        $stmt3->execute([$expires_at, $token]);
+            return $stmt->rowCount() > 0;
+    }
 }
 
     

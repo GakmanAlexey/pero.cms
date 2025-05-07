@@ -89,6 +89,13 @@ class Service{
         unset($_COOKIE[$cookie_name]);
         
     }
+
+    public function auth_to_cookie(){
+        if(isset($_SESSION["id"]) and ($_SESSION["id"] >= 1)) return false;
+        $log = new \Modules\User\Modul\Auth();
+        $log->auth_to_cookie();
+    }
+    
     public function delete(){
         
     }
