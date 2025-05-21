@@ -18,8 +18,13 @@ class Core{
             session_start();
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
-/*
             \Modules\Router\Modul\Router::start();
+            $gp = new \Modules\Group\Modul\Group;
+            $gp->set_name("test1");
+
+            $serv = new \Modules\Group\Modul\Service;
+            var_dump($serv->dellete($gp));
+/*
             $gp = new \Modules\Group\Modul\Group;
             $gp->set_name("test1");
             $gp->set_name_ru("тест1");
