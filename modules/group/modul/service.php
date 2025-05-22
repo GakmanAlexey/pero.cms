@@ -89,7 +89,7 @@ class Service{
                     'message' => 'Пользователь не был добавлен в группу (неизвестная ошибка)'
                 ];
             }
-            
+
         } catch (\PDOException $e) {
             return [
                 'success' => false,
@@ -97,8 +97,40 @@ class Service{
             ];
         }
     }
-    public function remove(){
-       
+    
+    public function remove(\Modules\Group\Modul\Group $group, \Modules\User\Modul\User $user) {
+        if($group->get_id() < 1) return ['success' => false, 'error' => 'Данные группы не заполнены'];
+        if($user->get_id() < 1) return ['success' => false, 'error' => 'Данные пользователя не заполнены'];
+        
+        $pdo = \Modules\Core\Modul\Sql::connect();
+        try {
+            $stmtDelete = $pdo->prepare("
+                DELETE FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_groups 
+                WHERE user_id = :user_id AND group_id = :group_id
+            ");
+            $stmtDelete->execute([
+                ':user_id' => $user->get_id(),
+                ':group_id' => $group->get_id()
+            ]);
+
+            if ($stmtDelete->rowCount() > 0) {
+                return [
+                    'success' => true,
+                    'message' => 'Пользователь успешно удален из группы'
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'message' => 'Пользователь не был удален из группы (возможно, он не состоял в ней)'
+                ];
+            }
+            
+        } catch (\PDOException $e) {
+            return [
+                'success' => false,
+                'message' => 'Ошибка при удалении пользователя из группы: ' . $e->getMessage()
+            ];
+        }
     }
     
 }
