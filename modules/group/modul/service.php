@@ -55,15 +55,47 @@ class Service{
                     'message' => 'Группа не была удалена (неизвестная ошибка)'
                 ];
             }
-            } catch (\PDOException $e) {
+        } catch (\PDOException $e) {
             return [
                 'success' => false,
                 'message' => 'Ошибка при удалении: ' . $e->getMessage()
             ];
         }
     }
-    public function include(){
-       
+    public function include(\Modules\Group\Modul\Group $group, \Modules\User\Modul\User $user){
+        if($group->get_id() < 1) return ['success' => false, 'error' => 'Данные группы не заполнены'];
+        if($user->get_id() < 1) return ['success' => false, 'error' => 'Данные пользователя не заполнены'];
+        $pdo = \Modules\Core\Modul\Sql::connect();
+        try {
+            $stmtInsert = $pdo->prepare("
+                INSERT INTO " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_groups 
+                (user_id, group_id) 
+                VALUES (:user_id, :group_id)
+            ");
+            $stmtInsert->execute([
+                ':user_id' => $user->get_id(),
+                ':group_id' => $group->get_id()
+            ]);
+
+
+            if ($stmtInsert->rowCount() > 0) {
+                return [
+                    'success' => true,
+                    'message' => 'Пользователь успешно добавлен в группу'
+                ];
+            } else {
+                return [
+                    'success' => false,
+                    'message' => 'Пользователь не был добавлен в группу (неизвестная ошибка)'
+                ];
+            }
+            
+        } catch (\PDOException $e) {
+            return [
+                'success' => false,
+                'message' => 'Ошибка при добавления пользователя в группу: ' . $e->getMessage()
+            ];
+        }
     }
     public function remove(){
        
