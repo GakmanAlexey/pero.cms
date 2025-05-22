@@ -19,6 +19,33 @@ class Core{
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
             \Modules\Router\Modul\Router::start();
+
+$result = \Modules\Mail\Modul\Mail::send(
+    'gakman@ya.ru',
+    'Тестовое письмо',
+    '<h1>Привет!</h1><p>Это тестовое письмо</p>'
+);
+
+if ($result['success']) {
+    echo "Письмо отправлено!";
+} else {
+    echo "Ошибка: " . $result['message'];
+}
+            /*
+            $result = $mailer->send(
+                'gakman@ya.ru',
+                'Тема письма',
+                '<h1>Приветствие</h1><p>Это тестовое письмо</p>',
+                true // HTML-письмо
+            );
+
+            var_dump($result );
+            if (!$result['success']) {
+
+                var_dump($result );
+                // Обработка ошибки
+            }
+            var_dump($result );
 /*
 
             $gp = new \Modules\Group\Modul\Group;

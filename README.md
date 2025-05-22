@@ -26,7 +26,7 @@
 
 ```markdown
 [ + ] Модуль USER
-[   ] Модуль GROUP
+[ + ] Модуль GROUP
 [   ] Модуль EMAIL
 [   ] Модуль TG
 [   ] Модуль PERMISSION
