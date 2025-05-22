@@ -19,6 +19,29 @@ class Core{
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
             \Modules\Router\Modul\Router::start();
+/*
+            $telegram = new \Modules\Telegram\Modul\Telegram('ххх);
+            $telegram->select_chat('ххх') ;
+            try {
+                // Отправка текстового сообщения
+                //$result = $telegram->send_message('Привет, это тестовое сообщение!');
+                
+                // Отправка фото с подписью
+                //$result = $telegram->send_document('file.pdf', 'Это тестовое фото');
+                
+                // Отправка документа
+                $result = $telegram->send_photo('photo.jpg', 'Тестовый документ');
+                
+                // Проверка результата
+                if ($result['ok'] ?? false) {
+                    echo "Сообщение отправлено успешно!";
+                } else {
+                    echo "Ошибка отправки: " . ($result['description'] ?? 'Unknown error');
+                }
+            } catch (Exception $e) {
+                echo "Ошибка: " . $e->getMessage();
+            }
+
 
 $result = \Modules\Mail\Modul\Mail::send(
     'gakman@ya.ru',
