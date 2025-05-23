@@ -20,7 +20,7 @@ class Resource{
         self::$css_list = '';
         foreach (self::$cssFiles as $css) {
             $css = preg_replace('/\s+/', '', $css);
-            self::$css_list .= '<link rel="stylesheet" href="' . htmlspecialchars($css) . '">';
+            self::$css_list .= '<link rel="stylesheet" href="/' . htmlspecialchars($css) . '">';
         }
         return self::$css_list;
     }
@@ -29,7 +29,7 @@ class Resource{
         self::$js_list = '';
         foreach (self::$jsFiles as $js) {
             $js = preg_replace('/\s+/', '', $js);
-            self::$js_list .= '<script src="' . htmlspecialchars($js) . '"></script>';
+            self::$js_list .= '<script src="/' . htmlspecialchars($js) . '"></script>';
         }
         return self::$js_list;
     }
