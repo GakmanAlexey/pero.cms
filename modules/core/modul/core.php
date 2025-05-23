@@ -20,6 +20,20 @@ class Core{
             $auth_token->auth_to_cookie();
             \Modules\Router\Modul\Router::start();
 /*
+            $m = new \Modules\Permission\Modul\Manager;
+
+            $gp = new \Modules\Group\Modul\Group;
+            $gp->set_name("test1");
+            $gp->set_name_ru("тест1");
+            $gp->set_prefix("[]");
+            $gp->set_id(4);
+
+
+            $us = new \Modules\User\Modul\User;
+            $us->set_id(1);
+            var_dump($m->remove_permissions_from_user($us, "test"));
+            //$m->permissions_list_insert("test","test permision");
+
             $telegram = new \Modules\Telegram\Modul\Telegram('ххх);
             $telegram->select_chat('ххх') ;
             try {
