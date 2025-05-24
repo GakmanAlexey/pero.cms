@@ -11,14 +11,25 @@ abstract class Controller{
     public $cache_filename;
 
     public function verify($permission){  
-      
-       $user_taker = new  \Modules\User\Modul\Taker;
-       $user = $user_taker->get_from_id($_SESSION["id"]);
-       if(!$user->get_ban()){
+        
+        $user_taker = new  \Modules\User\Modul\Taker;
+        $user = $user_taker->get_from_id($_SESSION["id"]);
+        if($user->get_ban()){
             $ban = new \Modules\Core\Controller\Ban;
             $ban->index();
-       }
-       //var_dump($data_user->get_id());
+        }
+        $group_taker = new \Modules\Group\Modul\Taker;
+        $group = $group_taker->get_from_user($user);
+        $srv = new \Modules\Permission\Modul\Service();
+        $pex = $srv->load_pex($group, $user);
+        if (in_array($permission, $pex->get_pex(), true)) {  
+            return;
+        } else {
+            $e401 = new \Modules\Core\Controller\E401;
+            $e401->index();
+            die();
+        }
+        
        
     }
 

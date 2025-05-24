@@ -15,7 +15,7 @@ class Service{
         if(!($group->get_id() < 1)) $this->load_pex_group($group);
         if(!($user->get_id() < 1)) $this->load_pex_user($user);
         $this->id_to_pex();
-        return $this;
+        return $this->pex;
     }
 
     private function load_auth() {
@@ -23,6 +23,7 @@ class Service{
     }
 
     private function load_pex_group($group) {
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
         $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "permissions_group WHERE group_id = ?");
         $stmt->execute([$group->get_id()]);
         while($pex_data = $stmt->fetch(\PDO::FETCH_ASSOC)){
@@ -31,6 +32,7 @@ class Service{
     }
 
     private function load_pex_user($user) {
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
         $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "permissions_user WHERE user_id = ?");
         $stmt->execute([$user->get_id()]);
         while($pex_data = $stmt->fetch(\PDO::FETCH_ASSOC)){
@@ -39,6 +41,7 @@ class Service{
     }
 
     private function id_to_pex() {
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
         foreach($this->pex_id as $pex_id){
             $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "permissions_list WHERE id = ? LIMIT 1");
             $stmt->execute([$pex_id]);
