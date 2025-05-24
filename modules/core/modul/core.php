@@ -2,7 +2,7 @@
 
 namespace Modules\Core\Modul;
 
-class Core{
+class Core  extends \Modules\Abs\Handler{
     public function __construct(){
         try {
             Env::load();
@@ -19,6 +19,8 @@ class Core{
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
             \Modules\Router\Modul\Router::start();
+            $this->set_addres(APP_ROOT.DS."modules".DS."core".DS."modul".DS)->handl("test");
+            
 /*
             $m = new \Modules\Permission\Modul\Manager;
 

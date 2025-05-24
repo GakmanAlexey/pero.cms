@@ -1,0 +1,7 @@
+{
+    "test": {
+        "class": "\\Modules\\Core\\Modul\\Cl",
+        "method": "test",
+        "params": []
+    }
+}
