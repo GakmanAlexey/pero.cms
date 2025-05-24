@@ -1,0 +1,30 @@
+
+.b001_footer {
+    background: #111111;
+    width: 100%;
+    padding: 40px 0 10px 0;
+}
+
+.b001_footer_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.b001_footer_logo_box {
+}
+
+.b001_footer_link_box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.b001_footer_link_item {
+    width: 230px;
+    color: #A1A1A1;
+    font-size: 14px;
+    text-decoration: none;
+}

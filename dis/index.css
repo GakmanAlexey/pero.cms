@@ -1,0 +1,42 @@
+.b003_main_screen{
+    width: 100%;
+    height: 100vh;
+}
+
+canvas {
+  background-color: #af2d2d;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.b003_main_screen_hero_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+.b003_main_screen_hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+    max-width: 500px;
+}
+.b003_main_screen_hero_title {
+    font-size: 46px;
+    margin-bottom: 0;
+}
+.b003_main_screen_hero_dicription {
+}
+.b003_main_screen_hero_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}

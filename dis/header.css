@@ -1,0 +1,34 @@
+.b002_nav {
+    margin-top: 15px;
+}
+
+.b002_nav_box {
+    height: 66px;
+    width: calc(100% - 30px);
+    border-radius: 20px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    background: #fff;
+}
+.b002_nav_logo_box {
+    width: 65px;
+}
+.b002_nav_navigatin {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.b002_nav_item {
+    color: #332428;
+    text-decoration: none;
+}
+.b002_nav_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}

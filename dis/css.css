@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'inter-medium';
+    src: url(/dis/Inter-Medium.woff2);
+}
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font-family: 'inter-medium';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    font-family: 'inter-medium';
+}
+
+
+
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+
+.full_height_wrapper {
+    flex: 1 0 auto; /* Занимает всё доступное пространство по высоте */
+    width: 100%;
+}
