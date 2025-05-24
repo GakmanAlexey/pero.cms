@@ -18,8 +18,11 @@ class Core  extends \Modules\Abs\Handler{
             session_start();
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
+
+            //$this->set_addres(APP_ROOT.DS."modules".DS."core".DS."modul".DS)->handl("test");
+            \Modules\Core\Modul\Menu::build();
+            
             \Modules\Router\Modul\Router::start();
-            $this->set_addres(APP_ROOT.DS."modules".DS."core".DS."modul".DS)->handl("test");
             
 /*
             $m = new \Modules\Permission\Modul\Manager;

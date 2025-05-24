@@ -6,7 +6,7 @@ Class Index extends \Modules\Abs\Controller{
     public function index(){   
         $this->cashe_start();
         if($this->cache_isset) return ;
-
+        $this->verify("standart");
         \Modules\Core\Modul\Head::load();
         $this->type_show = "default";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);

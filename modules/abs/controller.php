@@ -10,6 +10,18 @@ abstract class Controller{
     public $cache_isset = false;
     public $cache_filename;
 
+    public function verify($permission){  
+      
+       $user_taker = new  \Modules\User\Modul\Taker;
+       $user = $user_taker->get_from_id($_SESSION["id"]);
+       if(!$user->get_ban()){
+            $ban = new \Modules\Core\Controller\Ban;
+            $ban->index();
+       }
+       //var_dump($data_user->get_id());
+       
+    }
+
     public function show( $cash = false){
         switch ($this->type_show ) {
             case "default":
