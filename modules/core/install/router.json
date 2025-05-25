@@ -1,3 +1,4 @@
 [
-    ["/", "Modules\\Core\\Controller\\Index", "index"]
+    ["/", "Modules\\Core\\Controller\\Index", "index"],
+    ["/ban/", "Modules\\Core\\Controller\\Ban", "index"]
 ]

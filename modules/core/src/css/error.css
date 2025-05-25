@@ -1,0 +1,50 @@
+.b004_error{
+    width: 100%;
+}
+
+.b004_error_hero_wrapper{
+    display: flex;
+    margin-top: 150px;
+    gap: 40px;
+    align-items: center;
+}
+
+.b004_error_hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+.b004_error_hero_title {
+    font-size: 260px;
+    margin: 0;
+    color: #2F6BF2;
+}
+
+.b004_error_hero_title_ban{
+    font-size: 80px;
+    color: #2F6BF2;
+    margin: 0;
+}
+
+.b004_error_hero_subheading{
+    margin: 0;
+}
+
+.b004_error_hero_dicription {
+    margin-top: 0;
+}
+.b004_error_hero_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.b004_error_hero_notification{
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: #DFDFDF;
+    border-radius: 10px;
+}

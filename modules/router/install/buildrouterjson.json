@@ -1,10 +1,16 @@
 {
-    "generated_at": "2025-05-25 10:37:39",
-    "routes_count": 2,
+    "generated_at": "2025-05-25 14:52:24",
+    "routes_count": 3,
     "routes": [
         {
             "path": "/",
             "class": "Modules\\Core\\Controller\\Index",
+            "method": "index",
+            "module": "core"
+        },
+        {
+            "path": "/ban/",
+            "class": "Modules\\Core\\Controller\\Ban",
             "method": "index",
             "module": "core"
         },

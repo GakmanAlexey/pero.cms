@@ -24,7 +24,7 @@ abstract class Controller{
             $ban->index();
         }
         $group_taker = new \Modules\Group\Modul\Taker;
-        $group = $group_taker->get_from_user($user);/*
+        $group = $group_taker->get_from_user($user);
         $srv = new \Modules\Permission\Modul\Service();
         $pex = $srv->load_pex($group, $user);
         if (in_array($permission, $pex->get_pex(), true)) {  
@@ -33,7 +33,7 @@ abstract class Controller{
             $e401 = new \Modules\Core\Controller\E401;
             $e401->index();
             die();
-        }*/
+        }
         
        
     }
@@ -105,12 +105,14 @@ abstract class Controller{
         $this->draw();
     }
 
-    public function errors(){
+    public function errors(){    
         $this->page_load = APP_ROOT."/modules/core/view/head.php";              
         $this->links();
         $this->page_load = APP_ROOT."/modules/core/view/header.php";              
         $this->links();
         $this->draw();
+        $this->page_load = APP_ROOT."/modules/license/view/cookie.php";            
+        $this->links();
         $this->page_load = APP_ROOT."/modules/core/view/footer.php";              
         $this->links();
     }
