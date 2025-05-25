@@ -24,7 +24,7 @@ abstract class Controller{
             $ban->index();
         }
         $group_taker = new \Modules\Group\Modul\Taker;
-        $group = $group_taker->get_from_user($user);
+        $group = $group_taker->get_from_user($user);/*
         $srv = new \Modules\Permission\Modul\Service();
         $pex = $srv->load_pex($group, $user);
         if (in_array($permission, $pex->get_pex(), true)) {  
@@ -33,7 +33,7 @@ abstract class Controller{
             $e401 = new \Modules\Core\Controller\E401;
             $e401->index();
             die();
-        }
+        }*/
         
        
     }

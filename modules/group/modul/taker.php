@@ -5,7 +5,10 @@ namespace Modules\Group\Modul;
 class Taker{
     public function get_from_user(\Modules\User\Modul\User $user){
         $gp = new \Modules\Group\Modul\Group;
-
+        if($user->get_id() == 0){
+            $gp->set_id(0);
+            return $gp;
+        }
         $pdo = \Modules\Core\Modul\Sql::connect(); 
 
         $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_groups WHERE user_id = ? LIMIT 1");
