@@ -13,6 +13,8 @@ class Core  extends \Modules\Abs\Handler{
             }
             if(Env::get("APP_INSTALL") == "true"){
                 \Modules\Core\Modul\Install::seach_files();
+                $builder = new \Modules\Router\Modul\Builder();                
+                $builder->start();
             } 
             //\Modules\Router\Modul\Loader::load_default_routes();
             session_start();
@@ -167,9 +169,7 @@ if ($result['success']) {
             var_dump($res);
 
 
-            $builder = new \Modules\Router\Modul\Builder();
-            // Собираем и объединяем маршруты
-            $builder->start();   
+   
 
 
             \Modules\Router\Modul\Loader::load_default_routes();

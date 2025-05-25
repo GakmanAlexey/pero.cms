@@ -1,12 +1,18 @@
 {
-    "generated_at": "2025-05-05 16:34:09",
-    "routes_count": 1,
+    "generated_at": "2025-05-25 10:37:39",
+    "routes_count": 2,
     "routes": [
         {
             "path": "/",
             "class": "Modules\\Core\\Controller\\Index",
             "method": "index",
             "module": "core"
+        },
+        {
+            "path": "/privacy/",
+            "class": "Modules\\License\\Controller\\Index",
+            "method": "index",
+            "module": "license"
         }
     ]
 }

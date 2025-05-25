@@ -62,6 +62,8 @@ abstract class Controller{
         $this->page_load = APP_ROOT."/modules/core/view/header.php";              
         $this->links();
         $this->draw();
+        $this->page_load = APP_ROOT."/modules/license/view/cookie.php";            
+        $this->links();
         $this->page_load = APP_ROOT."/modules/core/view/footer.php";              
         $this->links();
     }
