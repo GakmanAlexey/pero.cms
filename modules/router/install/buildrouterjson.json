@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-05-25 14:52:24",
-    "routes_count": 3,
+    "generated_at": "2025-05-25 20:40:16",
+    "routes_count": 9,
     "routes": [
         {
             "path": "/",
@@ -19,6 +19,42 @@
             "class": "Modules\\License\\Controller\\Index",
             "method": "index",
             "module": "license"
+        },
+        {
+            "path": "/user/login/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "login",
+            "module": "user"
+        },
+        {
+            "path": "/user/login/success/",
+            "class": "Modules\\User\\Controller\\Ban",
+            "method": "login_success",
+            "module": "user"
+        },
+        {
+            "path": "/user/register/",
+            "class": "Modules\\User\\Controller\\Ban",
+            "method": "register",
+            "module": "user"
+        },
+        {
+            "path": "/user/register/success/",
+            "class": "Modules\\User\\Controller\\Ban",
+            "method": "register_success",
+            "module": "user"
+        },
+        {
+            "path": "/user/verify-email/success/",
+            "class": "Modules\\User\\Controller\\Ban",
+            "method": "verify_success",
+            "module": "user"
+        },
+        {
+            "path": "/user/verify-email/failure/",
+            "class": "Modules\\User\\Controller\\Ban",
+            "method": "verify_failure",
+            "module": "user"
         }
     ]
 }

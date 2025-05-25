@@ -1,0 +1,8 @@
+[
+    ["/user/login/", "Modules\\User\\Controller\\Index", "login"],
+    ["/user/login/success/", "Modules\\User\\Controller\\Ban", "login_success"],
+    ["/user/register/", "Modules\\User\\Controller\\Ban", "register"],
+    ["/user/register/success/", "Modules\\User\\Controller\\Ban", "register_success"],
+    ["/user/verify-email/success/", "Modules\\User\\Controller\\Ban", "verify_success"],
+    ["/user/verify-email/failure/", "Modules\\User\\Controller\\Ban", "verify_failure"]
+]

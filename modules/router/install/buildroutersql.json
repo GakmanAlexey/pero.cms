@@ -1,5 +1,12 @@
 {
-    "generated_at": "2025-05-25 14:52:24",
-    "routes_count": 0,
-    "routes": []
+    "generated_at": "2025-05-25 20:40:16",
+    "routes_count": 1,
+    "routes": [
+        {
+            "path": "/",
+            "class": "Modules\\Core\\Controller\\Index",
+            "method": "index",
+            "source": "SQL_Database"
+        }
+    ]
 }
