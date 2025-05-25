@@ -13,7 +13,12 @@ abstract class Controller{
     public function verify($permission){  
         
         $user_taker = new  \Modules\User\Modul\Taker;
-        $user = $user_taker->get_from_id($_SESSION["id"]);
+        if(isset($_SESSION["id"])){
+            $user = $user_taker->get_from_id($_SESSION["id"]);
+        }else{
+            $user = $user_taker->get_from_id(0);
+        }
+        
         if($user->get_ban()){
             $ban = new \Modules\Core\Controller\Ban;
             $ban->index();
