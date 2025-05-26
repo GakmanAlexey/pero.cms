@@ -1,0 +1,369 @@
+
+.b005_login_box {
+    width: 420px;
+    margin: 0 auto;
+    margin-top: 20vh;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.b005_registr_box{
+    width: 420px;
+    margin: 0 auto;
+    margin-top: 15vh;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.b005_title_block {
+    font-size: 36px;
+    text-align: center;
+}
+
+.b005_form_login {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.b005_btn_form {
+    width: 100%;
+    margin-top: 20px;    
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+}
+
+.b005_input {
+    background: #f7f7f7;
+    border: 1px solid #E8E8ED; /* Задаём видимую рамку */
+    outline: none; /* Убираем стандартную подсветку */
+    width: calc(100% - 15px);
+    height: 40px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    transition: border 0.2s ease; /* Плавная анимация */
+    border-radius: 5px;
+}
+
+.b005_input:focus {
+    border: 1px solid #2F6BF2; /* Цвет рамки при фокусе */
+}
+
+.b005_input.error {
+    border: 1px solid #F44336; /* Красная рамка */
+}
+
+.b005_error_message {
+    color: #F44336;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    display: none;
+}
+.b005_error_message.show {
+    display: block;
+}
+
+.b005_link{
+    color: #2F6BF2;
+    font-weight: 900;
+    text-decoration: solid;
+}
+
+.b005_discription{
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+.b005_password_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.b005_password_wrapper .b005_input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.b005_toggle_password {
+  position: absolute;
+  right: 10px;
+    top: 13px;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.eye_slash {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.eye_icon.no_slash .eye_slash {
+  opacity: 0;
+}
+
+.b005_password_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.b005_password_wrapper .b005_input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.b005_toggle_password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.eye_icon {
+  width: 20px;
+  height: 20px;
+  transition: 0.2s ease;
+}
+
+.eye_slash {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.eye_icon.no_slash .eye_slash {
+  opacity: 0;
+}
+
+
+
+.b006_yspeh{
+    width: 100%;
+}
+
+.b006_yspeh_hero_wrapper{
+    display: flex;
+    margin-top: 150px;
+    gap: 40px;
+    align-items: center;
+}
+
+.b006_yspeh_hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+.b006_yspeh_hero_title {
+    font-size: 260px;
+    margin: 0;
+    color: #2F6BF2;
+}
+
+.b006_yspeh_hero_title_text{
+    font-size: 80px;
+    color: #2F6BF2;
+    margin: 0;
+}
+
+.b006_yspeh_hero_subheading{
+    margin: 0;
+}
+
+.b006_yspeh_hero_dicription {
+    margin-top: 0;
+}
+.b006_yspeh_hero_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.b006_yspeh_hero_notification{
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: #DFDFDF;
+    border-radius: 10px;
+}
+
+
+
+.b007_yspeh{
+    width: 100%;
+}
+
+.b007_yspeh_hero_wrapper{
+    display: flex;
+    margin-top: 150px;
+    gap: 40px;
+    align-items: center;
+}
+
+.b007_yspeh_hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+.b007_yspeh_hero_title {
+    font-size: 260px;
+    margin: 0;
+    color: #2F6BF2;
+}
+
+.b007_yspeh_hero_title_text{
+    font-size: 68px;
+    color: #2F6BF2;
+    margin: 0;
+}
+
+.b007_yspeh_hero_subheading{
+    margin: 0;
+}
+
+.b007_yspeh_hero_dicription {
+    margin-top: 0;
+}
+.b007_yspeh_hero_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.b007_yspeh_hero_notification{
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: #DFDFDF;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+.b008_yspeh{
+    width: 100%;
+}
+
+.b008_yspeh_hero_wrapper{
+    display: flex;
+    margin-top: 150px;
+    gap: 40px;
+    align-items: center;
+}
+
+.b008_yspeh_hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+.b008_yspeh_hero_title {
+    font-size: 260px;
+    margin: 0;
+    color: #2F6BF2;
+}
+
+.b008_yspeh_hero_title_text{
+    font-size: 68px;
+    color: #2F6BF2;
+    margin: 0;
+    max-width: 520px;
+}
+
+.b008_yspeh_hero_subheading{
+    margin: 0;
+}
+
+.b008_yspeh_hero_dicription {
+    margin-top: 0;
+}
+.b008_yspeh_hero_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.b008_yspeh_hero_notification{
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: #DFDFDF;
+    border-radius: 10px;
+}
+
+
+
+.b009_error{
+    width: 100%;
+}
+
+.b009_error_hero_wrapper{
+    display: flex;
+    margin-top: 150px;
+    gap: 40px;
+    align-items: center;
+}
+
+.b009_error_hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+.b009_error_hero_title {
+    font-size: 260px;
+    margin: 0;
+    color: #2F6BF2;
+}
+
+.b009_error_hero_title_ban{
+    font-size: 74px;
+    color: #a02020;
+    margin: 0;
+}
+
+.b009_error_hero_subheading{
+    margin: 0;
+}
+
+.b009_error_hero_dicription {
+    margin-top: 0;
+}
+.b009_error_hero_btn {
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.b009_error_hero_notification{
+    width: calc(100% - 40px);
+    padding: 20px;
+    background-color: #DFDFDF;
+    border-radius: 10px;
+}
