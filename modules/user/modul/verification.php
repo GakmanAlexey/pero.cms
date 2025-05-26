@@ -5,6 +5,7 @@ namespace Modules\User\Modul;
 class Verification{
     public $status = false;
     public $msg = [];
+    public $type ;
     private $config;
 
     public function __construct(){
@@ -33,6 +34,7 @@ class Verification{
         if(isset($_SESSION["id"]) && $_SESSION["id"]>= 1){
             $this->status = false;
             $this->msg[] = $this->config->get_message('isset_auth');
+            $this->type = "username";
             return $this;
         }
         return $this;
@@ -44,6 +46,7 @@ class Verification{
             $this->msg[] = $this->config->get_message('username_too_short', [
                 'min_username' => $this->config->get('limits->min_username')
             ]);
+            $this->type = "username";
             return $this;
         }
         if(mb_strlen($username) > $this->config->get('limits->max_username') ){
@@ -51,6 +54,7 @@ class Verification{
             $this->msg[] = $this->config->get_message('username_too_long', [
                 'max_username' => $this->config->get('limits->max_username')
             ]);
+            $this->type = "username";
             return $this;
         }
         return $this;
@@ -64,6 +68,7 @@ class Verification{
         if ($stmt->fetch()) {
             $this->status = false;
             $this->msg[] = $this->config->get_message('username_taken');
+            $this->type = "username";
         }
         return $this;
     }
@@ -72,6 +77,7 @@ class Verification{
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->status = false;
             $this->msg[] = $this->config->get_message('email_invalid');
+            $this->type = "email";
             return $this;
         }
 
@@ -79,12 +85,14 @@ class Verification{
         if (!checkdnsrr($domain, "MX") && !checkdnsrr($domain, "A")) {
             $this->status = false;
             $this->msg[] = $this->config->get_message('email_invalid');
+            $this->type = "email";
             return $this;
         }
 
         if (strlen($email) > 254 || strpos($email, "..") !== false) {
             $this->status = false;
             $this->msg[] = $this->config->get_message('email_invalid');
+            $this->type = "email";
             return $this;
         }
         return $this;
@@ -96,6 +104,7 @@ class Verification{
             $this->msg[] = $this->config->get_message('password_too_short', [
                 'min_pass' => $this->config->get('limits->min_pass')
             ]);
+            $this->type = "password";
             return $this;
         }
         if(mb_strlen($password) > $this->config->get('limits->max_pass') ){
@@ -103,6 +112,7 @@ class Verification{
             $this->msg[] = $this->config->get_message('password_too_long', [
                 'max_pass' => $this->config->get('limits->max_pass')
             ]);
+            $this->type = "password";
             return $this;
         }
         return $this;
@@ -112,6 +122,7 @@ class Verification{
         if($password !=  $password2){
             $this->status = false;
             $this->msg[] = $this->config->get_message('passwords_dont_match');
+            $this->type = "password";
         }
         return $this;
     }

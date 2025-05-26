@@ -5,6 +5,9 @@ use \Modules\User\Modul\User;
 class Auth{
     public $user;
     private $token;
+    public $status;
+    public $msg;
+    public $type;
 
     public function __construct(){
         $this->user = new User();
@@ -27,20 +30,20 @@ class Auth{
             $user_data = $stmt->fetch(\PDO::FETCH_ASSOC);
 
             if (!$user_data) {
-                return ['success' => false, 'error' => 'Пользователь не найден'];
+                return ['success' => false, 'error' => 'Пользователь не найден', 'type' => "username"];
             }
 
             if (!$user_data['is_active']) {
-                return ['success' => false, 'error' => 'Аккаунт деактивирован'];
+                return ['success' => false, 'error' => 'Аккаунт деактивирован', 'type' => "username"];
             }
             $enc = new \Modules\User\Modul\Encoder;
             if (!$enc->verify($this->user->get_password(), $user_data['password_hash'])) {
-                return ['success' => false, 'error' => 'Неверный пароль'];
+                return ['success' => false, 'error' => 'Неверный пароль', 'type' => "password"];
             }
 
             if ($user_data['is_banned']) {
                 $this->user->set_ban($user_data['is_banned'], $user_data['ban_reason'], $user_data['ban_expiry_date']);
-                return ['success' => false, 'error' => 'Аккаунт заблокирован'];
+                return ['success' => false, 'error' => 'Аккаунт заблокирован', 'type' => "username"];
             }
             $this->user->set_id($user_data['id'])
                 ->set_email($user_data['email']);
@@ -48,7 +51,7 @@ class Auth{
             return ['success' => true];
             
         } catch (\PDOException $e) {
-            return ['success' => false, 'error' => 'Ошибка базы данных: ' . $e->getMessage()];
+            return ['success' => false, 'error' => 'Ошибка базы данных: ' . $e->getMessage(), 'type' => "login"];
         }
     }
 

@@ -4,6 +4,7 @@ namespace Modules\User\Modul;
 
 class Service{
     public $msg = [];
+    public $type;
     public $id ;
     public $user;
     public function register(){
@@ -45,6 +46,7 @@ class Service{
             $verf->login($this->user->user->get_username(),$this->user->user->get_password());
             if(!$verf->status){
                 $this->msg = $verf->msg;
+                $this->type = $verf->type;
                 return false;
             }
 
@@ -54,6 +56,7 @@ class Service{
                 $this->id = $this->user->user->get_id();
             }else{
                 $this->msg[] = $res["error"];
+                $this->type = $res["type"];
                 return $res['success'];
             }
 
@@ -65,6 +68,7 @@ class Service{
         }else{
             $config = \Modules\User\Modul\Config::get_instance();
             $this->msg[] = $config->get_message('server_error');
+            $this->type = "username";
             return false;
         }
         
