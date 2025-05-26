@@ -1,0 +1,50 @@
+{
+    "generated_at": "2025-05-26 14:03:09",
+    "tasks_count": 5,
+    "tasks": {
+        "db_1": {
+            "name": "Очистка кеша",
+            "type": "php_function",
+            "interval": 300,
+            "last_run": 0,
+            "source": "database",
+            "callable": "clear_cache"
+        },
+        "db_2": {
+            "name": "Резервное копирование",
+            "type": "shell",
+            "interval": 86400,
+            "last_run": 0,
+            "source": "database",
+            "command": "/usr/bin/mysqldump -u user dbname > backup.sql"
+        },
+        "db_3": {
+            "name": "Очистка кеша",
+            "type": "php_function",
+            "interval": 300,
+            "last_run": 0,
+            "source": "database",
+            "callable": "clear_cache"
+        },
+        "db_4": {
+            "name": "Резервное копирование",
+            "type": "shell",
+            "interval": 86400,
+            "last_run": 0,
+            "source": "database",
+            "command": "/usr/bin/mysqldump -u user dbname > backup.sql"
+        },
+        "db_5": {
+            "name": "Отправка уведомлений",
+            "type": "class_method",
+            "interval": 3600,
+            "last_run": 0,
+            "source": "database",
+            "class": "\\Modules\\Notifications\\Mailer",
+            "method": "sendPending",
+            "args": {
+                "priority": "high"
+            }
+        }
+    }
+}

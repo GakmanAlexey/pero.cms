@@ -1,0 +1,43 @@
+{
+    "1": {
+        "name": "Очистка кеша",
+        "type": "php_function",
+        "callable": "clear_cache",
+        "interval": 300,
+        "last_run": 0
+    },
+    "2": {
+        "name": "Резервное копирование БД",
+        "type": "shell",
+        "command": "/usr/bin/mysqldump -u user -ppassword dbname > /backups/db_backup.sql",
+        "interval": 86400,
+        "last_run": 0
+    },
+    "3": {
+        "name": "Отправка email-уведомлений",
+        "type": "class_method",
+        "class": "Modules\\Notification\\Service\\Mailer",
+        "method": "sendPendingEmails",
+        "args": [{"priority": "high"}],
+        "interval": 3600,
+        "last_run": 0
+    },
+    "4": {
+        "name": "Синхронизация с API",
+        "type": "class_method",
+        "class": "Modules\\Integration\\Service\\ApiSync",
+        "method": "syncData",
+        "args": [{"endpoint": "users", "force": false}],
+        "interval": 1800,
+        "last_run": 0
+    },
+    "5": {
+        "name": "Удаление старых логов",
+        "type": "class_method",
+        "class": "Modules\\Core\\Service\\LogCleaner",
+        "method": "cleanOldLogs",
+        "args": [{"days": 30}],
+        "interval": 86400,
+        "last_run": 0
+    }
+}

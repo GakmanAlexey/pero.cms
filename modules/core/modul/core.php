@@ -25,8 +25,24 @@ class Core  extends \Modules\Abs\Handler{
             \Modules\Core\Modul\Menu::build();
             
             \Modules\Router\Modul\Router::start();
+$merger = new \Modules\Cron\Modul\Manager();
+$success = $merger->buildAndMerge();
+
+if ($success) {
+    echo "Файл tasks.json успешно обновлен!";
+} else {
+    echo "Произошла ошибка при обновлении tasks.json";
+}
+/*            $db = new \Modules\Cron\Modul\Db();
+            $db->generate_json(); // Создает/обновляет файл
+            $tasks = $db->get_json_content(); // Получает данные
+
+            $builder = new \Modules\Cron\Modul\Builder();
+            $builder->build();
+            $builder->saveTasksToFile();
+            $tasks = $builder->getTasks();
             
-/*
+
             $m = new \Modules\Permission\Modul\Manager;
 
             $gp = new \Modules\Group\Modul\Group;

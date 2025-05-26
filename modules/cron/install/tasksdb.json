@@ -1,0 +1,41 @@
+{
+    "1": {
+        "name": "Очистка кеша",
+        "type": "php_function",
+        "interval": 300,
+        "last_run": 0,
+        "callable": "clear_cache"
+    },
+    "2": {
+        "name": "Резервное копирование",
+        "type": "shell",
+        "interval": 86400,
+        "last_run": 0,
+        "command": "\/usr\/bin\/mysqldump -u user dbname > backup.sql"
+    },
+    "3": {
+        "name": "Очистка кеша",
+        "type": "php_function",
+        "interval": 300,
+        "last_run": 0,
+        "callable": "clear_cache"
+    },
+    "4": {
+        "name": "Резервное копирование",
+        "type": "shell",
+        "interval": 86400,
+        "last_run": 0,
+        "command": "\/usr\/bin\/mysqldump -u user dbname > backup.sql"
+    },
+    "5": {
+        "name": "Отправка уведомлений",
+        "type": "class_method",
+        "interval": 3600,
+        "last_run": 0,
+        "class": "\\Modules\\Notifications\\Mailer",
+        "method": "sendPending",
+        "args": {
+            "priority": "high"
+        }
+    }
+}
