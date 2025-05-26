@@ -28,7 +28,11 @@ Class Index extends \Modules\Abs\Controller{
         $this->show();
         $this->cashe_end();
     }
-    
+    public function logout(){   
+        $auth = new \Modules\User\Modul\Service;
+        $status= $auth->logout(); 
+        header("Location: /user/login/");
+    }
     public function login_success(){   
         $this->cashe_start();
         if($this->cache_isset) return ;
