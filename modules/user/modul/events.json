@@ -1,0 +1,7 @@
+{
+    "login": {
+        "class": "\\Modules\\User\\Modul\\Send",
+        "method": "login",
+        "params": []
+    }
+}

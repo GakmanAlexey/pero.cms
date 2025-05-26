@@ -26,6 +26,7 @@ class Core  extends \Modules\Abs\Handler{
             
             \Modules\Router\Modul\Router::start();
 
+
 /*            $db = new \Modules\Cron\Modul\Db();
             $db->generate_json(); // Создает/обновляет файл
             $tasks = $db->get_json_content(); // Получает данные

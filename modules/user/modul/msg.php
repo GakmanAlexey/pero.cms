@@ -8,6 +8,7 @@ class Msg{
     public static $status;
     public static $msg;
     public static $type;
+    public static $id;
 
 
     public static function include($status,$msg,$type){

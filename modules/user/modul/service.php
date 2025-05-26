@@ -2,7 +2,7 @@
 
 namespace Modules\User\Modul;
 
-class Service{
+class Service  extends \Modules\Abs\Handler{
     public $msg = [];
     public $type;
     public $id ;
@@ -59,7 +59,8 @@ class Service{
                 $this->type = $res["type"];
                 return $res['success'];
             }
-
+            \Modules\User\Modul\Msg::$id = $this->id;
+            $this->set_addres(APP_ROOT.DS."modules".DS."user".DS."modul".DS)->handl("login");
             $this->user->set_session($this->user->user->get_id(),$this->user->user->get_username())
                 ->insert_token($this->user->user->get_id())
                 ->set_cookie();
@@ -76,7 +77,6 @@ class Service{
     public function logout(){
         unset($_SESSION["id"]);
         unset($_SESSION["username"]);
-
         $cookie_name = 'user_token';
         $cookie_path = '/';
         $cookie_secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
