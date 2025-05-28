@@ -5,7 +5,7 @@
                     Регистрация
                 </div>
                 <div class="b005_discription">
-                    Зарегистрируйтесь на сайте, если у вас уже есть аккаунт, <a href="b005_link" class="">Войдите</a>
+                    Зарегистрируйтесь на сайте, если у вас уже есть аккаунт, <a href="/user/login/" class="b005_link">Войдите</a>
                 </div>
 
                 <form class="b005_form_login" id="loginForm" novalidate  method="post" action="/user/register/">

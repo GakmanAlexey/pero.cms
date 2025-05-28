@@ -7,7 +7,7 @@
             <div class="b009_error_hero">
                 <h3 class="b009_error_hero_subheading">Ссылка для подтверждения недействительна или устарела.</h3>
                 <p class="b009_error_hero_dicription">Произошла ошибка при подтверждении почты, повторите попытку снова</p>
-                <a class="b009_error_hero_btn">регистравция</a>
+                <a class="b009_error_hero_btn" href="/user/register/">регистравция</a>
             </div>
             
         </div>

@@ -6,7 +6,7 @@
                     Вход
                 </div>
                 <div class="b005_discription">
-                    войдите в аккаунт при помощи логина и пароля, если у вас нет аккаунта, <a href="b005_link" class="">Зарегистрируйтесь</a>
+                    войдите в аккаунт при помощи логина и пароля, если у вас нет аккаунта, <a href="/user/register/" class="b005_link">Зарегистрируйтесь</a>
                 </div>
 
                 <form class="b005_form_login" id="loginForm" novalidate method="post" action="/user/login/">
@@ -63,7 +63,7 @@
                     }?>
 
 
-                    <a href="b005_link" class="">Забыли пароль?</a>
+                    <a href="" class="b005_link">Забыли пароль?</a>
 
                     <button type="submit" class="b005_btn_form" value="auth" name="auth_button">Отправить</button>
                 </form>
