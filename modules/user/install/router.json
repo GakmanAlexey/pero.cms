@@ -5,5 +5,6 @@
     ["/user/register/success/", "Modules\\User\\Controller\\Index", "register_success"],
     ["/user/verify-email/success/", "Modules\\User\\Controller\\Index", "verify_success"],
     ["/user/verify-email/failure/", "Modules\\User\\Controller\\Index", "verify_failure"],
-    ["/user/exit/", "Modules\\User\\Controller\\Index", "logout"]
+    ["/user/exit/", "Modules\\User\\Controller\\Index", "logout"],
+    ["/user/verify-email/", "Modules\\User\\Controller\\Index", "verify_id"]
 ]

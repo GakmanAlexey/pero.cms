@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-05-28 13:46:05",
+    "generated_at": "2025-05-28 17:50:38",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 10,
+    "routes_count": 11,
     "routes": [
         {
             "path": "/",
@@ -64,6 +64,12 @@
             "path": "/user/exit/",
             "class": "Modules\\User\\Controller\\Index",
             "method": "logout",
+            "module": "user"
+        },
+        {
+            "path": "/user/verify-email/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "verify_id",
             "module": "user"
         }
     ]

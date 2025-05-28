@@ -103,4 +103,14 @@ Class Index extends \Modules\Abs\Controller{
         $this->cashe_end();
     }
 
+    public function verify_id(){
+        $reg = new \Modules\User\Modul\Service;
+        $status= $reg->verification(); 
+        if($status){
+            $this->verify_success();
+        }else{
+            $this->verify_failure();
+        }
+    }
+
 }

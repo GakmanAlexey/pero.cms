@@ -139,4 +139,13 @@ class Service  extends \Modules\Abs\Handler{
         }
     }
 
+    public function verification(){
+        if(isset($_GET["key"]) AND ($_GET["key"] != "")){
+            $reg = new \Modules\User\Modul\Register();
+            return $reg -> verification();
+        }else{
+            return false;
+        }
+    }
+
 }

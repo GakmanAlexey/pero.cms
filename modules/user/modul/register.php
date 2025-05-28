@@ -59,6 +59,39 @@ class Register{
 
         return $this->token;
     }
+
+    public function verification(){
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+
+        $token = $_GET["key"] ?? null;
+        if (empty($token)) {
+            return false;
+        }
+
+        $stmt = $pdo->prepare("SELECT `user_id` FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_register_token WHERE (token = ?) AND (expires_at > CURRENT_TIMESTAMP());");
+        $stmt->execute([$token]);                  
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        
+        if ($result) {
+            $user_id = $result['user_id'];
+        } else {
+           return false;
+        }
+
+        $stmt = $pdo->prepare("
+            UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users 
+            SET is_active = 1 
+            WHERE id = ?
+        ");
+        $stmt->execute([$user_id]);
+
+        $stmt = $pdo->prepare("
+            DELETE FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "user_register_token 
+            WHERE token = ?
+        ");
+        $stmt->execute([$_GET["key"]]);
+        return true;
+    }
     
 
 }
