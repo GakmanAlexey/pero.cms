@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-05-28 21:39:53",
+    "generated_at": "2025-05-28 23:14:13",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 13,
+    "routes_count": 16,
     "routes": [
         {
             "path": "/",
@@ -82,6 +82,24 @@
             "path": "/user/recover/success/",
             "class": "Modules\\User\\Controller\\Index",
             "method": "recover_success",
+            "module": "user"
+        },
+        {
+            "path": "/user/recover/step2/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "recover_step_2",
+            "module": "user"
+        },
+        {
+            "path": "/user/recover/step2/success/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "recover_step_2_success",
+            "module": "user"
+        },
+        {
+            "path": "/user/recover/step2/failure/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "recover_step_2_failure",
             "module": "user"
         }
     ]

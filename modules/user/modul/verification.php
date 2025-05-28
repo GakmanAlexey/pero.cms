@@ -10,6 +10,7 @@ class Verification{
 
     public function __construct(){
         $this->config = \Modules\User\Modul\Config::get_instance();
+        $this->status = true;
     }
     public function register($username,$email, $password,$password2){
         $this->msg =  [];
@@ -125,6 +126,7 @@ class Verification{
     }
 
     public function ver_passwords_match($password, $password2){
+        
         if($password !=  $password2){
             $this->status = false;
             $this->msg[] = $this->config->get_message('passwords_dont_match');

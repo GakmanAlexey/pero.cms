@@ -10,5 +10,6 @@
     ["/user/recover/", "Modules\\User\\Controller\\Index", "recover"],
     ["/user/recover/success/", "Modules\\User\\Controller\\Index", "recover_success"],
     ["/user/recover/step2/", "Modules\\User\\Controller\\Index", "recover_step_2"],
-    ["/user/recover/step2/success/", "Modules\\User\\Controller\\Index", "recover_step_2_success"]
+    ["/user/recover/step2/success/", "Modules\\User\\Controller\\Index", "recover_step_2_success"],
+    ["/user/recover/step2/failure/", "Modules\\User\\Controller\\Index", "recover_step_2_failure"]
 ]

@@ -10,6 +10,9 @@ class Recover{
         $this->user = new User();
     }
 
+    public function set_token($token){
+        $this->token = $token;
+    }
     public function set_login($username){
         $this->user->set_username($username);
         return $this;
@@ -38,6 +41,37 @@ class Recover{
         $stmt = $pdo->prepare("INSERT INTO ".\Modules\Core\Modul\Env::get("DB_PREFIX")."password_reset_tokens (user_id, token, expires_at) VALUES (?, ?, ?)");
         $result = $stmt->execute([$this->user->get_id(), $this->token, $expires_at]);
         return $this->token;
+    }
+
+    public function step2(){
+        $pdo = \Modules\Core\Modul\Sql::connect();  
+        $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "password_reset_tokens WHERE (token = ? ) AND (expires_at > CURRENT_TIMESTAMP())");
+        $stmt->execute([$this->token]);
+        $tokenData = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if(!$tokenData){
+            return false;
+        }
+        return true;
+    }
+    
+    public function set_new_password(){
+        $pdo = \Modules\Core\Modul\Sql::connect();  
+        $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "password_reset_tokens WHERE (token = ? ) AND (expires_at > CURRENT_TIMESTAMP())");
+        $stmt->execute([$this->token]);
+        $tokenData = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if(!$tokenData){
+            return false;
+        }
+        $stmt = $pdo->prepare("DELETE FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "password_reset_tokens WHERE token = ?");
+        $stmt->execute([$this->token]);
+
+        $enc = new \Modules\User\Modul\Encoder;
+        $password_hash = $enc->hash($_POST["password"]);
+        $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users 
+                      SET password_hash = ? 
+                      WHERE id = ?");
+        $result = $stmt->execute([$password_hash, $tokenData["user_id"]]);
+        return true;
     }
 
 

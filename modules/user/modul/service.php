@@ -179,5 +179,35 @@ class Service  extends \Modules\Abs\Handler{
             return false;
         }
     }
+    public function recover2(){
+         if(isset($_GET["key"]) AND ($_GET["key"] != "")){
+            $rec = new \Modules\User\Modul\Recover();
+            $rec -> set_token($_GET["key"]);
+            return $rec -> step2();
+        }else{
+            return false;
+        }
+            
+    }
+
+    public function recover2_2(){
+        if(isset($_POST["password"],$_POST["password2"])){
+            $verf = new \Modules\User\Modul\Verification();
+            $verf->ver_password($_POST["password"])
+                ->ver_passwords_match($_POST["password"], $_POST["password2"]);
+            if(!$verf->status){
+                $this->msg = $verf->msg;
+                $this->type = $verf->type;
+                return false;
+            }
+            $rec = new \Modules\User\Modul\Recover;
+            $rec -> set_token($_GET["key"]);
+            return $rec -> set_new_password();
+        }else{
+            $config = \Modules\User\Modul\Config::get_instance();
+            $this->msg[] = $config->get_message('server_error');
+            return false;
+        }
+    }
 
 }

@@ -142,4 +142,53 @@ Class Index extends \Modules\Abs\Controller{
         $this->cashe_end();
     }
 
+
+    public function recover_step_2(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "default";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);  
+        $reg = new \Modules\User\Modul\Service;
+        $status= $reg->recover2();  
+         if(!$status){   
+                header("Location: /user/recover/step2/failure/");
+                exit; 
+         }
+
+        $status2 = $reg->recover2_2(); 
+            \Modules\User\Modul\Msg::include($status2,$reg->msg,$reg->type);
+        if($status2){   
+                header("Location: /user/recover/step2/success/");
+                exit; 
+         }
+        $this->list_file[] = APP_ROOT."/modules/user/view/recover2.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+
+    public function recover_step_2_success(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "default";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);        
+        $this->list_file[] = APP_ROOT."/modules/user/view/recover2success.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+
+    public function recover_step_2_failure(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "default";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);        
+        $this->list_file[] = APP_ROOT."/modules/user/view/recover2failure.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
 }
