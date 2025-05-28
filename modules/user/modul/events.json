@@ -3,5 +3,10 @@
         "class": "\\Modules\\User\\Modul\\Send",
         "method": "login",
         "params": []
+    },
+    "register": {
+        "class": "\\Modules\\User\\Modul\\Send",
+        "method": "register",
+        "params": []
     }
 }

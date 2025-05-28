@@ -13,9 +13,9 @@ class Service  extends \Modules\Abs\Handler{
             $verf->register($_POST["username"],$_POST["email"],$_POST["password"],$_POST["password2"]);
             if(!$verf->status){
                 $this->msg = $verf->msg;
+                $this->type = $verf->type;
                 return false;
             }
-
             $enc = new \Modules\User\Modul\Encoder;
             $password_hash = $enc->hash($_POST["password"]);
 
@@ -25,9 +25,15 @@ class Service  extends \Modules\Abs\Handler{
 
             if($res['success']){
                 $this->id = $res['userId'];
+                \Modules\User\Modul\Msg::$id = $this->id;
+                \Modules\User\Modul\Msg::$login = $_POST["username"];
+                \Modules\User\Modul\Msg::$email = $_POST["email"];
+                \Modules\User\Modul\Msg::$token_reg = $reg->create_token();
+                $this->set_addres(APP_ROOT.DS."modules".DS."user".DS."modul".DS)->handl("register");
                 return true;
             }else{
                 $this->msg[] = $res["error"];
+                $this->type = $res["type"];
                 return $res['success'];
             }
         }else{
@@ -35,7 +41,6 @@ class Service  extends \Modules\Abs\Handler{
             $this->msg[] = $config->get_message('server_error');
             return false;
         }
-
     }
     public function auth(){
         if(isset($_POST["username"],$_POST["password"])){

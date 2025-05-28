@@ -14,11 +14,16 @@ class Verification{
     public function register($username,$email, $password,$password2){
         $this->msg =  [];
         $this->status =  true;
-        $this->ver_username($username)
-            ->ver_username_free($username)
-            ->ver_email($email)
-            ->ver_password($password)
-            ->ver_passwords_match($password,$password2);
+        $this->ver_username($username);
+        if(!$this->status)return $this;
+        $this->ver_username_free($username);
+        if(!$this->status)return $this;
+        $this->ver_email($email);
+        if(!$this->status)return $this;
+        $this->ver_password($password);
+        if(!$this->status)return $this;
+        $this->ver_passwords_match($password,$password2);
+        if(!$this->status)return $this;
         return $this;
     }
 

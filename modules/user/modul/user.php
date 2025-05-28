@@ -109,7 +109,7 @@ class User{
     } 
 
     public function get_active(){
-        return $this->is_active;
+        return (int)$this->is_active;
     }
 
     public function get_token(){

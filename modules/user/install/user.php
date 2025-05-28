@@ -40,6 +40,15 @@ class User  extends \Modules\Abs\Install{
         )            
         ';
         $table[] = '
+            CREATE TABLE '.\Modules\Core\Modul\Env::get("DB_PREFIX").'user_register_token (
+            id INT(12) PRIMARY KEY AUTO_INCREMENT,
+            user_id INT(12) NOT NULL,
+            token VARCHAR(255) NOT NULL,
+            expires_at TIMESTAMP NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES '.\Modules\Core\Modul\Env::get("DB_PREFIX").'users(id) ON DELETE CASCADE
+        )            
+        ';
+        $table[] = '
             CREATE INDEX idx_'.\Modules\Core\Modul\Env::get("DB_PREFIX").'users_username ON '.\Modules\Core\Modul\Env::get("DB_PREFIX").'users(username); 
             CREATE INDEX idx_'.\Modules\Core\Modul\Env::get("DB_PREFIX").'users_email ON '.\Modules\Core\Modul\Env::get("DB_PREFIX").'users(email); 
             CREATE INDEX idx_'.\Modules\Core\Modul\Env::get("DB_PREFIX").'user_sessions_user_id ON '.\Modules\Core\Modul\Env::get("DB_PREFIX").'user_sessions(user_id);

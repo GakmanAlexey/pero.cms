@@ -9,6 +9,9 @@ class Msg{
     public static $msg;
     public static $type;
     public static $id;
+    public static $login;
+    public static $email;
+    public static $token_reg;
 
 
     public static function include($status,$msg,$type){

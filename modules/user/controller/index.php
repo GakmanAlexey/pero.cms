@@ -49,7 +49,22 @@ Class Index extends \Modules\Abs\Controller{
         if($this->cache_isset) return ;
         \Modules\Core\Modul\Head::load();
         $this->type_show = "default";
-        \Modules\Core\Modul\Resource::load_conf($this->type_show);        
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);  
+        if(isset($_SESSION["id"]) and $_SESSION["id"] >= 1){
+            $e401 = new \Modules\Core\Controller\E401;
+            $e401->index();
+            exit; 
+        }
+        if(isset($_POST["reg_button"])){
+            $reg = new \Modules\User\Modul\Service;
+            $status= $reg->register(); 
+            var_dump( $reg->msg);
+            \Modules\User\Modul\Msg::include($status,$reg->msg,$reg->type);
+            if($status){
+                header("Location: /user/register/success/");
+                exit; 
+            }
+        }      
         $this->list_file[] = APP_ROOT."/modules/user/view/register.php";
         $this->show();
         $this->cashe_end();
