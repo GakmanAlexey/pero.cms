@@ -147,5 +147,37 @@ class Service  extends \Modules\Abs\Handler{
             return false;
         }
     }
+    public function recover(){
+        if(isset($_POST["username"])){
+            $this->user = new \Modules\User\Modul\User();
+            $this->user->set_username($_POST["username"]);
+            $verf = new \Modules\User\Modul\Verification();
+            $verf->ver_username($this->user->get_username());
+            
+            if(!$verf->status){
+                $this->msg = $verf->msg;
+                $this->type = $verf->type;
+                return false;
+            }
+
+            $rec = new \Modules\User\Modul\Recover();
+            $rec->set_login($this->user->get_username());
+            $res = $rec->recover();
+            if(!$res['success']){
+                $this->msg[] = $res["error"];
+                $this->type = "username";
+                return $res['success'];
+            }
+            \Modules\User\Modul\Msg::$id = $res["user"]->get_id();
+            \Modules\User\Modul\Msg::$login = $res["user"]->get_username();
+            \Modules\User\Modul\Msg::$email = $res["user"]->get_email();
+            \Modules\User\Modul\Msg::$token_reg = $rec->create_token();
+            $this->set_addres(APP_ROOT.DS."modules".DS."user".DS."modul".DS)->handl("recover");
+            return true;
+
+        }else{
+            return false;
+        }
+    }
 
 }

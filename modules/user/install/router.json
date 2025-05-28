@@ -6,5 +6,9 @@
     ["/user/verify-email/success/", "Modules\\User\\Controller\\Index", "verify_success"],
     ["/user/verify-email/failure/", "Modules\\User\\Controller\\Index", "verify_failure"],
     ["/user/exit/", "Modules\\User\\Controller\\Index", "logout"],
-    ["/user/verify-email/", "Modules\\User\\Controller\\Index", "verify_id"]
+    ["/user/verify-email/", "Modules\\User\\Controller\\Index", "verify_id"],
+    ["/user/recover/", "Modules\\User\\Controller\\Index", "recover"],
+    ["/user/recover/success/", "Modules\\User\\Controller\\Index", "recover_success"],
+    ["/user/recover/step2/", "Modules\\User\\Controller\\Index", "recover_step_2"],
+    ["/user/recover/step2/success/", "Modules\\User\\Controller\\Index", "recover_step_2_success"]
 ]

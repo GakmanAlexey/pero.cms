@@ -8,5 +8,10 @@
         "class": "\\Modules\\User\\Modul\\Send",
         "method": "register",
         "params": []
+    },
+    "recover": {
+        "class": "\\Modules\\User\\Modul\\Send",
+        "method": "recover",
+        "params": []
     }
 }

@@ -63,7 +63,7 @@
                     }?>
 
 
-                    <a href="" class="b005_link">Забыли пароль?</a>
+                    <a href="/user/recover/" class="b005_link">Забыли пароль?</a>
 
                     <button type="submit" class="b005_btn_form" value="auth" name="auth_button">Отправить</button>
                 </form>

@@ -62,6 +62,7 @@ class Verification{
             $this->type = "username";
             return $this;
         }
+        $this->status = true;
         return $this;
     }
 

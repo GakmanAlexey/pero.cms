@@ -58,7 +58,7 @@ Class Index extends \Modules\Abs\Controller{
         if(isset($_POST["reg_button"])){
             $reg = new \Modules\User\Modul\Service;
             $status= $reg->register(); 
-            var_dump( $reg->msg);
+            //var_dump( $reg->msg);
             \Modules\User\Modul\Msg::include($status,$reg->msg,$reg->type);
             if($status){
                 header("Location: /user/register/success/");
@@ -111,6 +111,35 @@ Class Index extends \Modules\Abs\Controller{
         }else{
             $this->verify_failure();
         }
+    }
+
+    public function recover(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "default";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);  
+        $reg = new \Modules\User\Modul\Service;
+        $status= $reg->recover(); 
+        \Modules\User\Modul\Msg::include($status,$reg->msg,$reg->type);  
+        if($status){
+                header("Location: /user/recover/success/");
+                exit; 
+        }
+        $this->list_file[] = APP_ROOT."/modules/user/view/recover.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function recover_success(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "default";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);        
+        $this->list_file[] = APP_ROOT."/modules/user/view/recoversuccess.php";
+        $this->show();
+        $this->cashe_end();
     }
 
 }

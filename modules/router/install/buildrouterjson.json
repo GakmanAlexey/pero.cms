@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-05-28 17:50:38",
-    "routes_count": 11,
+    "generated_at": "2025-05-28 21:39:53",
+    "routes_count": 13,
     "routes": [
         {
             "path": "/",
@@ -66,6 +66,18 @@
             "path": "/user/verify-email/",
             "class": "Modules\\User\\Controller\\Index",
             "method": "verify_id",
+            "module": "user"
+        },
+        {
+            "path": "/user/recover/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "recover",
+            "module": "user"
+        },
+        {
+            "path": "/user/recover/success/",
+            "class": "Modules\\User\\Controller\\Index",
+            "method": "recover_success",
             "module": "user"
         }
     ]
