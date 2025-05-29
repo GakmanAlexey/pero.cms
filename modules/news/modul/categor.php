@@ -2,7 +2,7 @@
 
 namespace Modules\News\Modul;
 
-class News{
+class Categor{
     private $id;
     private $name;
     private $name_ru;
@@ -11,7 +11,6 @@ class News{
     private $main_img;
     private $list_img = [];
     private $description;
-    private $categor_id;
     
     public function __construct() {
         
@@ -19,11 +18,6 @@ class News{
 
     public function set_id($id) {
         $this->id = $id;
-        return $this;
-    }
-
-    public function set_categor_id($categor_id){
-        $this->categor_id = $categor_id;
         return $this;
     }
 
@@ -99,10 +93,6 @@ class News{
         return $this->description;
     }
     
-    public function get_categor_id(){
-        return $this->categor_id;
-    }
-
     public function to_array(){
         return [
             'id' => $this->id,
@@ -112,8 +102,7 @@ class News{
             'full_url' => $this->full_url,
             'main_img' => $this->main_img,
             'list_img' => $this->list_img,
-            'description' => $this->description,
-            'categor_id' => $this->categor_id
+            'description' => $this->description
         ];
     }
     
