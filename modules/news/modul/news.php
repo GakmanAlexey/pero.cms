@@ -12,6 +12,9 @@ class News{
     private $list_img = [];
     private $description;
     private $categor_id;
+    private $publish_date;
+    private $edit_date;  
+    private $author; 
     
     public function __construct() {
         
@@ -62,6 +65,32 @@ class News{
         return $this;
     }
 
+    public function set_publish_date($date) {
+        if (is_numeric($date)) {
+            $this->publish_date = (int)$date;
+        } elseif ($date instanceof \DateTime) {
+            $this->publish_date = $date->getTimestamp();
+        } else {
+            $this->publish_date = strtotime($date);
+        }
+        return $this;
+    }
+
+    public function set_edit_date($date) {
+        if (is_numeric($date)) {
+            $this->edit_date = (int)$date;
+        } elseif ($date instanceof \DateTime) {
+            $this->edit_date = $date->getTimestamp();
+        } else {
+            $this->edit_date = strtotime($date);
+        }
+        return $this;
+    }
+
+    public function set_author(\Modules\User\Modul\User $user) {
+        $this->author = $user;
+        return $this;
+    }
     public function add_to_list_img($img) {
         $this->list_img[] = $img;
         return $this;
@@ -103,8 +132,22 @@ class News{
         return $this->categor_id;
     }
 
+    public function get_publish_date($format = null) {
+        if ($format && $this->publish_date) {
+            return date($format, $this->publish_date);
+        }
+        return $this->publish_date;
+    }
+
+    public function get_edit_date($format = null) {
+        if ($format && $this->edit_date) {
+            return date($format, $this->edit_date);
+        }
+        return $this->edit_date;
+    }
+
     public function to_array(){
-        return [
+        $data = [
             'id' => $this->id,
             'name' => $this->name,
             'name_ru' => $this->name_ru,
@@ -113,8 +156,23 @@ class News{
             'main_img' => $this->main_img,
             'list_img' => $this->list_img,
             'description' => $this->description,
-            'categor_id' => $this->categor_id
+            'categor_id' => $this->categor_id,
+            'publish_date' => $this->publish_date,
+            'edit_date' => $this->edit_date,
+            'publish_date_formatted' => $this->get_publish_date('Y-m-d H:i:s'),
+            'edit_date_formatted' => $this->get_edit_date('Y-m-d H:i:s')
         ];
+
+        if ($this->author instanceof \Modules\User\Modul\User) {
+            $data['author'] = [
+                'id' => $this->author->get_id(),
+                'username' => $this->author->get_username(),
+                'email' => $this->author->get_email(),
+                'is_active' => $this->author->get_active()
+            ];
+        }
+
+        return $data;
     }
     
 }
