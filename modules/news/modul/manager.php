@@ -2,7 +2,9 @@
 
 namespace Modules\News\Modul;
 
-class Manager{    
+class Manager{ 
+    public $class = "\Modules\News\Controller\Index";
+    public $funct = "categor";
     public function __construct() {
         
     }
@@ -30,6 +32,11 @@ class Manager{
             ':description' => $data['description']
         ]);
         $categor->set_id($pdo->lastInsertId());
+
+        \Modules\Router\Modul\Manager::create($categor->get_full_url(),$this->class,$this->funct);
+
+        $builder = new \Modules\Router\Modul\Builder();                
+        $builder->start();
         return $categor;
     }
     

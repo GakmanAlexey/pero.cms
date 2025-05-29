@@ -1,11 +1,17 @@
 {
-    "generated_at": "2025-05-29 13:20:16",
-    "routes_count": 1,
+    "generated_at": "2025-05-29 19:29:43",
+    "routes_count": 2,
     "routes": [
         {
             "path": "/",
             "class": "Modules\\Core\\Controller\\Index",
             "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/novosti-3/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "categor",
             "source": "SQL_Database"
         }
     ]

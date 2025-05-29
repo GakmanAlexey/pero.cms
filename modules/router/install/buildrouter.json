@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-05-29 13:20:16",
+    "generated_at": "2025-05-29 19:29:43",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 19,
+    "routes_count": 20,
     "routes": [
         {
             "path": "/",
@@ -119,6 +119,12 @@
             "class": "Modules\\User\\Controller\\Index",
             "method": "recover_step_2_failure",
             "module": "user"
+        },
+        {
+            "path": "/novosti-3/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "categor",
+            "source": "SQL (fallback)"
         }
     ]
 }
