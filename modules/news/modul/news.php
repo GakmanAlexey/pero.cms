@@ -15,6 +15,7 @@ class News{
     private $publish_date;
     private $edit_date;  
     private $author; 
+    private $is_active = false;
     
     public function __construct() {
         
@@ -91,9 +92,29 @@ class News{
         $this->author = $user;
         return $this;
     }
+
     public function add_to_list_img($img) {
         $this->list_img[] = $img;
         return $this;
+    }
+
+    public function activate() {
+        $this->is_active = true;
+        return $this;
+    }
+
+    public function deactivate() {
+        $this->is_active = false;
+        return $this;
+    }
+
+    public function set_active(bool $is_active) {
+        $this->is_active = $is_active;
+        return $this;
+    }
+
+    public function is_active(){
+        return $this->is_active;
     }
 
     public function get_id() {
@@ -159,6 +180,7 @@ class News{
             'categor_id' => $this->categor_id,
             'publish_date' => $this->publish_date,
             'edit_date' => $this->edit_date,
+            'is_active' => $this->is_active,
             'publish_date_formatted' => $this->get_publish_date('Y-m-d H:i:s'),
             'edit_date_formatted' => $this->get_edit_date('Y-m-d H:i:s')
         ];
