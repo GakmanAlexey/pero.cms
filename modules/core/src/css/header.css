@@ -4,7 +4,7 @@
 
 .b002_nav_box {
     height: 66px;
-    width: calc(100% - 30px);
+    width: calc(100% - 60px);
     border-radius: 20px;
     padding: 0 30px;
     display: flex;
