@@ -26,6 +26,8 @@ class Core  extends \Modules\Abs\Handler{
             
             \Modules\Router\Modul\Router::start();
 
+            $ct = new \Modules\News\Modul\Service;
+            //$res = $ct->create_categor("новости","основная категория новостей");
 
 /*            $db = new \Modules\Cron\Modul\Db();
             $db->generate_json(); // Создает/обновляет файл

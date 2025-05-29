@@ -11,6 +11,8 @@ class Categor{
     private $main_img;
     private $list_img = [];
     private $description;
+
+    public $main_dir = "/";
     
     public function __construct() {
         

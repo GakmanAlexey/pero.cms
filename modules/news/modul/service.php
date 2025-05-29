@@ -7,11 +7,14 @@ class Service{
         
     }
 
-    public function create_categor($name,$url,$description) {
+    public function create_categor($name,$description) {
         $categor = new \Modules\News\Modul\Categor;
-        $categor->set_name($name)
-            ->set_url_block($url)
+        $categor->set_name_ru($name)
             ->set_description($description);
+
+        $manager = new \Modules\News\Modul\Manager;
+        $categor = $manager->create_categor($categor);
+        return $categor;
     }
     
     public function edit_categor() {
