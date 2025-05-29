@@ -23,7 +23,18 @@ class Service{
     public function delete_categor() {
     }
 
-    public function create_news() {
+    public function create_news($name_ru, $text, $is_active, $category_id, $user_id) {
+        $user = new \Modules\User\Modul\User();
+        $user->set_id($user_id);
+        $news = new \Modules\News\Modul\News;
+        $news->set_name_ru($name_ru)
+            ->set_text($text)
+            ->set_active($is_active)
+            ->set_author($user)
+            ->set_categor_id($category_id)
+            ->set_publish_date(time());
+        $manager = new \Modules\News\Modul\Manager;
+        $news = $manager->create_news($news);
     }
 
     public function edit_news() {

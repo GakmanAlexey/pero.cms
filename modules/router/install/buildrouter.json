@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-05-29 19:29:43",
+    "generated_at": "2025-05-29 22:36:29",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 20,
+    "routes_count": 21,
     "routes": [
         {
             "path": "/",
@@ -124,6 +124,12 @@
             "path": "/novosti-3/",
             "class": "\\Modules\\News\\Controller\\Index",
             "method": "categor",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/novosti-3/nazvanie-novosti-5/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "news",
             "source": "SQL (fallback)"
         }
     ]

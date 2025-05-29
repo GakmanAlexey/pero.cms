@@ -11,6 +11,7 @@ class News{
     private $main_img;
     private $list_img = [];
     private $description;
+    private $text;
     private $categor_id;
     private $publish_date;
     private $edit_date;  
@@ -63,6 +64,11 @@ class News{
 
     public function set_description($description) {
         $this->description = $description;
+        return $this;
+    }
+
+    public function set_text($text) {
+        $this->text = $text;
         return $this;
     }
 
@@ -148,6 +154,10 @@ class News{
     public function get_description() {
         return $this->description;
     }
+
+    public function get_text() {
+        return $this->text;
+    }
     
     public function get_categor_id(){
         return $this->categor_id;
@@ -177,6 +187,7 @@ class News{
             'main_img' => $this->main_img,
             'list_img' => $this->list_img,
             'description' => $this->description,
+            'text' => $this->text,
             'categor_id' => $this->categor_id,
             'publish_date' => $this->publish_date,
             'edit_date' => $this->edit_date,

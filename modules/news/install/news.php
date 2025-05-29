@@ -31,6 +31,7 @@ class News  extends \Modules\Abs\Install{
             `main_img` varchar(255) DEFAULT NULL,
             `list_img` text DEFAULT NULL,
             `description` text DEFAULT NULL,
+            `text` text DEFAULT NULL,
             `category_id` int(11) NOT NULL,
             `publish_date` timestamp NOT NULL DEFAULT current_timestamp(),
             `edit_date` timestamp NULL DEFAULT NULL,
