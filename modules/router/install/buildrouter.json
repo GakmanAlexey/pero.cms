@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-05-29 12:57:08",
+    "generated_at": "2025-05-29 13:20:16",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 16,
+    "routes_count": 19,
     "routes": [
         {
             "path": "/",
@@ -23,6 +23,24 @@
             "class": "Modules\\License\\Controller\\Index",
             "method": "index",
             "module": "license"
+        },
+        {
+            "path": "/news/",
+            "class": "Modules\\News\\Controller\\Index",
+            "method": "categor",
+            "module": "news"
+        },
+        {
+            "path": "/news/element/",
+            "class": "Modules\\News\\Controller\\Index",
+            "method": "news",
+            "module": "news"
+        },
+        {
+            "path": "/news/block/",
+            "class": "Modules\\News\\Controller\\Index",
+            "method": "block",
+            "module": "news"
         },
         {
             "path": "/user/login/",

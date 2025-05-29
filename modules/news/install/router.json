@@ -1,0 +1,5 @@
+[
+    ["/news/", "Modules\\News\\Controller\\Index", "categor"],
+    ["/news/element/", "Modules\\News\\Controller\\Index", "news"],
+    ["/news/block/", "Modules\\News\\Controller\\Index", "block"]
+]
