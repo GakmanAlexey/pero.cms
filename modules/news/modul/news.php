@@ -211,5 +211,15 @@ class News{
 
         return $data;
     }
+
+    public function get_author(){
+        $data = [
+                'id' => $this->author->get_id(),
+                'username' => $this->author->get_username(),
+                'email' => $this->author->get_email(),
+                'is_active' => $this->author->get_active()
+            ];
+        return $data;
+    }
     
 }

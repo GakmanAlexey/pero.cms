@@ -76,6 +76,36 @@ class Taker{
         }
         return $news_arr;
     }
+
+    public function get_news(){
+        $pdo = \Modules\Core\Modul\Sql::connect();
+        $main_news =  new \Modules\News\Modul\News;
+        $url = \Modules\Router\Modul\Router::$url;
+
+        $stmt1 = $pdo->prepare("SELECT * FROM ".\Modules\Core\Modul\Env::get("DB_PREFIX")."news WHERE full_url = ? and is_active = ? LIMIT 1");
+        $stmt1->execute([$url["d_line"], 1]);
+        $result2 = $stmt1->fetch(\PDO::FETCH_ASSOC);
+        if(!$result2){
+            return $main_news;
+        }
+        $take_user =new \Modules\User\Modul\Taker;
+        $user =  $take_user->get_from_id($result2["author_id"]);
+        $user->set_id($result2["author_id"]);
+        $list_img = unserialize($result2['list_img']);
+            $main_news->set_id($result2["id"])
+                ->set_categor_id($result2["category_id"])
+                ->set_name($result2["name"])
+                ->set_name_ru($result2["name_ru"])
+                ->set_url_block($result2["url_block"])
+                ->set_full_url($result2["full_url"])
+                ->set_main_img($result2["main_img"])
+                ->set_list_img($list_img)
+                ->set_description($result2["description"])
+                ->set_text($result2["text"])
+                ->set_publish_date($result2["publish_date"])
+                ->set_author($user);
+        return $main_news;
+    }
     
 
 }

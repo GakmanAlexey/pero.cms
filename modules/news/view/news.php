@@ -4,28 +4,18 @@
 
             <!-- Статья -->
             <div class="b012_news_card">
-                <h1 class="b012_news_title">Новая версия Pero.CMS уже доступна</h1>
+                <h1 class="b012_news_title"><?php echo $this->data_view["news"]->get_name_ru();?></h1>
 
-                <img src="/photo.jpg" alt="Превью новости" class="b012_news_image">
+                <img src="<?php echo $this->data_view["news"]->get_main_img();?>" alt="Фото <?php echo $this->data_view["news"]->get_name_ru();?>" class="b012_news_image">
 
-                <div class="b012_news_text">
-                <p>Сегодня мы рады представить новую версию нашей системы управления контентом — Pero.CMS. В этот релиз вошло множество улучшений, повышающих скорость, безопасность и удобство работы редакторов.</p>
-                </div>
-
-                <img src="/photo.jpg" alt="Новая функция" class="b012_news_image">
-
-                <div class="b012_news_text">
-                <p>Обновлённый визуальный редактор стал ещё интуитивнее: вы можете управлять блоками с помощью drag-and-drop, использовать готовые шаблоны и встраивать интерактивные элементы.</p>
-                </div>
-
-                <img src="/photo.jpg" alt="Редактор" class="b012_news_image">
-
-                <div class="b012_news_text">
-                <p>Также мы добавили модуль адаптивного дизайна, позволяющий вам быстро настраивать отображение сайта под разные устройства без написания кода.</p>
-                </div>
+                <?php echo $this->data_view["news"]->get_text();?>  
 
                 <div class="b012_news_footer">
-                29 мая 2025 • Автор: Команда Pero.CMS
+                <?php echo $this->data_view["news"]->get_publish_date_ru();?>  • Автор: 
+                <?php 
+                $author =$this->data_view["news"]->get_author();
+                echo $author["username"];
+                ?>
                 </div>
             </div>
 
