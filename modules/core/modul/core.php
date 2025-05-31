@@ -22,10 +22,27 @@ class Core  extends \Modules\Abs\Handler{
             $auth_token->auth_to_cookie();
 
             //$this->set_addres(APP_ROOT.DS."modules".DS."core".DS."modul".DS)->handl("test");
-            \Modules\Core\Modul\Menu::build();
-            
+            \Modules\Core\Modul\Menu::build();            
             \Modules\Router\Modul\Router::start();
 
+   /*
+            $converter = new \Modules\Files\Modul\Convector();
+            $file = new \Modules\Files\Modul\File();
+            $file->set_path(APP_ROOT.DS.'test.bmp')
+                ->set_type('image/bmp')
+                ->set_extension('bmp');
+
+            try {
+                $convertedFile = $converter->webp($file, 85);
+                echo 'Файл успешно конвертирован: ' . $convertedFile->get_path();
+            } catch (\RuntimeException $e) {
+                echo 'Ошибка: ' . $e->getMessage();
+            }
+
+
+
+
+         
             $ct = new \Modules\News\Modul\Service;
             //$res = $ct->create_categor("новости","основная категория новостей");
             //$res = $ct->create_news("название новости", "текст новости", true, 4, 1);

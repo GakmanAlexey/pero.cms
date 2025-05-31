@@ -79,11 +79,11 @@ class File{
     }
 
     public function is_file_image(){
-        return strpos($this->file_type, 'image/') === 0;
+        return strpos($this->type, 'image/') === 0;
     }
 
     public function is_file_pdf(){
-        return $this->file_type === 'application/pdf';
+        return $this->type === 'application/pdf';
     }
 
 }
