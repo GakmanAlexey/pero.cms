@@ -37,7 +37,11 @@ class Service{
         $news = $manager->create_news($news);
     }
 
-    public function edit_news() {
+    public function edit_news($news_id) {
+        $news = new \Modules\News\Modul\News;
+        $news->set_id($news_id);
+        $manager = new \Modules\News\Modul\Manager;
+        $news = $manager->pre_edit($news);
     }
 
     public function delete_news() {

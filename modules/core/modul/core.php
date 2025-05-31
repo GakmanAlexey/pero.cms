@@ -28,7 +28,7 @@ class Core  extends \Modules\Abs\Handler{
 
             $ct = new \Modules\News\Modul\Service;
             //$res = $ct->create_categor("новости","основная категория новостей");
-            $res = $ct->create_news("название новости", "текст новости", true, 4, 1);
+            //$res = $ct->create_news("название новости", "текст новости", true, 4, 1);
 
 /*            $db = new \Modules\Cron\Modul\Db();
             $db->generate_json(); // Создает/обновляет файл

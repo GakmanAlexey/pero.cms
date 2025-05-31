@@ -169,6 +169,10 @@ class News{
         }
         return $this->publish_date;
     }
+    public function get_publish_date_ru() {
+        setlocale(LC_TIME, 'ru_RU.UTF-8');
+        return strftime('%e %B %Y', $this->publish_date);
+    }
 
     public function get_edit_date($format = null) {
         if ($format && $this->edit_date) {

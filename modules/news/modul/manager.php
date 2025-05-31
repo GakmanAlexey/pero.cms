@@ -87,7 +87,7 @@ class Manager{
                 ':list_img' => $data['list_img'],
                 ':description' => $data['description'],
                 ':text' => $data['text'],
-                ':category_id' => $data['categor_id'], // Обратите внимание на разницу в названии
+                ':category_id' => $data['categor_id'],
                 ':publish_date' => date('Y-m-d H:i:s', $data['publish_date']),
                 ':edit_date' => $data['edit_date'] ? date('Y-m-d H:i:s', $data['edit_date']) : null,
                 ':author_id' => $data['author']['id'],
@@ -100,11 +100,28 @@ class Manager{
                 return false;
         }
 
-        var_dump("<pre>",$news->to_array(),"</pre>");
         \Modules\Router\Modul\Manager::create($news->get_full_url(),$this->class,$this->funct_new);
 
         $builder = new \Modules\Router\Modul\Builder();                
         $builder->start();
+        return $news;
+    }
+
+    public function pre_edit(\Modules\News\Modul\News $news){
+        $pdo = \Modules\Core\Modul\Sql::connect();
+        $stmt = $pdo->prepare("SELECT * FROM ".\Modules\Core\Modul\Env::get("DB_PREFIX")."news WHERE id = :id LIMIT 1");
+        $stmt->execute([':id' => $news->get_id()]);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $list_img = unserialize($result['list_img']);
+        $news->set_categor_id($result['category_id'])
+            ->set_name($result['name'])
+            ->set_name_ru($result['name_ru'])
+            ->set_url_block($result['url_block'])
+            ->set_full_url($result['full_url'])
+            ->set_main_img($result['main_img'])
+            ->set_list_img($list_img)
+            ->set_description($result['description'])
+            ->set_text($result['text']);
         return $news;
     }
 

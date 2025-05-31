@@ -9,6 +9,7 @@ abstract class Controller{
     public $data;
     public $cache_isset = false;
     public $cache_filename;
+    public $data_view;
 
     public function verify($permission){  
         
