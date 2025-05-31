@@ -24,7 +24,8 @@ Class Index extends \Modules\Abs\Controller{
         $this->type_show = "default";
         \Modules\Core\Modul\Resource::load_conf($this->type_show); 
         $cat = new \Modules\News\Modul\Taker();
-        $this->data_view["news"] = $cat->get_news();     
+        $this->data_view["news"] = $cat->get_news();   
+        $this->data_view["news2"] = $cat->get_2news_in_category($this->data_view["news"]->get_categor_id(), $this->data_view["news"]->get_id());     
         $this->list_file[] = APP_ROOT."/modules/news/view/news.php";
         $this->show();
         $this->cashe_end();
