@@ -35,7 +35,9 @@ Class Index extends \Modules\Abs\Controller{
         if($this->cache_isset) return ;
         \Modules\Core\Modul\Head::load();
         $this->type_show = "default";
-        \Modules\Core\Modul\Resource::load_conf($this->type_show);         
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);    
+        $cat = new \Modules\News\Modul\Taker();  
+        $this->data_view["carusel"] = $cat->get_carusel(5);     
         $this->list_file[] = APP_ROOT."/modules/news/view/block.php";
         $this->show();
         $this->cashe_end();

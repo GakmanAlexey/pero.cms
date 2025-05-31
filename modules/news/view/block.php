@@ -9,38 +9,18 @@
             <div class="b011_news_carousel_wrapper">
                 <button class="b011_news_arrow b011_arrow_left" id="b011_arrow_left" hidden>&larr;</button>
                 <div class="b011_news_carousel" id="b011_news_carousel">
-                    <!-- Карточки новостей -->
-                    <a href="/news/element" class="b011_news_card">
-                        <img src="/photo.jpg" class="b011_news_image" alt="Новость 1">
-                        <div class="b011_news_title_inner">Заголовок интересной новости о разработке</div>
-                        <div class="b011_news_excerpt">Здесь будет краткое описание статьи, которое занимает не более четырех строк. Оно помогает понять, о чём новость.  чём новость. чём новость. чём новость. чём новость.</div>
-                        <div class="b011_news_date">28 мая 2025</div>
-                    </a>
-                    <a href="/news/element" class="b011_news_card">
-                        <img src="/photo.jpg" class="b011_news_image" alt="Новость 2">
-                        <div class="b011_news_title_inner">Важное обновление на платформе Pero.CMS</div>
-                        <div class="b011_news_excerpt">Новая функциональность доступна для всех пользователей. Улучшена безопасность, добавлены полезные инструменты.</div>
-                        <div class="b011_news_date">27 мая 2025</div>
-                    </a>
-                    <a href="/news/element" class="b011_news_card">
-                        <img src="/photo.jpg" class="b011_news_image" alt="Новость 3">
-                        <div class="b011_news_title_inner">Расширение команды и запуск нового проекта</div>
-                        <div class="b011_news_excerpt">В нашей команде пополнение! А также стартует новый крупный проект для муниципальных учреждений и малого бизнеса.</div>
-                        <div class="b011_news_date">25 мая 2025</div>
-                    </a>
-                    <a href="/news/element" class="b011_news_card">
-                        <img src="/photo.jpg" class="b011_news_image" alt="Новость 4">
-                        <div class="b011_news_title_inner">Pero.CMS на выставке веб-технологий</div>
-                        <div class="b011_news_excerpt">Мы приняли участие в крупнейшей выставке, посвященной современному вебу, где презентовали наш движок и поделились опытом.</div>
-                        <div class="b011_news_date">24 мая 2025</div>
-                    </a>
+                    <?php
+                    foreach($this->data_view["carusel"] as $item_news){
+echo '
+                    <a href="'.$item_news->get_full_url().'" class="b011_news_card">
+                        <img src="'.$item_news->get_main_img().'" class="b011_news_image" alt="Фото '.$item_news->get_name_ru().'">
+                        <div class="b011_news_title_inner">'.$item_news->get_name_ru().'</div>
+                        <div class="b011_news_excerpt">'.$item_news->get_description().'</div>
+                        <div class="b011_news_date">'.$item_news->get_publish_date_ru().'</div>
+                    </a>';
+                    }
+                    ?>
 
-                    <a href="/news/element" class="b011_news_card">
-                        <img src="/photo.jpg" class="b011_news_image" alt="Новость 4">
-                        <div class="b011_news_title_inner">Pero.CMS на выставке веб-технологий</div>
-                        <div class="b011_news_excerpt">Мы приняли участие в крупнейшей выставке, посвященной современному вебу, где презентовали наш движок и поделились опытом.</div>
-                        <div class="b011_news_date">24 мая 2025</div>
-                    </a>
                 </div>
                 <button class="b011_news_arrow b011_arrow_right" id="b011_arrow_right" hidden>&rarr;</button>
             </div>
