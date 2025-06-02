@@ -1,15 +1,15 @@
 
-<div class="notification_crm">
-            <div class="menu_crm_noti">
-                <a class="menu_crm_noti_link" href="">
-                    <img class="menu_crm_noti_icon" src="/src/admin/img/yvedomleniya.svg" alt="">
-                    <p class="menu_crm_noti_name">Уведомления</p>
+<div class="a002_notification_crm">
+            <div class="a002_menu_crm_notification">
+                <a class="a002_menu_crm_notification_link" href="">
+                    <img class="a002_menu_crm_notification_icon" src="/src/admin/img/yvedomleniya.svg" alt="">
+                    <p class="a002_menu_crm_notification_name">Уведомления</p>
                 </a>
             </div>
 
-            <div class="notification_crm_content">
-                <div class="notification_crm_content_item">
-                        <div class="notification_crm_content_item_tetle">Уведомлений нет.</div>
+            <div class="a002_notification_crm_content">
+                <div class="a002_notification_crm_content_item">
+                        <div class="a002_notification_crm_content_item_tetle">Уведомлений нет.</div>
                 </div>
 
                 

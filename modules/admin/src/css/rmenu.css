@@ -1,0 +1,123 @@
+
+.a002_notification_crm{
+    width: 300px;
+    height: 100dvh;
+    background: #282C2D;
+    position: fixed;
+    right: 0;
+}
+
+
+.a002_menu_crm_notification{
+
+}
+
+.a002_menu_crm_notification_link{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    padding: 20px;
+
+}
+
+.a002_menu_crm_notification_icon{
+    width: 20px;
+
+}
+
+.a002_menu_crm_notification_name{
+    margin-left: 15px;
+    font-size: 18px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.a002_menu_crm_notification_mob{
+    display: none;
+}
+
+.a002_menu_crm_notification_link_mob{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    padding: 20px;
+    background-color: #282C2D ;
+    margin: 0 10px 0;
+
+}
+
+.a002_menu_crm_notification_icon_mob{
+    width: 20px;
+
+}
+
+
+.a002_notification_crm_content{
+    width: 100%;
+    padding: 0 20px 30px 20px;
+}
+
+.a002_notification_crm_content_item{
+    width: 230px;
+    padding: 15px;
+    background: #363C3E;
+    margin: 20px 0;
+
+}
+
+.a002_notification_crm_content_item_tetle{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.a002_notification_crm_content_item_text{
+    color: #c9c9c9;
+    font-size: 14px;
+    font-weight: 100;
+	font-family: 'InterLight'; 
+    margin: 5px 0;
+    width: 230px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.a002_notification_crm_content_item_button_box{
+    text-align: end;
+}
+
+.a002_notification_crm_content_item_closed{
+    color: #949494;
+    font-size: 12px;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.a002_notification_crm_content_item_open{
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 300;
+    display: inline-flex;
+    padding: 5px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #454B4D;
+    text-decoration: none;
+}
+
+.a002_notification_crm_content_item_date_time{
+    color: #868686;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
