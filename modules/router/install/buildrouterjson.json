@@ -1,7 +1,19 @@
 {
-    "generated_at": "2025-05-31 14:07:31",
-    "routes_count": 19,
+    "generated_at": "2025-06-02 14:14:28",
+    "routes_count": 21,
     "routes": [
+        {
+            "path": "/admin/",
+            "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
+            "module": "admin"
+        },
+        {
+            "path": "/admin/shop/",
+            "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
+            "module": "admin"
+        },
         {
             "path": "/",
             "class": "Modules\\Core\\Controller\\Index",

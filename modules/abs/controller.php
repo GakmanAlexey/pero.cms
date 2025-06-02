@@ -81,19 +81,19 @@ abstract class Controller{
     }
 
     public function admin(){
-        $build_l_menu = new \Mod\Core\Modul\Builderlmenu;
-        $h = $build_l_menu ->build($h);
-        $build_pex = new \Mod\Admin\Modul\Pex;
-        $h = $build_pex ->seach_files($h);
+        \Modules\Admin\Modul\Buildermenu::seach_files();
+        //$h = $build_l_menu ->build($h);
+        //$build_pex = new \Mod\Admin\Modul\Pex;
+        //$h = $build_pex ->seach_files($h);
 
-        $this->page_load = APP_ROOT."/modules/core/view/head.php";              
+        $this->page_load = APP_ROOT."/modules/admin/view/head.php";              
         $this->links();
-        $this->page_load = APP_ROOT."/modules/core/view/admin/lmenu.php";              
+        $this->page_load = APP_ROOT."/modules/admin/view/lmenu.php";              
         $this->links();
-        $this->page_load = APP_ROOT."/modules/core/view/admin/header.php";              
+        $this->page_load = APP_ROOT."/modules/admin/view/header.php";              
         $this->links();
         $this->draw();
-        $this->page_load = APP_ROOT."/modules/core/view/admin/rmenu.php";              
+        $this->page_load = APP_ROOT."/modules/admin/view/rmenu.php";              
         $this->links();
         
     }
