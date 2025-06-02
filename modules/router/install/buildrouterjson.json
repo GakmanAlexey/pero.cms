@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-02 14:14:28",
-    "routes_count": 21,
+    "generated_at": "2025-06-02 18:33:10",
+    "routes_count": 23,
     "routes": [
         {
             "path": "/admin/",
@@ -10,6 +10,12 @@
         },
         {
             "path": "/admin/shop/",
+            "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
+            "module": "admin"
+        },
+        {
+            "path": "/admin/system/",
             "class": "Modules\\Admin\\Controller\\Index",
             "method": "index",
             "module": "admin"
@@ -126,6 +132,12 @@
             "path": "/user/recover/step2/failure/",
             "class": "Modules\\User\\Controller\\Index",
             "method": "recover_step_2_failure",
+            "module": "user"
+        },
+        {
+            "path": "/admin/system/user/",
+            "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
             "module": "user"
         }
     ]

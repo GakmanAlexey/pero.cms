@@ -1,4 +1,5 @@
 [
     ["/admin/", "Modules\\Admin\\Controller\\Index", "index"],
-    ["/admin/shop/", "Modules\\Admin\\Controller\\Index", "index"]
+    ["/admin/shop/", "Modules\\Admin\\Controller\\Index", "index"],
+    ["/admin/system/", "Modules\\Admin\\Controller\\Index", "index"]
 ]
