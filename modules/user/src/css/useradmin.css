@@ -381,3 +381,75 @@
 }
 
 
+
+.a006_date_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.a006_input_field_data {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 36px 8px 12px;
+  font-size: 14px;
+  color: #333;
+  appearance: none;
+  width: 80px;
+  -webkit-appearance: none;
+}
+
+.a006_input_field_data::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.a006_date_icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+}
+
+
+.a006_time_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.a006_input_field_time {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 36px 8px 12px;
+  font-size: 14px;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.a006_input_field_time::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.a006_time_icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+}

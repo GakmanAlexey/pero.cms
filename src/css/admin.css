@@ -1,58 +1,3 @@
-
-body{
-    margin: 0;
-    padding: 0;
-    background: #F0F0F0;
-    font-family: 'inter-reg';
-    display: flex;
-}
-
-a{
-    text-decoration: none;
-    color: #444444;
-}
-.a003_main_crm_header{
-    width: 1120px;
-    height: 60px;
-    background: #F0F0F0;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;    
-}
-
-
-.a003_main_crm_header_parent_btn{
-    display: flex;
-    margin: 10px 0;
-    gap: 30px;
-
-}
-
-
-.a003_main_crm_header_crm_button{
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 6px;
-    color: #444444;
-    padding: 10px 25px;
-    display: flex;
-    align-items: center;
-    background: #E6EBF4;
-    justify-content: center;
-}
-
-.a003_main_crm_header_crm_button img{
-    margin-right: 10px;
-}
-
-
-.a003_main_crm_header_parent_right{
-    display: flex;
-    align-items: center;
-    margin-right: 80px;
-}
 .a001_wrapper_lmenu{
     width: 340px;
 }
@@ -229,17 +174,6 @@ a{
   }
 
 
-.a004_main{
-    width: 1120px;
-    padding: 10px 40px;
-    align-items: start;
-    justify-content: start;
-}
-
-.a004_main_contant{
-    margin-top: 100px;
-}
-
 .a002_notification_crm{
     width: 300px;
     height: 100dvh;
@@ -363,6 +297,72 @@ a{
     margin-bottom: 10px;
 }
 
+
+.a004_main{
+    width: 1120px;
+    padding: 10px 40px;
+    align-items: start;
+    justify-content: start;
+}
+
+.a004_main_contant{
+    margin-top: 100px;
+}
+.a003_main_crm_header{
+    width: 1120px;
+    height: 60px;
+    background: #F0F0F0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;    
+}
+
+
+.a003_main_crm_header_parent_btn{
+    display: flex;
+    margin: 10px 0;
+    gap: 30px;
+
+}
+
+
+.a003_main_crm_header_crm_button{
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: #444444;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    background: #E6EBF4;
+    justify-content: center;
+}
+
+.a003_main_crm_header_crm_button img{
+    margin-right: 10px;
+}
+
+
+.a003_main_crm_header_parent_right{
+    display: flex;
+    align-items: center;
+    margin-right: 80px;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font-family: 'inter-reg';
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: #444444;
+}
 
    .a005_header_block {
     margin-top: 80px;
@@ -747,115 +747,75 @@ a{
 
 
 
+.a006_date_wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-   .a007_header_block {
-    margin-top: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-  }
+.a006_input_field_data {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 36px 8px 12px;
+  font-size: 14px;
+  color: #333;
+  appearance: none;
+  width: 80px;
+  -webkit-appearance: none;
+}
 
-  .a007_header_title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333333;
-  }
+.a006_input_field_data::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
 
-  .a007_add_button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 26px;
-    background: #2F6BF2;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .a007_add_icon {
-    width: 16px;
-    height: 16px;
-    fill: #ffffff;
-  }
-
-
-  
-.a007_table_wrapper {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .a007_table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: separate;
-  }
-
-  .a007_thead {
-  }
-
-  .a007_tr_header {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  .a007_th {
-    padding: 10px 15px;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .a007_tbody {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
-  }
-
-  .a007_tr_body {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    background-color: #ffffff;
-    border-radius: 10px;
-  }
-
-  .a007_td {
-    padding: 10px 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-  }
-
-  .a007_actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  .a007_action_button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  .a007_action_button svg {
-    width: 18px;
-    height: 18px;
-  }
+.a006_date_icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+}
 
 
-  .a007_td_id{
-    width: 60px;
-  }
+.a006_time_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.a006_input_field_time {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 36px 8px 12px;
+  font-size: 14px;
+  color: #333;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.a006_input_field_time::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.a006_time_icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+}
+

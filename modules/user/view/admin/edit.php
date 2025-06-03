@@ -80,8 +80,25 @@ if($this->data_view->get_ban()){
 }else{
     echo '
                     <div class="a006_ban_information_no">
-                        Нет
+                        <input class="a006_input_field" type="text" name="mail" placeholder="Введите причину бана">
+                        <div class="a006_date_wrapper">
+                            <input class="a006_input_field_data" type="date" id="start" name="trip-start">
+                            <svg class="a006_date_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2F6BF2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="a006_time_wrapper">
+                            <input class="a006_input_field_time" type="time" id="start-time" name="start-time">
+                            <svg class="a006_time_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#2F6BF2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
                     </div>
+
                     <a href="" class="a006_status_button_вan">
                         Забанить
                     </a>           ';
