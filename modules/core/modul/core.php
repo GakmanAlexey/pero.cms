@@ -5,6 +5,7 @@ namespace Modules\Core\Modul;
 class Core  extends \Modules\Abs\Handler{
     public function __construct(){
         try {
+
             Env::load();
             if(Env::get("APP_DEBUG") == "true"){
                 $this->APP_DEBUG_TRUE();
@@ -17,196 +18,13 @@ class Core  extends \Modules\Abs\Handler{
                 $builder->start();
                 \Modules\Core\Modul\Css::merge_files(false);
             } 
-            //\Modules\Router\Modul\Loader::load_default_routes();
+
             session_start();
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
-
-            //$this->set_addres(APP_ROOT.DS."modules".DS."core".DS."modul".DS)->handl("test");
             \Modules\Core\Modul\Menu::build();            
             \Modules\Router\Modul\Router::start();
-
-   /*
-            $converter = new \Modules\Files\Modul\Convector();
-            $file = new \Modules\Files\Modul\File();
-            $file->set_path(APP_ROOT.DS.'test.bmp')
-                ->set_type('image/bmp')
-                ->set_extension('bmp');
-
-            try {
-                $convertedFile = $converter->webp($file, 85);
-                echo 'Файл успешно конвертирован: ' . $convertedFile->get_path();
-            } catch (\RuntimeException $e) {
-                echo 'Ошибка: ' . $e->getMessage();
-            }
-
-
-
-
-         
-            $ct = new \Modules\News\Modul\Service;
-            //$res = $ct->create_categor("новости","основная категория новостей");
-            //$res = $ct->create_news("название новости", "текст новости", true, 4, 1);
-
-/*            $db = new \Modules\Cron\Modul\Db();
-            $db->generate_json(); // Создает/обновляет файл
-            $tasks = $db->get_json_content(); // Получает данные
-
-            $builder = new \Modules\Cron\Modul\Builder();
-            $builder->build();
-            $builder->saveTasksToFile();
-            $tasks = $builder->getTasks();
-            
-
-            $m = new \Modules\Permission\Modul\Manager;
-
-            $gp = new \Modules\Group\Modul\Group;
-            $gp->set_name("test1");
-            $gp->set_name_ru("тест1");
-            $gp->set_prefix("[]");
-            $gp->set_id(4);
-
-
-            $us = new \Modules\User\Modul\User;
-            $us->set_id(1);
-            var_dump($m->remove_permissions_from_user($us, "test"));
-            //$m->permissions_list_insert("test","test permision");
-
-            $telegram = new \Modules\Telegram\Modul\Telegram('ххх);
-            $telegram->select_chat('ххх') ;
-            try {
-                // Отправка текстового сообщения
-                //$result = $telegram->send_message('Привет, это тестовое сообщение!');
-                
-                // Отправка фото с подписью
-                //$result = $telegram->send_document('file.pdf', 'Это тестовое фото');
-                
-                // Отправка документа
-                $result = $telegram->send_photo('photo.jpg', 'Тестовый документ');
-                
-                // Проверка результата
-                if ($result['ok'] ?? false) {
-                    echo "Сообщение отправлено успешно!";
-                } else {
-                    echo "Ошибка отправки: " . ($result['description'] ?? 'Unknown error');
-                }
-            } catch (Exception $e) {
-                echo "Ошибка: " . $e->getMessage();
-            }
-
-
-$result = \Modules\Mail\Modul\Mail::send(
-    'gakman@ya.ru',
-    'Тестовое письмо',
-    '<h1>Привет!</h1><p>Это тестовое письмо</p>'
-);
-
-if ($result['success']) {
-    echo "Письмо отправлено!";
-} else {
-    echo "Ошибка: " . $result['message'];
-}
-            /*
-            $result = $mailer->send(
-                'gakman@ya.ru',
-                'Тема письма',
-                '<h1>Приветствие</h1><p>Это тестовое письмо</p>',
-                true // HTML-письмо
-            );
-
-            var_dump($result );
-            if (!$result['success']) {
-
-                var_dump($result );
-                // Обработка ошибки
-            }
-            var_dump($result );
-/*
-
-            $gp = new \Modules\Group\Modul\Group;
-            $gp->set_name("test1");
-            $gp->set_name_ru("тест1");
-            $gp->set_prefix("[]");
-            $gp->set_id(4);
-
-
-            $us = new \Modules\User\Modul\User;
-            $us->set_id(1);
-
-            $serv = new \Modules\Group\Modul\Service;
-            var_dump($serv->include($gp,$us));
-
-            $gp = new \Modules\Group\Modul\Group;
-            $gp->set_name("test1");
-            $gp->set_name_ru("тест1");
-            $gp->set_prefix("1");
-
-            $serv = new \Modules\Group\Modul\Service;
-            var_dump($serv->create($gp));
-               
-
-
-
-            $_POST["username"]="log";
-            $_POST["password"]="11111111";
-            $ver = new \Modules\User\Modul\Service;
-            $ver -> unban();
-
-            $ver = new \Modules\User\Modul\Service;
-            $status = $ver->auth();
-            var_dump($status,"<br><br><br>");
-            var_dump($ver->msg);
-            
-            $_POST["username"]="log";
-            $_POST["reason_ban"]="я так захотел";
-            $_POST["expiry_ban"]=99999;
-
-            $ver = new \Modules\User\Modul\Service;
-            $ver -> ban();
-
-            $_POST["username"]="log";
-            $_POST["password"]="11111111";
-            
-            $ver = new \Modules\User\Modul\Service;
-            $status = $ver->auth();
-            var_dump($status,"<br><br><br>");
-            var_dump($ver->msg);
-
-            $_POST["username"]="log";
-            $_POST["password"]="11111111";
-            $ver = new \Modules\User\Modul\Service;
-            $status = $ver->auth();
-            var_dump($status,"<br><br><br>");
-            var_dump($ver->msg);
-
-            $_POST["username"]="log";
-            $_POST["email"]="test@ya.ru";
-            $_POST["password"]="11111111";
-            $_POST["password2"]="11111111";
-            $ver = new \Modules\User\Modul\Service;
-            $status = $ver->register();
-            var_dump($status,"<br><br><br>");
-            var_dump($ver->msg);
-
-            $config = \Modules\User\Modul\Config::get_instance();
-            $errorMessage = $config->get_message('password_too_short', [
-                'min_pass' => $config->get('limits->min_pass')
-            ]);
-            echo $errorMessage;
-            
-            $reg = new \Modules\User\Modul\Register();
-            $reg ->set_user("jaligwei","galigwei@ya.ru","dsadasdasdasdas",true);
-            $res = $reg ->register();
-            var_dump($res);
-
-
    
-
-
-            \Modules\Router\Modul\Loader::load_default_routes();
-            var_dump(\Modules\Router\Modul\Collector::get_all_routes());
-*/
-
         } catch (\Throwable $e) {
             $this->e500([
                 'error_message' => $e->getMessage(),

@@ -33,6 +33,8 @@ class Css {
         foreach ($this->css_files_default as $file) {
             $file = APP_ROOT.DS.$file;
             if (!file_exists($file)) {
+                $logger = new \Modules\Core\Modul\Logs();       
+                $logger->loging('css', "['ошибка'] файл не найден {$file}");
                 throw new \Exception("CSS file not found: {$file}");
             }            
             $content = file_get_contents($file);            
@@ -47,6 +49,8 @@ class Css {
         foreach ($this->css_files_admin as $file) {
             $file = APP_ROOT.DS.$file;
             if (!file_exists($file)) {
+                $logger = new \Modules\Core\Modul\Logs();       
+                $logger->loging('css', "['ошибка'] файл не найден {$file}");
                 throw new \Exception("CSS file not found: {$file}");
             }            
             $content = file_get_contents($file);            
