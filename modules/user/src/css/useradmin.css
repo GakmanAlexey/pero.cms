@@ -1,0 +1,133 @@
+
+   .a005_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a005_header_title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a005_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a005_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+.a005_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a005_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a005_thead {
+  }
+
+  .a005_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a005_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a005_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a005_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a005_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a005_status_icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+
+  .a005_status_active svg {
+    fill: #28a745;
+  }
+
+  .a005_status_inactive svg {
+    fill: #6c757d;
+  }
+
+  .a005_ban_icon svg {
+    fill: #dc3545;
+  }
+
+  .a005_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a005_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a005_action_button svg {
+    width: 18px;
+    height: 18px;
+    fill: #007bff;
+  }
+
+  .a005_email{
+    width: 360px;
+  }
+
+  .a005_status{
+    width: 60px;
+  }
