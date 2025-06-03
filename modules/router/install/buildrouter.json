@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-03 11:59:29",
+    "generated_at": "2025-06-03 13:55:28",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 24,
+    "routes_count": 27,
     "routes": [
         {
             "path": "/admin/",
@@ -149,6 +149,24 @@
             "class": "Modules\\User\\Controller\\Admin",
             "method": "index",
             "module": "user"
+        },
+        {
+            "path": "/admin/system/user/edit/",
+            "class": "Modules\\User\\Controller\\Admin",
+            "method": "edit",
+            "module": "user"
+        },
+        {
+            "path": "/novosti-3/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "categor",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/novosti-3/nazvanie-novosti-5/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "news",
+            "source": "SQL (fallback)"
         }
     ]
 }
