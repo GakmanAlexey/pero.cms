@@ -11,6 +11,9 @@ abstract class Controller{
     public $cache_filename;
     public $data_view;
 
+    public $user;
+    public $group;
+
     public function verify($permission){  
         
         $user_taker = new  \Modules\User\Modul\Taker;
@@ -82,9 +85,9 @@ abstract class Controller{
 
     public function admin(){
         \Modules\Admin\Modul\Buildermenu::seach_files();
-        //$h = $build_l_menu ->build($h);
-        //$build_pex = new \Mod\Admin\Modul\Pex;
-        //$h = $build_pex ->seach_files($h);
+        $this->verify("auth");
+        $this->user_data_auth();
+
 
         $this->page_load = APP_ROOT."/modules/admin/view/head.php";              
         $this->links();
@@ -157,6 +160,14 @@ abstract class Controller{
             $msg = "Не найдет файл: ".$this->page_load ;
             $logger->loging('view', $msg);
         }
+    }
+
+    public function user_data_auth(){
+        if(!(isset($_SESSION["id"]) and ($_SESSION["id"] >= 1))) return;
+        $taker = new \Modules\User\Modul\Taker;
+        $this->user = $taker->get_from_id($_SESSION["id"]);
+        $taker_gp = new \Modules\Group\Modul\Taker;
+        $this->group = $taker_gp->get_from_user($this->user);
     }
 
 

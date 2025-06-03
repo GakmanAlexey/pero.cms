@@ -120,10 +120,11 @@ $bid_line_2_arr[] = $bid_line_2;
             ?>            
 
             <div class="a001_menu_crm_user_info">
-                <div class="a001_menu_crm_user_info_name">[ADMIN] Алексей</div>
+                <div class="a001_menu_crm_user_info_name"><?php echo $this->group->get_prefix() ." ";
+        echo $this->user->get_username();?></div>
                 <div class="a001_menu_crm_user_info_botom">
                     <a class="a001_menu_crm_user_info_lk" href="">Личный кабинет</a>
-                    <a class="a001_exit" href=""> Выход<br></a>
+                    <a class="a001_exit" href="/user/exit/"> Выход<br></a>
                 </div>
             </div>
         </div>

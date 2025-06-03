@@ -23,8 +23,12 @@ class Taker{
             $group_data = $stmt3->fetch(\PDO::FETCH_ASSOC);
             if (!$group_data) {
                 $gp->set_id(0);
+                $gp->set_prefix([]);
             }else{
-                $gp->set_id($group_data["id"]);
+                $gp->set_id($group_data["id"])
+                    ->set_name($group_data["name"])
+                    ->set_name_ru($group_data["name_ru"])
+                    ->set_prefix($group_data["prefix"]);
             }
         }
         return $gp;
