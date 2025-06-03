@@ -1,44 +1,31 @@
-
-
 <div class="a006_header_block">
-    <div class="a006_header_title">Пользователь #1
+    <div class="a006_header_title">Пользователь #<?php echo $this->data_view->get_id();?>
     </div>
-    <a href="" class="a006_add_button">
+    <a href="/admin/system/user/edit/?id=" class="a006_add_button">
         Сохранить
     </a>
 </div>
-
+<div id="box_msg"></div>
 <div class="a006_form_box_in_user">
-        <!-- Успешно -->
-    <div class="a006_toast a006_toast_success">
-        <span class="a006_toast_icon">✔</span>
-        <span class="a006_toast_text">Данные успешно сохранены</span>
-    </div>
-
-    <!-- Ошибка -->
-    <div class="a006_toast a006_toast_error">
-        <span class="a006_toast_icon">✖</span>
-        <span class="a006_toast_text">Ошибка сохранения</span>
-    </div>
     <form action="" method="post">
         <div class="a006_form_box">
             <div class="a006_input_group">
                 <div class="a006_input_wrapper">
-                    <input class="a006_input_field" type="text" name="text1" placeholder="Простой текст">
-                    <label class="a006_input_label" for="text1">Заголовок поля текста</label>
+                    <input class="a006_input_field" type="text" name="username" placeholder="Простой текст" value="<?php echo $this->data_view->get_username();?>">
+                    <label class="a006_input_label" for="username">Логин</label>
                     <div class="a006_error_text hd">Пожалуйста, заполните это поле</div>
                 </div>
                 <div class="a006_input_wrapper">
-                    <input class="a006_input_field" type="text" name="text2" placeholder="Простой текст">
-                    <label class="a006_input_label" for="text2">Заголовок поля текста</label>
+                    <input class="a006_input_field" type="text" name="mail" placeholder="name@exemple.ru" value="<?php echo $this->data_view->get_email();?>">
+                    <label class="a006_input_label" for="mail">Электронная почта</label>
                     <div class="a006_error_text hd">Пожалуйста, заполните это поле</div>
                 </div>
             </div>
             <div class="a006_input_group">
-                <div class="a006_input_wrapper a006_has_error">
-                    <input class="a006_input_field" type="text" name="text2" placeholder="Простой текст">
-                    <label class="a006_input_label" for="text2">Заголовок поля текста</label>
-                    <div class="a006_error_text">Пожалуйста, заполните это поле</div>
+                <div class="a006_input_wrapper">
+                    <input class="a006_input_field" type="text" name="password" placeholder="Простой текст" value="<?php if($this->data_view->get_password_hash() != ""){echo "********";}?>">
+                    <label class="a006_input_label" for="password">Пароль</label>
+                    <div class="a006_error_text hd">Пожалуйста, заполните это поле</div>
                 </div>
             </div>        
         </div>
@@ -49,19 +36,27 @@
                     Статус
                 </div>
                 <div class="a006_status_information_wrapper">
-                    <div class="a006_status_information_active ">
-                        Активный
-                    </div>
-                    <div class="a006_status_information_no_active hd">
-                        Не активный
-                    </div>
-
-                    <a href="" class="a006_status_button">
-                        Деактивировать
-                    </a>
-                    <a href="" class="a006_status_button_activate">
-                        Активировать
-                    </a>
+            <?php
+            if($this->data_view->get_active() == 1){
+                echo '
+                <div class="a006_status_information_active">
+                    Активный
+                </div> 
+                <a href="#" class="a006_status_button" data-id="'.$this->data_view->get_id().'">
+                    Деактивировать
+                </a>
+                ';
+            }else{
+                echo '
+                <div class="a006_status_information_no_active">
+                    Не активный
+                </div>  
+                <a href="#" class="a006_status_button_activate" data-id="'.$this->data_view->get_id().'">
+                    Активировать
+                </a>
+                ';
+            }
+            ?>
                 </div>
             </div>
         </div>
@@ -71,22 +66,107 @@
                 <div class="a006_title_in_user">
                     Бан
                 </div>
-
                 <div class="a006_ban_information_wrapper">
-                    <div class="a006_ban_information_no hd">
+<?php
+if($this->data_view->get_ban()){
+    $ban = $this->data_view->get_ban_reason();
+    echo '                      
+                    <div class="a006_ban_information_active">
+                        '.$ban['reason_ban'].' <br>до '.$ban['expiry_ban'].'
+                    </div>      
+                    <a href="" class="a006_status_button_unban">
+                        Разбанить
+                    </a> ';
+}else{
+    echo '
+                    <div class="a006_ban_information_no">
                         Нет
                     </div>
-                    <div class="a006_ban_information_active">
-                        Письку показал до 23.03.2026
-                    </div>
-                <a href="" class="a006_status_button_вan">
-                    Забанить
-                </a>       
-                <a href="" class="a006_status_button_unban">
-                    Разбанить
-                </a>                
+                    <a href="" class="a006_status_button_вan">
+                        Забанить
+                    </a>           ';
+}
+?>                                     
                 </div>
             </div>
         </div>
     </form>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).on('click', '.a006_status_button, .a006_status_button_activate', function(e) {
+    e.preventDefault();
+    var userId = $(this).data('id');
+    var wrapper = $(this).closest('.a006_status_information_wrapper');
+    var isActivate = $(this).hasClass('a006_status_button_activate');
+    
+    var url = isActivate ? '/ajax/user/active/?id=' + userId : '/ajax/user/noactive/?id=' + userId;
+    
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.success) {
+                // Вставляем уведомление
+                $('#box_msg').html(`
+                    <div class="a006_toast a006_toast_success">
+                        <span class="a006_toast_icon">✔</span>
+                        <span class="a006_toast_text">${isActivate ? 'Активация прошла успешно' : 'Деактивация прошла успешно'}</span>
+                    </div>
+                `);
+                
+                // Удаляем через 5 секунд
+                setTimeout(function() {
+                    $('#box_msg').empty();
+                }, 2000);
+                
+                // Обновляем статус (ваш существующий код)
+                if (isActivate) {
+                    wrapper.html('\
+                        <div class="a006_status_information_active">\
+                            Активный\
+                        </div>\
+                        <a href="#" class="a006_status_button" data-id="'+userId+'">\
+                            Деактивировать\
+                        </a>\
+                    ');
+                } else {
+                    wrapper.html('\
+                        <div class="a006_status_information_no_active">\
+                            Не активный\
+                        </div>\
+                        <a href="#" class="a006_status_button_activate" data-id="'+userId+'">\
+                            Активировать\
+                        </a>\
+                    ');
+                }
+            } else {
+                // Показываем ошибку
+                $('#box_msg').html(`
+                    <div class="a006_toast a006_toast_error">
+                        <span class="a006_toast_icon">✖</span>
+                        <span class="a006_toast_text">${response.new_status || 'Ошибка операции'}</span>
+                    </div>
+                `);
+                setTimeout(function() {
+                    $('#box_msg').empty();
+                }, 2000);
+            }
+        },
+        error: function() {
+            $('#box_msg').html(`
+                <div class="a006_toast a006_toast_error">
+                    <span class="a006_toast_icon">✖</span>
+                    <span class="a006_toast_text">Ошибка соединения с сервером</span>
+                </div>
+            `);
+            setTimeout(function() {
+                $('#box_msg').empty();
+            }, 2000);
+        }
+    });
+});
+</script>

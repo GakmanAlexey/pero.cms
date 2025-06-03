@@ -23,7 +23,7 @@ Class Admin extends \Modules\Abs\Controller{
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
         $taker = new \Modules\User\Modul\Taker;
-        $this->data_view = $taker->get_all_user();
+        $this->data_view = $taker-> get_from_id($_GET["id"]);
         $this->list_file[] = APP_ROOT."/modules/user/view/admin/edit.php";
         $this->show();
         $this->cashe_end();

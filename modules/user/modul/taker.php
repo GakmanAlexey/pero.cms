@@ -19,6 +19,8 @@ class Taker{
         }else{
             $this->user->set_id($user_data["id"]);
             $this->user->set_username($user_data["username"]);
+            $this->user->set_email($user_data["email"]);
+            $this->user->set_password_hash($user_data["password_hash"]);
             $this->user->set_is_active($user_data["is_active"]);
             $this->user->set_ban($user_data["is_banned"],$user_data["ban_reason"],$user_data["ban_expiry_date"]);
         }

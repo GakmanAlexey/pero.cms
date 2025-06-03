@@ -1,5 +1,24 @@
 {
-    "generated_at": "2025-06-03 14:58:02",
-    "routes_count": 0,
-    "routes": []
+    "generated_at": "2025-06-03 20:37:33",
+    "routes_count": 3,
+    "routes": [
+        {
+            "path": "/",
+            "class": "Modules\\Core\\Controller\\Index",
+            "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/novosti-3/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "categor",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/novosti-3/nazvanie-novosti-5/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "news",
+            "source": "SQL_Database"
+        }
+    ]
 }

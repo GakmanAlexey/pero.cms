@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-03 14:58:02",
-    "routes_count": 25,
+    "generated_at": "2025-06-03 20:37:33",
+    "routes_count": 27,
     "routes": [
         {
             "path": "/admin/",
@@ -150,6 +150,18 @@
             "path": "/admin/system/user/edit/",
             "class": "Modules\\User\\Controller\\Admin",
             "method": "edit",
+            "module": "user"
+        },
+        {
+            "path": "/ajax/user/active/",
+            "class": "Modules\\User\\Controller\\Adminajax",
+            "method": "active",
+            "module": "user"
+        },
+        {
+            "path": "/ajax/user/noactive/",
+            "class": "Modules\\User\\Controller\\Adminajax",
+            "method": "noactive",
             "module": "user"
         }
     ]
