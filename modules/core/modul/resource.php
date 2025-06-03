@@ -52,11 +52,11 @@ class Resource{
     }
 
     public static function load_conf_default(){
-        self::load_conf_arr_css(explode(',',\Modules\Core\Modul\Env::get("HEAD_CSS_DEFAULT_LIST")));
+        self::load_conf_arr_css(["src/css/style.css"]);
         self::load_conf_arr_js(explode(',',\Modules\Core\Modul\Env::get("HEAD_JS_DEFAULT_LIST")));
     }
     public static function load_conf_admin(){
-        self::load_conf_arr_css(explode(',',\Modules\Core\Modul\Env::get("HEAD_CSS_ADMIN_LIST")));
+        self::load_conf_arr_css(["src/css/admin.css"]);
         self::load_conf_arr_js(explode(',',\Modules\Core\Modul\Env::get("HEAD_JS_ADMIN_LIST")));
     }
     public static function load_conf_empty(){

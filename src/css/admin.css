@@ -1,0 +1,500 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #F0F0F0;
+    font-family: 'inter-reg';
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: #444444;
+}
+.a003_main_crm_header{
+    width: 1120px;
+    height: 60px;
+    background: #F0F0F0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;    
+}
+
+
+.a003_main_crm_header_parent_btn{
+    display: flex;
+    margin: 10px 0;
+    gap: 30px;
+
+}
+
+
+.a003_main_crm_header_crm_button{
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: #444444;
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    background: #E6EBF4;
+    justify-content: center;
+}
+
+.a003_main_crm_header_crm_button img{
+    margin-right: 10px;
+}
+
+
+.a003_main_crm_header_parent_right{
+    display: flex;
+    align-items: center;
+    margin-right: 80px;
+}
+.a001_wrapper_lmenu{
+    width: 340px;
+}
+
+.a001_lmenu{
+    display: flex;
+    position: fixed;
+    z-index: 3;
+}
+
+
+
+.a001_lmenu_icon {
+    width: 70px;
+    height: calc(100vh - 60px);
+    background: #000E2F;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 60px;
+}
+
+.a001_icon_item{
+    width: 30px;
+    height: 30px;
+}
+
+.a001_icon_item_activ svg path{
+    stroke: #2F6BF2;
+}
+
+
+.a001_user_menu{
+    margin-top: auto;
+    margin-bottom: 30px;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+
+  .a001_wrap_menu_two{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: start;
+  }
+
+
+  
+.a001_menu_two_level_title{
+    font-size: 18px;
+    font-weight: 900;
+    text-decoration: none;
+    color: #444444;
+}
+
+
+.a001_menu_two_level_item{
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #E4E5E6;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+
+.a001_menu_three_level_item{
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #E4E5E6;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-left: 10px;
+    -webkit-transition: .3s ease-in-out;
+    -moz--transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+
+.a001_name_menu_item{
+    font-size: 14px;
+    color: #444444;
+    margin: 0;
+}
+
+
+.a001_name_menu_item_active{
+    color: #ffffff;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+
+.a001_menu_two_level {
+    width: 240px;
+    background: #E4E5E6;
+    padding-top: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: start;
+    height: calc(100vh - 60px);
+}
+
+
+.a001_menu_crm_user_info{
+    margin-top: auto;
+    margin-left: 10px;
+    margin-bottom:  20px;
+    width: 100%;
+
+}
+
+.a001_menu_crm_user_info_botom{
+    margin-top: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+
+.a001_menu_crm_user_info_lk{
+    text-decoration: none;
+    color: #444444;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+
+.a001_exit{
+    text-decoration: none;
+    color: #444444;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+
+[data-title] {
+    position: relative; /* Относительное позиционирование */ 
+  }
+  [data-title]::after {
+    content: attr(data-title); /* Выводим текст из атрибута data-title */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 31px; top: -3px; /* Положение подсказки */
+    opacity: 0; /* Скрываем подсказку, делая её прозрачной */
+    transition: 0.5s; /* Время появления подсказки */
+    pointer-events: none; /* Подсказка не реагирует на курсор */
+    background:  #2e68f0;; /* Синий цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    z-index: 100;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  [data-title]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+  }
+
+  
+.hd{
+    display: none !important;
+  }
+
+
+.a004_main{
+    width: 1120px;
+    padding: 10px 40px;
+    align-items: start;
+    justify-content: start;
+}
+
+.a004_main_contant{
+    margin-top: 100px;
+}
+
+.a002_notification_crm{
+    width: 300px;
+    height: 100dvh;
+    background: #282C2D;
+    position: fixed;
+    right: 0;
+}
+
+
+.a002_menu_crm_notification{
+
+}
+
+.a002_menu_crm_notification_link{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    padding: 20px;
+
+}
+
+.a002_menu_crm_notification_icon{
+    width: 20px;
+
+}
+
+.a002_menu_crm_notification_name{
+    margin-left: 15px;
+    font-size: 18px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.a002_menu_crm_notification_mob{
+    display: none;
+}
+
+.a002_menu_crm_notification_link_mob{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    padding: 20px;
+    background-color: #282C2D ;
+    margin: 0 10px 0;
+
+}
+
+.a002_menu_crm_notification_icon_mob{
+    width: 20px;
+
+}
+
+
+.a002_notification_crm_content{
+    width: 100%;
+    padding: 0 20px 30px 20px;
+}
+
+.a002_notification_crm_content_item{
+    width: 230px;
+    padding: 15px;
+    background: #363C3E;
+    margin: 20px 0;
+
+}
+
+.a002_notification_crm_content_item_tetle{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+.a002_notification_crm_content_item_text{
+    color: #c9c9c9;
+    font-size: 14px;
+    font-weight: 100;
+	font-family: 'InterLight'; 
+    margin: 5px 0;
+    width: 230px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.a002_notification_crm_content_item_button_box{
+    text-align: end;
+}
+
+.a002_notification_crm_content_item_closed{
+    color: #949494;
+    font-size: 12px;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.a002_notification_crm_content_item_open{
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 300;
+    display: inline-flex;
+    padding: 5px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #454B4D;
+    text-decoration: none;
+}
+
+.a002_notification_crm_content_item_date_time{
+    color: #868686;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+
+   .a005_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a005_header_title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a005_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a005_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+.a005_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a005_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a005_thead {
+  }
+
+  .a005_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a005_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a005_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a005_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a005_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a005_status_icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+
+  .a005_status_active svg {
+    fill: #28a745;
+  }
+
+  .a005_status_inactive svg {
+    fill: #6c757d;
+  }
+
+  .a005_ban_icon svg {
+    fill: #dc3545;
+  }
+
+  .a005_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a005_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a005_action_button svg {
+    width: 18px;
+    height: 18px;
+    fill: #007bff;
+  }
+
+  .a005_email{
+    width: 360px;
+  }
+
+  .a005_status{
+    width: 60px;
+  }
+
+

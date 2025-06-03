@@ -15,6 +15,7 @@ class Core  extends \Modules\Abs\Handler{
                 \Modules\Core\Modul\Install::seach_files();
                 $builder = new \Modules\Router\Modul\Builder();                
                 $builder->start();
+                \Modules\Core\Modul\Css::merge_files(false);
             } 
             //\Modules\Router\Modul\Loader::load_default_routes();
             session_start();
