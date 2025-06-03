@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\User\Modul\Admin;
+namespace Modules\Group\Modul\Admin;
 
 Class Lmenu extends \Modules\Abs\Lmenu{
     
@@ -14,10 +14,10 @@ Class Lmenu extends \Modules\Abs\Lmenu{
 
         \Modules\Admin\Modul\Buildermenu::add_element(
             "system",                        //Родитель   
-            "user",              //Название на латинице
-            "Пользователи" ,     //Название на Русском
-            "user",              //Url адрес
-            2,                          //Приоритет
+            "group",              //Название на латинице
+            "Группы" ,     //Название на Русском
+            "group",              //Url адрес
+            3,                          //Приоритет
             1,                          //TODO Вид действия
             $ico_site,                    //Иконка
             "admin"         //Привелегии

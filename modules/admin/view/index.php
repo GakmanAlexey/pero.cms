@@ -1,16 +1,4 @@
-<?php
 
-?>
-<div class="a004_main">
-    <div class="a003_main_crm_header">                
-        <div class="a003_main_crm_header_parent_btn">
-            <a class="a003_main_crm_header_crm_button"> <img src="/src/admin/img/site.svg" alt="">Перейти на сайт</a>
-            <a class="a003_main_crm_header_crm_button"> <img src="/src/admin/img/casch.svg" alt="">Очистить кэш</a>
-        </div>
-        <div class="a003_main_crm_header_parent_right">
-            <p>Весия сайта Pero v 0.0.1</p>
-        </div>
-    </div>
 
     <div class="a004_main_contant">
         <div class="etap_block">
@@ -188,27 +176,5 @@
                         <label class="parent_inp_label" for="tex11t">Заголовок поля текста</label>
                     </div>
 
-            </form>   
-            <?php
-            
-        $test_arr = [
-            "el1"=>"val1",
-            "el2"=>"val2",
-            "el3"=>"val3",
-            "el4"=>"val4",
-            "el5"=>"val5",
-            "el6"=>"val6",
-            "el7"=>"val7"
-        ];
-
-        ?>     
+            </form>      
         </div>
-    </div>
-    
-</div>
-
-<div class="notification">
-    
-</div>
-</body>
-</html>

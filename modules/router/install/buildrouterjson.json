@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-02 18:33:10",
-    "routes_count": 23,
+    "generated_at": "2025-06-03 11:09:42",
+    "routes_count": 24,
     "routes": [
         {
             "path": "/admin/",
@@ -31,6 +31,12 @@
             "class": "Modules\\Core\\Controller\\Ban",
             "method": "index",
             "module": "core"
+        },
+        {
+            "path": "/admin/system/group/",
+            "class": "Modules\\Group\\Controller\\Admin",
+            "method": "index",
+            "module": "group"
         },
         {
             "path": "/privacy/",
@@ -136,7 +142,7 @@
         },
         {
             "path": "/admin/system/user/",
-            "class": "Modules\\Admin\\Controller\\Index",
+            "class": "Modules\\User\\Controller\\Admin",
             "method": "index",
             "module": "user"
         }

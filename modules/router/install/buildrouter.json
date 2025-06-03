@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-02 18:33:10",
+    "generated_at": "2025-06-03 11:09:42",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 25,
+    "routes_count": 26,
     "routes": [
         {
             "path": "/admin/",
@@ -35,6 +35,12 @@
             "class": "Modules\\Core\\Controller\\Ban",
             "method": "index",
             "module": "core"
+        },
+        {
+            "path": "/admin/system/group/",
+            "class": "Modules\\Group\\Controller\\Admin",
+            "method": "index",
+            "module": "group"
         },
         {
             "path": "/privacy/",
@@ -140,7 +146,7 @@
         },
         {
             "path": "/admin/system/user/",
-            "class": "Modules\\Admin\\Controller\\Index",
+            "class": "Modules\\User\\Controller\\Admin",
             "method": "index",
             "module": "user"
         },
