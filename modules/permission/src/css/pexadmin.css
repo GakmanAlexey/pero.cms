@@ -1,0 +1,265 @@
+.a009_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a009_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a009_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a009_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+  
+.a009_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a009_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a009_thead {
+  }
+
+  .a009_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a009_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a009_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a009_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a009_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a009_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a009_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a009_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .a009_td_id{
+    width: 60px;
+  }
+
+
+
+
+
+  
+  /* Для textarea */
+.a010_input_textarea {
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    background: none;
+    height: 18px;
+    order: 2;
+    outline: none;
+}
+
+.a010_input_textarea:focus + .a006_input_label {
+    color: #2F6BF2;
+}
+
+  .a010_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a010_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a010_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+.a010_input_group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.a010_input_wrapper {
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 0 0 calc(50% - 32px); /* если 1 — займет 50% ширины */
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+}
+
+.a010_input_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a010_input_label {
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s linear;
+}
+
+.a010_input_field {
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+}
+
+.a010_input_field:focus + .a008_input_label {
+    color: #2F6BF2;
+}
+
+
+
+/* Ошибочный стиль */
+.a010_has_error {
+  border-color: #FF4D4F;
+}
+
+.a010_has_error .a008_input_label {
+  color: #FF4D4F;
+}
+
+/* Текст ошибки */
+.a010_error_text {
+  color: #FF4D4F;
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+
+
+
+
+.a010_toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  width: calc(100% - 32px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.a010_toast_icon {
+  font-size: 18px;
+}
+
+.a010_toast_success {
+  background-color: #e6f6eb;
+  color: #2e7d32;
+  border: 1px solid #c1e7d0;
+}
+
+.a010_toast_error {
+  background-color: #fdecea;
+  color: #c62828;
+  border: 1px solid #f5c6c6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
