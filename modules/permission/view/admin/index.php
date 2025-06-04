@@ -23,14 +23,16 @@
     </table>
 
     <div class="a009_tbody">
-        <table class="a009_table">
+<?php
+foreach($this->data_view as $pex){
+    echo '<table class="a009_table">
             <tr class="a009_tr_body">
-                <td class="a009_td a009_td_id">1</td>
-                <td class="a009_td a009_td_code">123434343234324</td>
-                <td class="a009_td a009_td_description">Полный доступ к системе</td>
+                <td class="a009_td a009_td_id">'.$pex["id"].'</td>
+                <td class="a009_td a009_td_code">'.$pex["code"].'</td>
+                <td class="a009_td a009_td_description">'.$pex["description"].'</td>
                 <td class="a009_td">
                 <div class="a009_actions">
-                    <a href="" class="a009_action_button" title="Редактировать">
+                    <a href="/admin/system/permission/edit/?id='.$pex["id"].'" class="a009_action_button" title="Редактировать">
                         <svg viewBox="0 0 24 24" fill="#2F6BF2">
                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM21.41 6.34a1.25 1.25 0 000-1.77l-2-2a1.25 1.25 0 00-1.77 0l-1.83 1.83 3.75 3.75 1.85-1.81z"/>
                         </svg>
@@ -44,6 +46,9 @@
                 </div>
                 </td>
             </tr>
-        </table>
+        </table>';
+}
+?>
+
     </div>
 </div>

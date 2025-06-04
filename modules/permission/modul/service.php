@@ -52,5 +52,52 @@ class Service{
         }
     }
 
+
+    public function get_all_pex() {
+        $pex_list = [];
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+            $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "permissions_list ");
+            $stmt->execute();
+            while($pex_data = $stmt->fetch(\PDO::FETCH_ASSOC)){
+                $pex_list[] = $pex_data;
+            }
+        return  $pex_list;
+    }
+
+    public function get_data(){
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+        $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "permissions_list WHERE id = ? LIMIT 1");
+        $stmt->execute([$_GET["id"]]);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function get_save(){
+        if(isset($_POST["save_boot_pex"]) and $_POST["save_boot_pex"]=="save"){
+            if(!isset($_POST["code"])){
+                return [
+                    'success' => false,
+                    'msg' => "КОд не может быть пустым"
+                ];
+            }
+            if(!isset($_POST["discription"])){
+                return [
+                    'success' => false,
+                    'msg' => "Описание не может быть пустым"
+                ];
+            }
+            
+            $pdo = \Modules\Core\Modul\Sql::connect();  
+            $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "permissions_list
+                            SET code = ?,  description = ?
+                            WHERE id = ?");
+            $result = $stmt->execute([$_POST["code"],$_POST["discription"],$_GET["id"]]);  
+                return [
+                    'success' => true,
+                    'msg' => "сохранения изменены"
+                ];      
+        }
+        return [];
+    }
+
    
 }
