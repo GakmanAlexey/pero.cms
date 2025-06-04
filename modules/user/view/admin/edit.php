@@ -1,13 +1,14 @@
+
+<form action="" method="post">
 <div class="a006_header_block">
     <div class="a006_header_title">Пользователь #<?php echo $this->data_view->get_id();?>
     </div>
-    <a href="/admin/system/user/edit/?id=" class="a006_add_button">
+    <button href="/admin/system/user/edit/?id=" class="a006_add_button">
         Сохранить
-    </a>
+    </button>
 </div>
 <div id="box_msg"></div>
 <div class="a006_form_box_in_user">
-    <form action="" method="post">
         <div class="a006_form_box">
             <div class="a006_input_group">
                 <div class="a006_input_wrapper">
@@ -99,8 +100,9 @@ if($this->data_view->get_ban()){
                 </div>
             </div>
         </div>
-    </form>
 </div>
+
+    </form>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
