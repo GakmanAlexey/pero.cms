@@ -1,3 +1,4 @@
 [
-    ["/admin/system/group/", "Modules\\Group\\Controller\\Admin", "index"]
+    ["/admin/system/group/", "Modules\\Group\\Controller\\Admin", "index"],
+    ["/admin/system/group/edit/", "Modules\\Group\\Controller\\Admin", "edit"]
 ]

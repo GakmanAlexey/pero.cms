@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-04 09:15:11",
-    "routes_count": 29,
+    "generated_at": "2025-06-04 10:32:00",
+    "routes_count": 30,
     "routes": [
         {
             "path": "/admin/",
@@ -36,6 +36,12 @@
             "path": "/admin/system/group/",
             "class": "Modules\\Group\\Controller\\Admin",
             "method": "index",
+            "module": "group"
+        },
+        {
+            "path": "/admin/system/group/edit/",
+            "class": "Modules\\Group\\Controller\\Admin",
+            "method": "edit",
             "module": "group"
         },
         {
