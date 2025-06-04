@@ -15,5 +15,7 @@
     ["/admin/system/user/", "Modules\\User\\Controller\\Admin", "index"],
     ["/admin/system/user/edit/", "Modules\\User\\Controller\\Admin", "edit"],
     ["/ajax/user/active/", "Modules\\User\\Controller\\Adminajax", "active"],
-    ["/ajax/user/noactive/", "Modules\\User\\Controller\\Adminajax", "noactive"]
+    ["/ajax/user/noactive/", "Modules\\User\\Controller\\Adminajax", "noactive"],
+    ["/ajax/user/unban/", "Modules\\User\\Controller\\Adminajax", "unban"],
+    ["/ajax/user/ban/", "Modules\\User\\Controller\\Adminajax", "ban"]
 ]

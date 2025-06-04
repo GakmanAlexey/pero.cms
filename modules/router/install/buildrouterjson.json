@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-03 21:03:43",
-    "routes_count": 27,
+    "generated_at": "2025-06-04 09:15:11",
+    "routes_count": 29,
     "routes": [
         {
             "path": "/admin/",
@@ -162,6 +162,18 @@
             "path": "/ajax/user/noactive/",
             "class": "Modules\\User\\Controller\\Adminajax",
             "method": "noactive",
+            "module": "user"
+        },
+        {
+            "path": "/ajax/user/unban/",
+            "class": "Modules\\User\\Controller\\Adminajax",
+            "method": "unban",
+            "module": "user"
+        },
+        {
+            "path": "/ajax/user/ban/",
+            "class": "Modules\\User\\Controller\\Adminajax",
+            "method": "ban",
             "module": "user"
         }
     ]

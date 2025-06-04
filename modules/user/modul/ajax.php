@@ -65,4 +65,60 @@ class Ajax{
     }
 
 
+    public function set_unban(){
+        header('Content-Type: application/json');
+        
+        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+            echo json_encode(['success' => false, 'error' => 'Неверный ID пользователя']);
+            exit;
+        }
+        
+        $userId = (int)$_GET['id'];
+        
+        try {
+            $pdo = \Modules\Core\Modul\Sql::connect();
+            
+            // Обновляем запись в БД
+            $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users 
+                                SET is_banned = 0, ban_reason = NULL, ban_expiry_date = NULL
+                                WHERE id = ?");
+            $stmt->execute([$userId]);
+            
+            echo json_encode(['success' => true]);
+        } catch (\PDOException $e) {
+            echo json_encode(['success' => false, 'error' => 'Ошибка базы данных']);
+        }
+        exit;
+    }
+
+    public function set_ban(){
+        header('Content-Type: application/json');
+        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+            echo json_encode(['success' => false, 'error' => 'Неверный ID пользователя']);
+            exit;
+        }
+        
+        $userId = (int)$_GET['id'];
+        $reason = trim($_POST['reason']);
+        $expiry = $_POST['expiry'];
+        
+        try {
+            $pdo = \Modules\Core\Modul\Sql::connect();
+            $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users 
+                                SET is_banned = 1, ban_reason = ?, ban_expiry_date = ?
+                                WHERE id = ?");
+            $stmt->execute([$reason, $expiry, $userId]);
+            
+            echo json_encode([
+                'success' => true,
+                'reason_ban' => $reason,
+                'expiry_ban' => date('d.m.Y H:i', strtotime($expiry))
+            ]);
+        } catch (\PDOException $e) {
+            echo json_encode(['success' => false, 'error' => 'Ошибка базы данных']);
+        }
+        exit;
+    }
+
+
 }

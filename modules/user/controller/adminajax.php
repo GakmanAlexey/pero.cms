@@ -14,5 +14,15 @@ Class Adminajax extends \Modules\Abs\Controller{
         $act = new \Modules\User\Modul\Ajax;
         $act->set_noactive($_GET["id"]);
     }
+    public function unban(){   
+        $this->verify("auth");
+        $act = new \Modules\User\Modul\Ajax;
+        $act->set_unban($_GET["id"]);
+    }
+    public function ban(){   
+        $this->verify("auth");
+        $act = new \Modules\User\Modul\Ajax;
+        $act->set_ban($_GET["id"]);
+    }
     
 }
