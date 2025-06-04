@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-04 10:32:00",
+    "generated_at": "2025-06-04 11:27:21",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 32,
+    "routes_count": 34,
     "routes": [
         {
             "path": "/admin/",
@@ -71,6 +71,18 @@
             "class": "Modules\\News\\Controller\\Index",
             "method": "block",
             "module": "news"
+        },
+        {
+            "path": "/admin/system/permission/",
+            "class": "Modules\\Permission\\Controller\\Admin",
+            "method": "index",
+            "module": "permission"
+        },
+        {
+            "path": "/admin/system/permission/edit/",
+            "class": "Modules\\Permission\\Controller\\Admin",
+            "method": "edit",
+            "module": "permission"
         },
         {
             "path": "/user/login/",

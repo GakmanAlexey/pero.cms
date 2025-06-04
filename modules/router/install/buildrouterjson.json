@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-04 10:32:00",
-    "routes_count": 30,
+    "generated_at": "2025-06-04 11:27:21",
+    "routes_count": 32,
     "routes": [
         {
             "path": "/admin/",
@@ -67,6 +67,18 @@
             "class": "Modules\\News\\Controller\\Index",
             "method": "block",
             "module": "news"
+        },
+        {
+            "path": "/admin/system/permission/",
+            "class": "Modules\\Permission\\Controller\\Admin",
+            "method": "index",
+            "module": "permission"
+        },
+        {
+            "path": "/admin/system/permission/edit/",
+            "class": "Modules\\Permission\\Controller\\Admin",
+            "method": "edit",
+            "module": "permission"
         },
         {
             "path": "/user/login/",

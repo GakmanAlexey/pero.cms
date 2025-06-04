@@ -1,0 +1,4 @@
+[
+    ["/admin/system/permission/", "Modules\\Permission\\Controller\\Admin", "index"],
+    ["/admin/system/permission/edit/", "Modules\\Permission\\Controller\\Admin", "edit"]
+]
