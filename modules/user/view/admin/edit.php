@@ -1,14 +1,28 @@
 
-<form action="" method="post">
+<form action="/admin/system/user/edit/?id=<?php echo $this->data_view->get_id();?>" method="post">
 <div class="a006_header_block">
     <div class="a006_header_title">Пользователь #<?php echo $this->data_view->get_id();?>
     </div>
-    <button href="/admin/system/user/edit/?id=" class="a006_add_button">
+    <button name="save_boot" value="save" class="a006_add_button">
         Сохранить
     </button>
 </div>
-<div id="box_msg"></div>
+<div id="box_msg">
+ <?php
+    if($this->data_view2 != []){
+        echo '
+        
+                    <div class="a006_toast a006_toast_error">
+                        <span class="a006_toast_icon">✖</span>
+                        <span class="a006_toast_text">'.$this->data_view2[0].'</span>
+                    </div>
+                    ';
+    }
+                     ?>
+</div>
 <div class="a006_form_box_in_user">
+   
+   
         <div class="a006_form_box">
             <div class="a006_input_group">
                 <div class="a006_input_wrapper">
@@ -312,4 +326,9 @@ function showBanMessage(response, successMessage) {
         $('#box_msg').empty();
     }, 5000);
 }
+$(document).ready(function() {
+    $('.a006_toast').delay(3000).fadeOut(500, function() {
+        $(this).remove();
+    });
+});
 </script>

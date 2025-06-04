@@ -210,4 +210,35 @@ class Service  extends \Modules\Abs\Handler{
         }
     }
 
+    public function save_edit_admin(){
+        if(isset($_POST["save_boot"]) and $_POST["save_boot"]=="save"){
+            $verf = new \Modules\User\Modul\Verification();
+            $result = $verf->ver_username($_POST["username"]);
+            if(!$verf->status){
+                return $result;
+            }
+            $result = $verf->ver_email($_POST["mail"]);
+            if(!$verf->status){
+                return $result;
+            }
+
+            $pdo = \Modules\Core\Modul\Sql::connect();  
+            if($_POST["password"] != "********"){
+                $result = $verf->ver_password($_POST["password"]);  
+                $enc = new \Modules\User\Modul\Encoder;
+                $password_hash = $enc->hash($_POST["password"]);
+                $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users 
+                            SET password_hash = ? 
+                            WHERE id = ?");
+                $result = $stmt->execute([$password_hash, $_GET["id"]]);   
+                return true;           
+            }
+            $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "users 
+                            SET username = ?,  email = ?
+                            WHERE id = ?");
+            $result = $stmt->execute([$_POST["username"],$_POST["mail"], $_GET["id"]]);  
+                return true;       
+        }
+         return $this;
+    }
 }
