@@ -12,13 +12,13 @@
 
 .a001_lmenu_icon {
     width: 70px;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 16px);
     background: #000E2F;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 20px;
-    padding-top: 60px;
+    padding-top: 16px;
 }
 
 .a001_icon_item{
@@ -99,14 +99,14 @@
 .a001_menu_two_level {
     width: 240px;
     background: #E4E5E6;
-    padding-top: 60px;
+    padding-top: 16px;
     padding-left: 15px;
     padding-right: 15px;
     display: flex;
     flex-direction: column;
     gap: 5px;
     align-items: start;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 16px);
 }
 
 
@@ -173,6 +173,10 @@
     display: none !important;
   }
 
+
+  .a001_lmenu_logo_img{
+    width: 48px;
+  }
 
 .a002_notification_crm{
     width: 300px;

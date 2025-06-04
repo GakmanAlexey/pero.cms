@@ -3,7 +3,11 @@
 
 <div class="a001_wrapper_lmenu"></div>
 <div class="a001_lmenu">
+        
         <div class="a001_lmenu_icon">
+        <div class="a001_lmenu_logo">
+            <img class="a001_lmenu_logo_img" src="/modules/admin/src/img/pero.svg" alt="">
+        </div>
             
             
 <?php
