@@ -132,5 +132,20 @@ class Service{
             ];
         }
     }
+
+
+
+    public function get_data_group(\Modules\Group\Modul\Group $group){
+        $pdo = \Modules\Core\Modul\Sql::connect();  
+        $stmt3 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "groups WHERE id = ? LIMIT 1");
+        $stmt3->execute([$group->get_id()]);
+        $group_data = $stmt3->fetch(\PDO::FETCH_ASSOC);
+            $group->set_id($group_data["id"])
+                ->set_name($group_data["name"])
+                ->set_name_ru($group_data["name_ru"])
+                ->set_description($group_data["description"])
+                ->set_prefix($group_data["prefix"]);
+        return $group;
+    }
     
 }

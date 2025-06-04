@@ -23,6 +23,9 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $taker = new \Modules\Group\Modul\Taker;
+        $this->data_view2 = $taker->save_edit_admin();
+        $this->data_view = $taker->get_data_group();
         $this->list_file[] = APP_ROOT."/modules/group/view/admin/edit.php";
         $this->show();
         $this->cashe_end();
