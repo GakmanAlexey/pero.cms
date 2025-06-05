@@ -131,6 +131,7 @@
 
   
   
+
    .a012_header_block {
     margin-top: 80px;
     display: flex;
@@ -153,7 +154,7 @@
     align-items: center;
     gap: 8px;
     padding: 7px 26px;
-    background: #2F6BF2;
+    background: #159611;
     border-radius: 5px;
     color: #fff;
     font-size: 14px;
@@ -303,7 +304,8 @@
   
 .a012_table_wrapper {
     width: 100%;
-    font-size: 14px;
+    font-size: 14px;    
+    margin-top: 50px;
   }
 
   .a012_table {
@@ -390,3 +392,13 @@
     border-radius: 5px;
     overflow: hidden;
   }
+
+
+  .status-ok { color: #3aa13a; }
+.status-error { color: #d33; }
+.status-waiting { color: #999; }
+
+#a012_drop_zone.dragover {
+  background-color: #2F6BF2; /* синий */
+  transition: background-color 0.3s ease;
+}
