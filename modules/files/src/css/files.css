@@ -1,0 +1,392 @@
+
+
+   .a011_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a011_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a011_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a011_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+
+  
+.a011_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a011_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a011_thead {
+  }
+
+  .a011_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a011_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a011_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a011_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a011_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a011_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a011_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a011_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .a011_td_id{
+    width: 60px;
+  }
+
+  .a011_td_prev{
+    width: 80px; 
+  }
+
+  .a011_td_path{
+    width: 300px;
+  }
+
+  .a011_td_prev_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  
+  
+   .a012_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a012_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a012_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a012_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+
+
+.a012_upload_wrapper {
+    border: 2px dashed #2F6BF2;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.a012_upload_wrapper:hover .a012_upload_icon {
+    transform:  scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.a012_upload_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.a012_upload_icon {
+    font-size: 36px;
+    color: #2F6BF2;
+    transition: transform 0.3s ease;
+}
+
+.a012_upload_text {
+    font-size: 16px;
+    color: #333;
+}
+
+.a012_upload_buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.a012_btn_choose,
+.a012_btn_paste {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.a012_btn_paste{
+    background: #8f9dbd;
+
+}
+
+.a012_input_file {
+    display: none;
+}
+
+
+.a012_upload_icon_wrapper {
+    position: relative;
+    width: 43px;
+    height: 43px;
+}
+
+.a012_upload_icon svg {
+    width: 43px;
+    height: 43px;
+}
+
+.a012_icon_main {
+    z-index: 2;
+    position: relative;
+}
+
+.a012_icon_side {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.a012_icon_left {
+    left: 0;
+    transform: translateX(-50%) rotate(-15deg) scale(0.8);
+    stroke: #799EF2;
+}
+
+.a012_icon_right {
+    right: 0;
+    transform: translateX(50%) rotate(15deg) scale(0.8);
+    stroke: #799EF2;
+}
+
+/* При наведении показываем боковые */
+.a012_upload_wrapper:hover .a012_icon_left {
+    opacity: 1;
+    transform: translateX(-80%) rotate(-15deg) scale(1);
+}
+
+.a012_upload_wrapper:hover .a012_icon_right {
+    opacity: 1;
+    transform: translateX(80%) rotate(15deg) scale(1);
+}
+
+.a012_upload_text_block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.a012_upload_heading {
+    font-size: 18px;
+    color: #2F6BF2;
+    font-weight: 600;
+}
+
+.a012_upload_subtext {
+    font-size: 14px;
+    color: #999999;
+}
+
+
+
+  
+.a012_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a012_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a012_thead {
+  }
+
+  .a012_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a012_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a012_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a012_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a012_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a012_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a012_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a012_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .a012_td_id{
+    width: 60px;
+  }
+
+  .a012_td_prev{
+    width: 80px; 
+  }
+
+  .a012_td_path{
+    width: 300px;
+  }
+
+  .a012_td_prev_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    overflow: hidden;
+  }

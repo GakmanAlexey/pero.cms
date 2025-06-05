@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-05 13:26:00",
-    "routes_count": 36,
+    "generated_at": "2025-06-05 19:18:08",
+    "routes_count": 38,
     "routes": [
         {
             "path": "/admin/",
@@ -90,6 +90,18 @@
             "path": "/news/block/",
             "class": "Modules\\News\\Controller\\Index",
             "method": "block",
+            "module": "news"
+        },
+        {
+            "path": "/news/block/",
+            "class": "Modules\\News\\Controller\\Admin",
+            "method": "index",
+            "module": "news"
+        },
+        {
+            "path": "/news/block/",
+            "class": "Modules\\News\\Controller\\Admin",
+            "method": "new",
             "module": "news"
         },
         {
