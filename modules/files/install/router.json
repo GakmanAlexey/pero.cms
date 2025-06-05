@@ -1,0 +1,4 @@
+[
+    ["/admin/site/files/", "Modules\\Files\\Controller\\Admin", "index"],
+    ["/admin/site/files/new/", "Modules\\Files\\Controller\\Admin", "new"]
+]

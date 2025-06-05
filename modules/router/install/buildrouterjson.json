@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-04 13:29:17",
-    "routes_count": 32,
+    "generated_at": "2025-06-05 13:26:00",
+    "routes_count": 36,
     "routes": [
         {
             "path": "/admin/",
@@ -21,6 +21,18 @@
             "module": "admin"
         },
         {
+            "path": "/admin/site/",
+            "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
+            "module": "admin"
+        },
+        {
+            "path": "/admin/crm/",
+            "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
+            "module": "admin"
+        },
+        {
             "path": "/",
             "class": "Modules\\Core\\Controller\\Index",
             "method": "index",
@@ -31,6 +43,18 @@
             "class": "Modules\\Core\\Controller\\Ban",
             "method": "index",
             "module": "core"
+        },
+        {
+            "path": "/admin/site/files/",
+            "class": "Modules\\Files\\Controller\\Admin",
+            "method": "index",
+            "module": "files"
+        },
+        {
+            "path": "/admin/site/files/new/",
+            "class": "Modules\\Files\\Controller\\Admin",
+            "method": "new",
+            "module": "files"
         },
         {
             "path": "/admin/system/group/",

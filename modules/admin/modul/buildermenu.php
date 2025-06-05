@@ -28,6 +28,7 @@ class Buildermenu{
             }
         }
         self::build_menu();
+        ksort(self::$build_lvl1);
     }
     public static function add_element($father, $name_en, $name_ru, $url, $prioritet, $action, $ico, $permission){
         $array = [
@@ -69,7 +70,6 @@ class Buildermenu{
                 }
             }
         }
-
         $sort = new \Modules\Admin\Modul\Sort;
         self::$pre_build_lvl2 = $sort -> prioritet(self::$pre_build_lvl2);
         self::build_lvl2_save();
