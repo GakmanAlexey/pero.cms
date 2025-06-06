@@ -1,6 +1,6 @@
 <div class="a011_header_block">
     <div class="a011_header_title">Список файлов</div>
-    <a href="" class="a011_add_button">
+    <a href="/admin/site/files/new/" class="a011_add_button">
         <svg class="a011_add_icon" viewBox="0 0 24 24">
         <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/>
         </svg>
@@ -25,13 +25,16 @@
     </table>
 
     <div class="a011_tbody">
-        <table class="a011_table">
+        <?php
+foreach($this->view_data as $file){
+    echo '
+    <table class="a011_table">
             <tr class="a011_tr_body">
-                <td class="a011_td a011_td_id">444</td>
-            <th class="a011_th a011_td_prev"><img class="a011_td_prev_img" src="/photo.jpg" alt=""></th>
-                <td class="a011_td a011_td_path">/uploads/documents/report.pdf</td>
-                <td class="a011_td a011_td_type">	PDF</td>
-                <td class="a011_td a011_td_size">1.2 MB</td>
+                <td class="a011_td a011_td_id">'.$file->get_id().'</td>
+            <th class="a011_th a011_td_prev"><img class="a011_td_prev_img" src="'.$file->get_path().'" alt=""></th>
+                <td class="a011_td a011_td_path">'.$file->get_path().'</td>
+                <td class="a011_td a011_td_type">'.$file->get_type().'</td>
+                <td class="a011_td a011_td_size">'.$file->get_size().'B</td>
                 <td class="a011_td">
                 <div class="a011_actions">
                     <a href="/admin/system/group/edit/?id=" class="a011_action_button" title="Редактировать">
@@ -56,5 +59,9 @@
                 </td>
             </tr>
         </table>
+        ';
+}
+        ?>
+        
     </div>
 </div>

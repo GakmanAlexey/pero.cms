@@ -1,7 +1,3 @@
-<?php
-var_dump($_FILES); 
-?>
-
 <form class="a012_form" id="a012_upload_form" enctype="multipart/form-data" action="/admin/site/files/new/" method="post">
 <div class="a012_header_block">
     <div class="a012_header_title">Новый файл</div>
@@ -63,6 +59,40 @@ var_dump($_FILES);
   </table>
 </div>
 </form>
+<?php
+if($this->view_data != []){
+    echo '
+    <h1>Результат загрузки</h1>
+          <div class="a012_table_wrapper">
+            <table class="a012_table">
+              <thead class="a012_thead">
+                <tr class="a012_tr_header">
+                  <th class="a012_th a012_td_id">ID</th>
+                  <th class="a012_th a012_td_prev">Превью</th>
+                  <th class="a012_th a012_td_path">Путь</th>
+                  <th class="a012_th a012_td_type">Тип</th>
+                  <th class="a012_th a012_td_size">Размер</th>
+                  <th class="a012_th a012_td_status" style="text-align: right;">Статус</th>
+                </tr>
+              </thead>
+              <tbody class="a012_tbody" id="a012_tbody">';
+    foreach($this->view_data as $file){
+
+    $relativePath = str_replace(APP_ROOT, '', $file->get_path());
+      echo '<tr>
+      <td class="a012_td a012_td_id">'.$file->get_id().'</td>
+      <td class="a012_th a012_td_prev"><img class="a012_td_prev_img" src="'.$relativePath.'" alt=""></th>
+      <td class="a012_td a012_td_path">'.$file->get_name().'</td>
+      <td class="a012_td a012_td_type">'.$file->get_type().'</td>
+      <td class="a012_td a012_td_size">'.$file->get_size().'b</td>
+      <td class="a012_td a012_td_status" style="color: #888;">Загружен</td></tr>';
+    };
+    echo '
+    </tbody>
+  </table>
+</div>';
+}
+?>
 
 <script>
   const fileTypeIcons = {

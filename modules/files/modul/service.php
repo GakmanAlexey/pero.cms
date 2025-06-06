@@ -46,6 +46,13 @@ class Service{
         return $filename;
     }
 
+    public function save_files(){
+        if($_FILES == []) return [];
+        $manager = new \Modules\Files\Modul\Manager;
+        $upload_dir = "upload".DS;
+        return $manager->input_files_list("files", $upload_dir);
+    }
+
 }
 
     
