@@ -1,0 +1,4 @@
+[
+    ["/admin/site/seo/", "Modules\\Seo\\Controller\\Admin", "index"],
+    ["/admin/site/seo/edit/", "Modules\\Seo\\Controller\\Admin", "edit"]
+]
