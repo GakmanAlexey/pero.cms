@@ -23,11 +23,14 @@
     </table>
 
     <div class="a013_tbody">
+        <?php
+foreach($this->view_data as $page){
+    echo '
         <table class="a013_table">
             <tr class="a013_tr_body">
-                <td class="a013_td a013_td_id">1</td>
-                <td class="a013_td a013_td_code">123434343234324</td>
-                <td class="a013_td a013_td_description">Полный доступ к системе</td>
+                <td class="a013_td a013_td_id">'.$page->get_id().'</td>
+                <td class="a013_td a013_td_code">'.$page->get_name().'</td>
+                <td class="a013_td a013_td_description">'.$page->get_url().'</td>
                 <td class="a013_td">
                 <div class="a013_actions">
                     <a href="" class="a013_action_button" title="Редактировать">
@@ -58,5 +61,9 @@
                 </td>
             </tr>
         </table>
+        ';
+}
+        ?>
+        
     </div>
 </div>

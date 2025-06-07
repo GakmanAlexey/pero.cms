@@ -10,8 +10,8 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
-        $taker = new \Modules\Files\Modul\Taker;
-        $this->view_data = $taker->get_all_files();
+        $taker = new \Modules\Seo\Modul\Taker;
+        $this->view_data = $taker->show_all();
         $this->list_file[] = APP_ROOT."/modules/seo/view/admin/index.php";
         $this->show();
         $this->cashe_end();
