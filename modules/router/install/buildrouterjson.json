@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-05 21:42:17",
-    "routes_count": 38,
+    "generated_at": "2025-06-07 12:57:39",
+    "routes_count": 40,
     "routes": [
         {
             "path": "/admin/",
@@ -93,13 +93,13 @@
             "module": "news"
         },
         {
-            "path": "/news/block/",
+            "path": "/admin/site/news/",
             "class": "Modules\\News\\Controller\\Admin",
             "method": "index",
             "module": "news"
         },
         {
-            "path": "/news/block/",
+            "path": "/admin/site/news/new/",
             "class": "Modules\\News\\Controller\\Admin",
             "method": "new",
             "module": "news"
@@ -115,6 +115,18 @@
             "class": "Modules\\Permission\\Controller\\Admin",
             "method": "edit",
             "module": "permission"
+        },
+        {
+            "path": "/admin/site/seo/",
+            "class": "Modules\\Seo\\Controller\\Admin",
+            "method": "index",
+            "module": "seo"
+        },
+        {
+            "path": "/admin/site/seo/edit/",
+            "class": "Modules\\Seo\\Controller\\Admin",
+            "method": "edit",
+            "module": "seo"
         },
         {
             "path": "/user/login/",

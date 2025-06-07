@@ -10,8 +10,9 @@ class Css {
     private $output_admin;
 
     public function __construct(bool $minify = false){
-        $list_css_default = explode(',',\Modules\Core\Modul\Env::get("HEAD_CSS_DEFAULT_LIST"));
-        $list_css_admin = explode(',',\Modules\Core\Modul\Env::get("HEAD_CSS_ADMIN_LIST"));
+        $css_lists = $this->get_css_lists();
+        $list_css_default = $css_lists['default'];
+        $list_css_admin = $css_lists['admin'];
 
         foreach ($list_css_default as $default_file) {
             $normalized_path_default_file = str_replace(['/', '\\'], DS, $default_file);
@@ -76,5 +77,30 @@ class Css {
     public static function merge_files(bool $minify = false){
         $merger = new self($minify);
         return $merger->merge();
+    }
+
+
+
+    function get_css_lists() {
+        $jsonPath = APP_ROOT.DS."modules".DS."core".DS."modul".DS."css.json";
+        if (!file_exists($jsonPath)) {
+                $logger = new \Modules\Core\Modul\Logs();       
+                $logger->loging('css', "['ошибка'] файл не найден {$jsonPath}. Конфигурации не определенны");
+            throw new Exception("CSS config file not found: {$jsonPath}");
+        }
+
+        $jsonContent = file_get_contents($jsonPath);
+        $config = json_decode($jsonContent, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+                $logger = new \Modules\Core\Modul\Logs();       
+                $logger->loging('css', "['ошибка'] файл поврежден {$jsonPath}. Конфигурации не могут быть прочитаны");
+            throw new Exception("Invalid JSON in CSS config: " . json_last_error_msg());
+        }
+
+        return [
+            'default' => $config['default'] ?? [],
+            'admin' => $config['admin'] ?? []
+        ];
     }
 }
