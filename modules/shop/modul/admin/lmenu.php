@@ -21,6 +21,28 @@ Class Lmenu extends \Modules\Abs\Lmenu{
             1,                          //TODO Вид действия
             $ico_site,                    //Иконка
             "admin"         //Привелегии
+        );        
+
+        \Modules\Admin\Modul\Buildermenu::add_element(
+            "shop",                        //Родитель   
+            "categor",              //Название на латинице
+            "Категории" ,     //Название на Русском
+            "categor",              //Url адрес
+            4,                          //Приоритет
+            1,                          //TODO Вид действия
+            $ico_site,                    //Иконка
+            "admin"         //Привелегии
+        );    
+
+        \Modules\Admin\Modul\Buildermenu::add_element(
+            "shop",                        //Родитель   
+            "product",              //Название на латинице
+            "Товары" ,     //Название на Русском
+            "product",              //Url адрес
+            5,                          //Приоритет
+            1,                          //TODO Вид действия
+            $ico_site,                    //Иконка
+            "admin"         //Привелегии
         );
     }
 }
