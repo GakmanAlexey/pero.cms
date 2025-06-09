@@ -23,8 +23,10 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
-        $service = new \Modules\Files\Modul\Service;
-        $this->view_data = $service->save_files();
+        $manager = new \Modules\Seo\Modul\Manager;
+        $this->view_data2 = $manager->save();
+        $taker = new \Modules\Seo\Modul\Taker;
+        $this->view_data = $taker->show_item();
         $this->list_file[] = APP_ROOT."/modules/seo/view/admin/edit.php";
         $this->show();
         $this->cashe_end();
