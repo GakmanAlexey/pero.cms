@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-07 14:00:37",
-    "routes_count": 40,
+    "generated_at": "2025-06-09 10:18:01",
+    "routes_count": 45,
     "routes": [
         {
             "path": "/admin/",
@@ -127,6 +127,36 @@
             "class": "Modules\\Seo\\Controller\\Admin",
             "method": "edit",
             "module": "seo"
+        },
+        {
+            "path": "/admin/shop/brand/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "index",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/brand/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "new",
+            "module": "shop"
+        },
+        {
+            "path": "/brand/",
+            "class": "Modules\\Shop\\Controller\\Brand",
+            "method": "index",
+            "module": "shop"
+        },
+        {
+            "path": "/brand/test/",
+            "class": "Modules\\Shop\\Controller\\Brand",
+            "method": "test",
+            "module": "shop"
+        },
+        {
+            "path": "/brandblock/",
+            "class": "Modules\\Shop\\Controller\\Brand",
+            "method": "block",
+            "module": "shop"
         },
         {
             "path": "/user/login/",

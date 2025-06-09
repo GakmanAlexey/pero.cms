@@ -6,7 +6,8 @@
         "modules/core/src/css/index.css",
         "modules/license/src/css.css",
         "modules/user/src/css/user.css",
-        "modules/news/src/css/news.css"
+        "modules/news/src/css/news.css",
+        "modules/shop/src/css/brand.css"
     ],
     "admin":[
         "modules/admin/src/css/admin.css",
@@ -19,6 +20,7 @@
         "modules/news/src/css/newsadmin.css",
         "modules/permission/src/css/pexadmin.css",
         "modules/seo/src/css/seoadmin.css",
-        "modules/group/src/css/groupadmin.css"
+        "modules/group/src/css/adminbrand.css",
+        "modules/shop/src/css/brand.css"
     ]
 }

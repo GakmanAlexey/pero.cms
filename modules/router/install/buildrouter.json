@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-07 14:00:37",
+    "generated_at": "2025-06-09 10:18:01",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 40,
+    "routes_count": 47,
     "routes": [
         {
             "path": "/admin/",
@@ -133,6 +133,36 @@
             "module": "seo"
         },
         {
+            "path": "/admin/shop/brand/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "index",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/brand/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "new",
+            "module": "shop"
+        },
+        {
+            "path": "/brand/",
+            "class": "Modules\\Shop\\Controller\\Brand",
+            "method": "index",
+            "module": "shop"
+        },
+        {
+            "path": "/brand/test/",
+            "class": "Modules\\Shop\\Controller\\Brand",
+            "method": "test",
+            "module": "shop"
+        },
+        {
+            "path": "/brandblock/",
+            "class": "Modules\\Shop\\Controller\\Brand",
+            "method": "block",
+            "module": "shop"
+        },
+        {
             "path": "/user/login/",
             "class": "Modules\\User\\Controller\\Index",
             "method": "login",
@@ -245,6 +275,18 @@
             "class": "Modules\\User\\Controller\\Adminajax",
             "method": "ban",
             "module": "user"
+        },
+        {
+            "path": "/novosti-3/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "categor",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/novosti-3/nazvanie-novosti-5/",
+            "class": "\\Modules\\News\\Controller\\Index",
+            "method": "news",
+            "source": "SQL (fallback)"
         }
     ]
 }

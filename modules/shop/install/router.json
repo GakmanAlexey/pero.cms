@@ -1,0 +1,7 @@
+[
+    ["/admin/shop/brand/", "Modules\\Shop\\Controller\\Admin", "index"],
+    ["/admin/shop/brand/new/", "Modules\\Shop\\Controller\\Admin", "new"],
+    ["/brand/", "Modules\\Shop\\Controller\\Brand", "index"],
+    ["/brand/test/", "Modules\\Shop\\Controller\\Brand", "test"],
+    ["/brandblock/", "Modules\\Shop\\Controller\\Brand", "block"]
+]
