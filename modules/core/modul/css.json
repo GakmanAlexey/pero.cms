@@ -20,7 +20,6 @@
         "modules/news/src/css/newsadmin.css",
         "modules/permission/src/css/pexadmin.css",
         "modules/seo/src/css/seoadmin.css",
-        "modules/group/src/css/adminbrand.css",
-        "modules/shop/src/css/brand.css"
+        "modules/shop/src/css/adminbrand.css"
     ]
 }

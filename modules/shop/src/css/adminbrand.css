@@ -1,0 +1,119 @@
+.a015_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a015_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a015_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a015_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+  
+.a015_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a015_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a015_thead {
+  }
+
+  .a015_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a015_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a015_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a015_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a015_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a015_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a015_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a015_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .a015_td_id{
+    width: 60px;
+  }
+
+  .a015_td_status_active{
+    color: #0A7E23;
+  }
+
+  .a015_td_status_deseible{
+    color: #636363;
+  }

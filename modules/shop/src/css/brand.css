@@ -1,0 +1,58 @@
+
+.b020_brand_box_wrap {
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.b020_brand_box {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    transition: transform 0.1s ease;
+}
+
+.b020_brand_elem {
+    display: block;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.b020_brand_elem img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Затемнение при наведении */
+.b020_brand_elem:hover img {
+    filter: brightness(50%);
+    opacity: 0.7;
+}
+
+
+.b021_partner_blok{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+
+.b021_brand_elem {
+    display: block;
+    flex-shrink: 0;
+    position: relative;
+}
+
+
+.b021_brand_elem img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.b021_title_block{
+    text-align: center;
+}
