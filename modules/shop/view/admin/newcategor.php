@@ -7,18 +7,22 @@
             Сохранить
         </button>
     </div>
-    <div id="box_msg">    
-        <!-- Успешно -->
-        <div class="a020_toast a020_toast_success">
+    <div id="box_msg">  
+<?php
+if($this->data_view["result"]["job"]){
+    if($this->data_view["result"]["status"]){
+echo '<div class="a020_toast a020_toast_success">
             <span class="a020_toast_icon">✔</span>
-            <span class="a020_toast_text">Данные успешно сохранены</span>
-        </div>
-
-        <!-- Ошибка -->
-        <div class="a020_toast a020_toast_error">
+            <span class="a020_toast_text">'.$this->data_view["result"]["msg"].' id:'.$this->data_view["result"]["id"].'</span>
+        </div>';
+    }else{
+echo '<div class="a020_toast a020_toast_error">
             <span class="a020_toast_icon">✖</span>
-            <span class="a020_toast_text">Ошибка сохранения</span>
-        </div>
+            <span class="a020_toast_text">'.$this->data_view["result"]["msg"].'</span>
+        </div>';
+    }
+}
+?>
     </div>
 
     <div class="a020_form_box_in_user">
@@ -69,6 +73,16 @@ foreach($this->data_view["categor"] as $item_categor){
         </div>
     </div>
 </form>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.a020_toast').delay(3000).fadeOut(500, function() {
+        $(this).remove();
+    });
+});
+</script>
 
 
 

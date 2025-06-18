@@ -51,22 +51,92 @@ class Catalogservice{
     public function save_new(){
         if(!isset($_POST["save_boot_new_cat"])) return ["status" => false, "job" => false];
 
-        if(((!isset($_POST["category"])) or (!isset($_POST["nomber_photo"]))) or ((!isset($_POST["discription"])))){
-            return [
-                "status" => false,
-                "msg" => "Заполните все поля", 
-                "job" => true
-            ];
-        }
+        if(!isset($_POST["category"])){ return ["status" => false, "msg" => "Заполните поле категории", "job" => true]; }
+        if(!isset($_POST["nomber_photo"])){ return ["status" => false, "msg" => "Заполните поле категории", "job" => true]; }
+        if(!isset($_POST["name"])){ return ["status" => false, "msg" => "Заполните поле категории", "job" => true]; }
+        if(!isset($_POST["text"])){ return ["status" => false, "msg" => "Заполните поле категории", "job" => true]; }
+        if(!isset($_POST["discription"])){ return ["status" => false, "msg" => "Заполните поле категории", "job" => true]; }
 
         $categor = new  \Modules\Shop\Modul\Catalog();
-        if($_POST["agree"] == "on"){
-            $agree = true;
+        if(isset($_POST["agree"]) AND $_POST["agree"] == "on"){$agree = true;}else{$agree = false;}
+        $categor->set_parent_id($_POST["category"])
+            ->set_img($_POST["nomber_photo"])
+            ->set_name_ru($_POST["name"])
+            ->set_text($_POST["text"])
+            ->set_description($_POST["discription"])
+            ->set_is_active($agree);
+
+        $categor = $this->init_save($categor);
+        if($categor->get_id() >= 1){
+            return ["status" => true, "msg" => "Создание прошло успешно", "job" => true, "id" => $categor->get_id()];
         }else{
-            $agree = false;
+            return ["status" => false, "msg" => "Сбой создания", "job" => true];
         }
-        $categor->set_parent_id($_POST["category"]);
+
+        //todo  добавить в роутер и хеадер
+
     }
     
+    public function init_save(\Modules\Shop\Modul\Catalog $categor){
+        
+        $categor->set_name(\Modules\Core\Modul\Cleanstring::sanitize($categor->get_name_ru(), false, 240));
+        $categor->set_url_block(\Modules\Core\Modul\Url::generate($categor->get_name(),"shop_catalog" , "url_block"));
+        $categor->set_url_full("/".$this->main_url."/".$categor->get_url_block()."/");
+
+        $chars = 'abcdefghijklmnopqrstuvwxyz';
+        $external_guid = '';
+
+        for ($i = 0; $i < 35; $i++) {
+            $external_guid .= $chars[rand(0, strlen($chars) - 1)];
+        }        
+        $categor->set_external_guid($external_guid);
+        $categor->set_code($external_guid);
+
+        $pdo = \Modules\Core\Modul\Sql::connect();
+
+        try {
+            $parentId = $categor->get_parent_id();
+            if ($parentId == 0) {
+                $parentId = null; // Устанавливаем NULL для корневой категории
+            }
+
+            $stmt = $pdo->prepare("
+                INSERT INTO ".\Modules\Core\Modul\Env::get("DB_PREFIX")."shop_catalog 
+                (parent_id, parent_guid, name, name_ru, description, is_active, code, 
+                external_guid, external_code, url_full, url_block, img, text, 
+                sync_date, is_sync_with_1c, view_count, product_count, create_at)
+                VALUES (:parent_id, :parent_guid, :name, :name_ru, :description, :is_active, :code, 
+                        :external_guid, :external_code, :url_full, :url_block, :img, :text, 
+                        :sync_date, :is_sync_with_1c, :view_count, :product_count, NOW())
+            ");
+            
+            $params = [
+                ':parent_id' => $parentId, // NULL или существующий ID
+                ':parent_guid' => $categor->get_parent_guid() ?: '',
+                ':name' => $categor->get_name() ?: 'Без названия',
+                ':name_ru' => $categor->get_name_ru() ?: '',
+                ':description' => $categor->get_description() ?: '',
+                ':is_active' => $categor->get_is_active() ,
+                ':code' => $categor->get_code() ?: '',
+                ':external_guid' => substr($categor->get_external_guid(), 0, 36),
+                ':external_code' => $categor->get_external_code() ?: '',
+                ':url_full' => $categor->get_url_full(),
+                ':url_block' => $categor->get_url_block() ?: '',
+                ':img' => $categor->get_img() ?: '',
+                ':text' => $categor->get_text() ?: '',
+                ':sync_date' => $categor->get_sync_date() ?: date('Y-m-d H:i:s'),
+                ':is_sync_with_1c' => $categor->get_is_sync_with_1c() ,
+                ':view_count' => $categor->get_view_count() ?: 0,
+                ':product_count' => $categor->get_product_count() ?: 0
+            ];
+            
+            $stmt->execute($params);
+            $categor->set_id($pdo->lastInsertId());
+        } catch (\PDOException $e) {
+           
+        }
+
+        return  $categor;
+    }
     
 }

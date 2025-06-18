@@ -70,7 +70,8 @@ class Catalog{
         return $this;
     }
     public function get_is_active(){
-        return $this->is_active;
+        if($this->is_active) return 1;
+        return 0;
     }
 
     public function set_create_at($create_at){

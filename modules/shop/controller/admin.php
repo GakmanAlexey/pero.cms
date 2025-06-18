@@ -59,6 +59,7 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
         $service = new \Modules\Shop\Modul\Catalogservice;
         $this->data_view["categor"] = $service->list_select_all();
+        $this->data_view["result"] = $service->save_new();
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newcategor.php";
         $this->show();
         $this->cashe_end();
