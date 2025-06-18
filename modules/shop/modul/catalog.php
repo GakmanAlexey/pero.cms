@@ -186,5 +186,9 @@ class Catalog{
         return $this->parent_guid;
     }
     
+    public function ru_status(){
+        if($this->is_active == 1) return "Активный";
+        return "Неактивный";
+    }
     
 }

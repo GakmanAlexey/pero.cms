@@ -14,17 +14,15 @@ class Catalogservice{
 
         return $categor;
     }
-
-    public function list_select_all(){
+    public function show_list(){
         $array_cat = [];
-        $array_cat[] = $this->add_father();
         $pdo = \Modules\Core\Modul\Sql::connect(); 
         $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_catalog");
         $stmt2->execute([]);
         while($categor_data = $stmt2->fetch(\PDO::FETCH_ASSOC)){
             $categor = new  \Modules\Shop\Modul\Catalog();
             $categor->set_id($categor_data["id"])
-                ->set_parent_id($categor_data["parent_id "])
+                ->set_parent_id($categor_data["parent_id"])
                 ->set_name($categor_data["name"])
                 ->set_name_ru($categor_data["name_ru"])
                 ->set_description($categor_data["description"])
@@ -38,7 +36,39 @@ class Catalogservice{
                 ->set_img($categor_data["img"])
                 ->set_text($categor_data["text"])
                 ->set_sync_date($categor_data["sync_date"])
-                ->set_is_sync_with_1c($categor_data["is_sync_with_1c "])
+                ->set_is_sync_with_1c($categor_data["is_sync_with_1c"])
+                ->set_external_code($categor_data["external_code"])
+                ->set_view_count($categor_data["view_count"])
+                ->set_product_count($categor_data["product_count"])
+                ->set_parent_guid($categor_data["parent_guid"]);
+            $array_cat[] = $categor;
+        }
+        return $array_cat;       
+    }
+    public function list_select_all(){
+        $array_cat = [];
+        $array_cat[] = $this->add_father();
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+        $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_catalog");
+        $stmt2->execute([]);
+        while($categor_data = $stmt2->fetch(\PDO::FETCH_ASSOC)){
+            $categor = new  \Modules\Shop\Modul\Catalog();
+            $categor->set_id($categor_data["id"])
+                ->set_parent_id($categor_data["parent_id"])
+                ->set_name($categor_data["name"])
+                ->set_name_ru($categor_data["name_ru"])
+                ->set_description($categor_data["description"])
+                ->set_is_active($categor_data["is_active"])
+                ->set_create_at($categor_data["create_at"])
+                ->set_updated_at($categor_data["updated_at"])
+                ->set_code($categor_data["code"])
+                ->set_external_guid($categor_data["external_guid"])
+                ->set_url_full($categor_data["url_full"])
+                ->set_url_block($categor_data["url_block"])
+                ->set_img($categor_data["img"])
+                ->set_text($categor_data["text"])
+                ->set_sync_date($categor_data["sync_date"])
+                ->set_is_sync_with_1c($categor_data["is_sync_with_1c"])
                 ->set_external_code($categor_data["external_code"])
                 ->set_view_count($categor_data["view_count"])
                 ->set_product_count($categor_data["product_count"])

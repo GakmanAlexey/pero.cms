@@ -22,12 +22,15 @@
     </table>
 
     <div class="a018_tbody">
+<?php
+foreach( $this->data_view["categor"] as $item_cat){
+    echo '
         <table class="a018_table">
             <tr class="a018_tr_body">
-                <td class="a018_td a018_td_id">1</td>
-                <td class="a018_td a018_td_name">Самсунг</td>
-                <td class="a018_td a018_td_tovar">Активный</td>                
-                <td class="a018_td a018_td_view">5</td>
+                <td class="a018_td a018_td_id">'.$item_cat->get_id().'</td>
+                <td class="a018_td a018_td_name">'.$item_cat->get_name_ru().'</td>
+                <td class="a018_td a018_td_tovar">'.$item_cat->ru_status().'</td>                
+                <td class="a018_td a018_td_view">'.$item_cat->get_view_count().'</td>
                 <td class="a018_td">
                 <div class="a018_actions">
                     <a href="" class="a018_action_button" title="Редактировать">
@@ -56,6 +59,9 @@
                 </div>
                 </td>
             </tr>
-        </table>
+        </table>';
+}
+?>
+            
     </div>
 </div>
