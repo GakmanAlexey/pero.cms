@@ -56,3 +56,33 @@
 .b021_title_block{
     text-align: center;
 }
+
+
+.b022_brand_back{
+    position: absolute;
+}
+
+.b022_brand_box {
+    width: 1100px;
+    margin: 0 auto;
+}
+.b022_brand_title {
+    font-size: 40px;
+    font-weight: 100;
+}
+.b022_brand_img {
+    width: 850px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+}
+
+.b022_brand_img img{
+    width: 100%;
+    object-fit: cover;
+
+}
+.b022_brand_text {
+    margin-top: 30px;
+}
+

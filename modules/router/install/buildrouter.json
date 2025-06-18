@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-18 12:39:05",
+    "generated_at": "2025-06-18 13:22:39",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 46,
+    "routes_count": 49,
     "routes": [
         {
             "path": "/admin/",
@@ -166,6 +166,24 @@
             "path": "/brandblock/",
             "class": "Modules\\Shop\\Controller\\Brand",
             "method": "block",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/categot/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "categot",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/categot/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "newcategot",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/categot/edit/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "editcategot",
             "module": "shop"
         },
         {
