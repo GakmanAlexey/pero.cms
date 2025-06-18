@@ -41,6 +41,17 @@ foreach($this->data_view["categor"] as $item_categor){
                     <div class="a020_error_text hd">Пожалуйста, заполните это поле</div>
                 </div>
             </div>
+        </div>
+            <div class="a020_input_group">
+                <div class="a020_input_wrapper">
+                    <input class="a020_input_field" type="text" name="name" placeholder="Простой текст" value="">
+                    <label class="a020_input_label" for="name">Наименование</label>
+                </div>
+                <div class="a020_input_wrapper">
+                    <label class="a020_input_label" for="text">Текст</label>
+                    <textarea class="a020_input_textarea" type="text" name="text" placeholder="Описание" value="" rows="5" cols="33"></textarea>
+                    <div class="a020_error_text hd">Пожалуйста, заполните это поле</div>
+                </div>
             </div>
             <div class="a020_input_group">
                 <div class="a020_checkbox_wrapper">
