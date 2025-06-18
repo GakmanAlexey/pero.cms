@@ -165,6 +165,12 @@ class Brand{
     public function get_product_count() {
         return $this->product_count;
     }
+
+
+    public function ru_status(){
+        if($this->is_active == 1) return "Активный";
+        return "Неактивный";
+    }
     
     
 }

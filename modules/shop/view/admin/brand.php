@@ -24,12 +24,15 @@
     </table>
 
     <div class="a015_tbody">
-        <table class="a015_table">
+<?php
+foreach($this->data_view as $brand){
+    echo '
+    <table class="a015_table">
             <tr class="a015_tr_body">
-                <td class="a015_td a015_td_id">1</td>
-                <td class="a015_td a015_td_brand">Самсунг</td>
-                <td class="a015_td a015_td_status_active">Активный</td>                
-                <td class="a015_td a015_td_view">5</td>
+                <td class="a015_td a015_td_id">'.$brand->get_id().'</td>
+                <td class="a015_td a015_td_brand">'.$brand->get_name_ru().'</td>
+                <td class="a015_td a015_td_status_active">'.$brand->ru_status().'</td>                
+                <td class="a015_td a015_td_view">'.$brand->get_view_count().'</td>
                 <td class="a015_td">
                 <div class="a015_actions">
                     <a href="" class="a015_action_button" title="Редактировать">
@@ -59,5 +62,9 @@
                 </td>
             </tr>
         </table>
+    ';
+}
+?>
+        
     </div>
 </div>
