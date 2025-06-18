@@ -1,5 +1,5 @@
 {
-    "generated_at": "2025-06-18 13:22:39",
+    "generated_at": "2025-06-18 13:25:16",
     "routes_count": 49,
     "routes": [
         {
@@ -165,21 +165,21 @@
             "module": "shop"
         },
         {
-            "path": "/admin/shop/categot/",
+            "path": "/admin/shop/categor/",
             "class": "Modules\\Shop\\Controller\\Admin",
-            "method": "categot",
+            "method": "categor",
             "module": "shop"
         },
         {
-            "path": "/admin/shop/categot/new/",
+            "path": "/admin/shop/categor/new/",
             "class": "Modules\\Shop\\Controller\\Admin",
-            "method": "newcategot",
+            "method": "newcategor",
             "module": "shop"
         },
         {
-            "path": "/admin/shop/categot/edit/",
+            "path": "/admin/shop/categor/edit/",
             "class": "Modules\\Shop\\Controller\\Admin",
-            "method": "editcategot",
+            "method": "editcategor",
             "module": "shop"
         },
         {
