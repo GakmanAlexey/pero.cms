@@ -1,6 +1,7 @@
 [
-    ["/admin/shop/brand/", "Modules\\Shop\\Controller\\Admin", "index"],
-    ["/admin/shop/brand/new/", "Modules\\Shop\\Controller\\Admin", "new"],
+    ["/admin/shop/brand/", "Modules\\Shop\\Controller\\Admin", "brand"],
+    ["/admin/shop/brand/new/", "Modules\\Shop\\Controller\\Admin", "newbrand"],
+    ["/admin/shop/brand/edit/", "Modules\\Shop\\Controller\\Admin", "editbrand"],
     ["/brand/", "Modules\\Shop\\Controller\\Brand", "index"],
     ["/brand/test/", "Modules\\Shop\\Controller\\Brand", "test"],
     ["/brandblock/", "Modules\\Shop\\Controller\\Brand", "block"]

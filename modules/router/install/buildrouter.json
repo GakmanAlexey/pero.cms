@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-09 15:50:35",
+    "generated_at": "2025-06-18 11:31:34",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 45,
+    "routes_count": 46,
     "routes": [
         {
             "path": "/admin/",
@@ -135,13 +135,19 @@
         {
             "path": "/admin/shop/brand/",
             "class": "Modules\\Shop\\Controller\\Admin",
-            "method": "index",
+            "method": "brand",
             "module": "shop"
         },
         {
             "path": "/admin/shop/brand/new/",
             "class": "Modules\\Shop\\Controller\\Admin",
-            "method": "new",
+            "method": "newbrand",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/brand/edit/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "editbrand",
             "module": "shop"
         },
         {
