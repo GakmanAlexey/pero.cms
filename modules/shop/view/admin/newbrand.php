@@ -1,7 +1,7 @@
 <form action="" method="post">
     <div class="a016_header_block">
         <div class="a016_header_title">Бренд #1</div>
-        <button name="save_boot" value="save" class="a016_add_button">
+        <button name="save_boot_new_brand" value="save" class="a016_add_button">
             Сохранить
         </button>
     </div>

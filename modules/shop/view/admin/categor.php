@@ -1,10 +1,10 @@
 <div class="a018_header_block">
     <div class="a018_header_title">Список категорий</div>
-    <a href="" class="a018_add_button">
+    <a href="/admin/shop/categor/new/" class="a018_add_button">
         <svg class="a018_add_icon" viewBox="0 0 24 24">
         <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/>
         </svg>
-        Добавить бренд
+        Добавить категорию
     </a>
 </div>
 

@@ -1,7 +1,9 @@
-<form action="" method="post">
+
+<form action="/admin/shop/categor/new/" method="post">
+    
     <div class="a020_header_block">
-        <div class="a020_header_title">Бренд #1</div>
-        <button name="save_boot" value="save" class="a020_add_button">
+        <div class="a020_header_title">Новая категория</div>
+        <button name="save_boot_new_cat" value="save" class="a020_add_button">
             Сохранить
         </button>
     </div>
@@ -24,9 +26,11 @@
             <div class="a020_input_group">
                 <div class="a020_input_wrapper">
                     <select class="a020_input_field_select" name="category">
-                        <option value="" disabled selected>Выберите категорию</option>
-                        <option value="option1">Опция 1</option>
-                        <option value="option2">Опция 2</option>
+                        <?php
+foreach($this->data_view["categor"] as $item_categor){
+    echo    '<option value="'.$item_categor->get_id().'">'.$item_categor->get_name_ru().'</option>';
+}
+                        ?>
                     </select>
                     <label class="a020_input_label" for="category">Категория</label>
                     <div class="a020_error_text hd">Пожалуйста, выберите значение</div>
