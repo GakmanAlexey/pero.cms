@@ -4,5 +4,8 @@
     ["/admin/shop/brand/edit/", "Modules\\Shop\\Controller\\Admin", "editbrand"],
     ["/brand/", "Modules\\Shop\\Controller\\Brand", "index"],
     ["/brand/test/", "Modules\\Shop\\Controller\\Brand", "test"],
-    ["/brandblock/", "Modules\\Shop\\Controller\\Brand", "block"]
+    ["/brandblock/", "Modules\\Shop\\Controller\\Brand", "block"],
+    ["/admin/shop/categot/", "Modules\\Shop\\Controller\\Admin", "categot"],
+    ["/admin/shop/categot/new/", "Modules\\Shop\\Controller\\Admin", "newcategot"],
+    ["/admin/shop/categot/edit/", "Modules\\Shop\\Controller\\Admin", "editcategot"]
 ]

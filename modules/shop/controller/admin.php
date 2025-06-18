@@ -38,5 +38,39 @@ Class Admin extends \Modules\Abs\Controller{
         $this->show();
         $this->cashe_end();
     }
+
+    
+    public function categot(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/categot.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function newcategot(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newcategot.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function editcategot(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/editcategot.php";
+        $this->show();
+        $this->cashe_end();
+    }
     
 }
