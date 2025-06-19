@@ -12,7 +12,7 @@ class Brandmanager{
 
     public function view(){
         $viev = $this->brand->get_view_count() + 1;
-        $this->brand->set_product_count($viev);
+        $this->brand->set_view_count($viev);
         return $this;
     }
 
