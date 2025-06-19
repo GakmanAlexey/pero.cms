@@ -29,7 +29,7 @@ class Variation  extends \Modules\Abs\Install{
             UNIQUE KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_variations_sku_unique` (`sku`),
             KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_variations_product_id_index` (`product_id`),
             KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_variations_external_code_index` (`external_code`),
-            CONSTRAINT `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_variations_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'products` (`id`) ON DELETE CASCADE
+            CONSTRAINT `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_variations_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product` (`id`) ON DELETE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
         ';
         
