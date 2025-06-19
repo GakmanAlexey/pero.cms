@@ -7,7 +7,7 @@ class Brand  extends \Modules\Abs\Install{
     public function install_BD(){
         $table = [];
         $table[] = '
-            CREATE TABLE '.\Modules\Core\Modul\Env::get("DB_PREFIX").'brand (
+            CREATE TABLE '.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_brand (
             `id` int(11) NOT NULL AUTO_INCREMENT,
             `name` varchar(255) NOT NULL  ,
             `name_ru` varchar(255) DEFAULT NULL ,

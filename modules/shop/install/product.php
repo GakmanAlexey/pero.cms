@@ -7,7 +7,7 @@ class Product  extends \Modules\Abs\Install{
     public function install_BD(){
         $table = [];
         $table[] = '
-            CREATE TABLE '.\Modules\Core\Modul\Env::get("DB_PREFIX").'product (
+            CREATE TABLE '.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product (
             `id` bigint(20) NOT NULL AUTO_INCREMENT,
             `external_guid` varchar(36) DEFAULT NULL,
             `external_code` varchar(100) DEFAULT NULL,
@@ -44,12 +44,12 @@ class Product  extends \Modules\Abs\Install{
             `tags` text DEFAULT NULL ,
             PRIMARY KEY (`id`),
             UNIQUE KEY `products_external_guid_unique` (`external_guid`),
-            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_brand_id_index` (`brand_id`),
-            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_category_id_index` (`category_id`),
-            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_article_index` (`article`),
-            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_external_code_index` (`external_code`),
-            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_sku_index` (`sku`),
-            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'product_barcode_index` (`barcode`)
+            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product_brand_id_index` (`brand_id`),
+            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product_category_id_index` (`category_id`),
+            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product_article_index` (`article`),
+            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product_external_code_index` (`external_code`),
+            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product_sku_index` (`sku`),
+            KEY `'.\Modules\Core\Modul\Env::get("DB_PREFIX").'shop_product_barcode_index` (`barcode`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
         ';
         

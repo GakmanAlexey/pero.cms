@@ -6,7 +6,7 @@ class Brandservice{
     public $brand_array = [];
     public function show_all(){
         $pdo = \Modules\Core\Modul\Sql::connect(); 
-        $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "brand");
+        $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_brand");
         $stmt2->execute([]);
         while($brand_data = $stmt2->fetch(\PDO::FETCH_ASSOC)){
             $brand = new  \Modules\Shop\Modul\Brand();
