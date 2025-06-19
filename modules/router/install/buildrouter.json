@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-18 14:46:58",
+    "generated_at": "2025-06-19 12:09:45",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 49,
+    "routes_count": 50,
     "routes": [
         {
             "path": "/admin/",
@@ -299,6 +299,12 @@
             "class": "Modules\\User\\Controller\\Adminajax",
             "method": "ban",
             "module": "user"
+        },
+        {
+            "path": "/catalog/123123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL (fallback)"
         }
     ]
 }

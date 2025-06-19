@@ -97,13 +97,27 @@ class Catalogservice{
             ->set_is_active($agree);
 
         $categor = $this->init_save($categor);
+        
         if($categor->get_id() >= 1){
+            $router = new \Modules\Router\Modul\Manager;
+            $router->create($categor->get_url_full(),"\Modules\Shop\Controller\Catalog","index");
+            //todo  добавить в роутер и хеадер
+
+            $page = new \Modules\Seo\Modul\Page;
+            $page->set_url($categor->get_url_full())
+                -> set_title("Каталог")
+                -> set_description("Описание каталога")
+                -> set_name("Категория")
+                -> set_keys("ключ");
+
+            $builder = new \Modules\Router\Modul\Builder();                
+        $builder->start();
             return ["status" => true, "msg" => "Создание прошло успешно", "job" => true, "id" => $categor->get_id()];
         }else{
             return ["status" => false, "msg" => "Сбой создания", "job" => true];
         }
 
-        //todo  добавить в роутер и хеадер
+        
 
     }
     
