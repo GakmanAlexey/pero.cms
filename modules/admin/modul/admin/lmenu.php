@@ -77,6 +77,17 @@ Class Lmenu extends \Modules\Abs\Lmenu{
             $ico_system,                    
             "admin"         
         );
+
+        \Modules\Admin\Modul\Buildermenu::add_element(
+            "system",                        //Родитель   
+            "service",              //Название на латинице
+            "Сервисы " ,     //Название на Русском
+            "service",              //Url адрес
+            99,                          //Приоритет
+            1,                          //TODO Вид действия
+            $ico_site,                    //Иконка
+            "admin"         //Привелегии
+        );
  
     }
 }

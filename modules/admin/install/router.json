@@ -3,5 +3,6 @@
     ["/admin/shop/", "Modules\\Admin\\Controller\\Index", "index"],
     ["/admin/system/", "Modules\\Admin\\Controller\\Index", "index"],
     ["/admin/site/", "Modules\\Admin\\Controller\\Index", "index"],
-    ["/admin/crm/", "Modules\\Admin\\Controller\\Index", "index"]
+    ["/admin/crm/", "Modules\\Admin\\Controller\\Index", "index"],
+    ["/admin/system/service/", "Modules\\Admin\\Controller\\Service", "index"]
 ]

@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-19 22:44:19",
+    "generated_at": "2025-06-19 23:50:20",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 50,
+    "routes_count": 51,
     "routes": [
         {
             "path": "/admin/",
@@ -33,6 +33,12 @@
         {
             "path": "/admin/crm/",
             "class": "Modules\\Admin\\Controller\\Index",
+            "method": "index",
+            "module": "admin"
+        },
+        {
+            "path": "/admin/system/service/",
+            "class": "Modules\\Admin\\Controller\\Service",
             "method": "index",
             "module": "admin"
         },
