@@ -1,23 +1,31 @@
 <div class="a021_header_block">
     <div class="a021_header_title">Сервисы</div>
 </div>
-
+<?php
+foreach($this->data_view["list_service"] as $item_service){
+    echo '
 <div class="a021_service_card">
     <div class="a021_service_card_left">
-        <img class="a021_service_icon" src="/image.png" alt="Логотип сервиса">
+        <img class="a021_service_icon" src="'.$item_service->get_img().'" alt="Логотип сервиса">
         <div class="a021_service_info">
-            <div class="a021_service_name">Робокасса</div>
-            <div class="a021_service_description">
-                Удобный и надёжный сервис для интеграции с сайтом. Позволяет автоматизировать процессы, повысить удобство работы и сэкономить время. Поддерживает гибкие настройки и прост в подключении.
-            </div>
+            <div class="a021_service_name">'.$item_service->get_name().'</div>
+            <div class="a021_service_description">'.$item_service->get_description().'</div>
         </div>
     </div>
-    <div class="a021_service_btn">
-        <a href="" class="a021_service_save_btn">
-            Сохранить
-        </a>
+    <div class="a021_service_btn">';
+    
+    foreach($item_service->get_buttons() as $button){
+        echo '
+        <a class="a021_service_save_btn" onclice = "get_page('.$button[1].')">
+            '.$button[0].'
+        </a>';
+    }
+echo '
     </div>
 </div>
+';
+}
+?>
 
 <div class="a021_loading_wrap" id="result">
     <div class="a021_loading"  id="resul2t">
@@ -53,6 +61,6 @@
 </div>
 
 <script>
-    document.getElementById('resul2t').style.display = 'flex';
+    document.getElementById('resul2t').style.display = 'none';
 </script>
 
