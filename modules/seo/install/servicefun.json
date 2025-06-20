@@ -1,0 +1,11 @@
+[
+    {
+        "img":"",
+        "name":"Url Сборщик",
+        "description":"Собирает url из роутера, отправляет в сео для формирования методанных",
+        "buttons":[
+            ["Admin","/ajax/service/seo/admin/"],
+            ["Default","/ajax/service/seo/default/"]
+        ]
+    }
+]

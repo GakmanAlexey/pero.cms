@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-20 17:26:43",
+    "generated_at": "2025-06-20 19:18:24",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 53,
+    "routes_count": 55,
     "routes": [
         {
             "path": "/admin/",
@@ -148,6 +148,18 @@
             "path": "/admin/site/seo/edit/",
             "class": "Modules\\Seo\\Controller\\Admin",
             "method": "edit",
+            "module": "seo"
+        },
+        {
+            "path": "/ajax/service/seo/admin/",
+            "class": "Modules\\Seo\\Controller\\Adminajax",
+            "method": "seo_admin",
+            "module": "seo"
+        },
+        {
+            "path": "/ajax/service/seo/default/",
+            "class": "Modules\\Seo\\Controller\\Adminajax",
+            "method": "seo_default",
             "module": "seo"
         },
         {

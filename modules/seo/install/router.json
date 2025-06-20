@@ -1,4 +1,6 @@
 [
     ["/admin/site/seo/", "Modules\\Seo\\Controller\\Admin", "index"],
-    ["/admin/site/seo/edit/", "Modules\\Seo\\Controller\\Admin", "edit"]
+    ["/admin/site/seo/edit/", "Modules\\Seo\\Controller\\Admin", "edit"],
+    ["/ajax/service/seo/admin/", "Modules\\Seo\\Controller\\Adminajax", "seo_admin"],
+    ["/ajax/service/seo/default/", "Modules\\Seo\\Controller\\Adminajax", "seo_default"]
 ]
