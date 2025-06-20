@@ -1,0 +1,212 @@
+
+
+
+
+  .a021_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a021_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+.a021_service_card {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.a021_service_card_left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.a021_service_icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+}
+
+.a021_service_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.a021_service_name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.a021_service_description {
+    font-size: 16px;
+    color: #808080;
+    max-width: 800px;
+}
+
+.a021_service_btn{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: end;
+  
+}
+
+.a021_service_save_btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.a021_service_save_btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+.a021_loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* полупрозрачный тёмный фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  display: none; /* по умолчанию скрыт */
+}
+
+.a021_loading_spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #fff;
+  border-top: 6px solid #007bff; /* синий цвет вращающейся части */
+  border-radius: 50%;
+  animation: a021_spin 1s linear infinite;
+}
+
+@keyframes a021_spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.a021_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  display: none;
+}
+
+.a021_modal_content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px 25px 20px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+.a021_modal_title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.a021_modal_text {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.a021_modal_button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.a021_modal_button:hover {
+  background-color: #0056b3;
+}
+
+.a021_modal_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.a021_modal_close:hover {
+  color: #000;
+}
+
+/* Варианты */
+
+.a021_modal_success .a021_modal_title {
+  color: #28a745; /* Зеленый */
+}
+
+.a021_modal_error .a021_modal_title {
+  color: #dc3545; /* Красный */
+}
+
+.a021_modal_warning .a021_modal_title {
+  color: #ffc107; /* Желтый */
+}
+
+/* Для показа вручную */
+.a021_modal.show {
+  display: flex;
+}
+
+.a021_modal_wrap{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* полупрозрачный тёмный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}

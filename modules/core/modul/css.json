@@ -21,6 +21,7 @@
         "modules/permission/src/css/pexadmin.css",
         "modules/seo/src/css/seoadmin.css",
         "modules/shop/src/css/adminbrand.css",
-        "modules/shop/src/css/admincategor.css"
+        "modules/shop/src/css/admincategor.css",
+        "modules/admin/src/css/service.css"
     ]
 }
