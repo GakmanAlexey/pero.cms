@@ -30,22 +30,11 @@ class Css {
     }
 
     public function merge(){
-        $merged_default = '';
-        foreach ($this->css_files_default as $file) {
-            $file = APP_ROOT.DS.$file;
-            if (!file_exists($file)) {
-                $logger = new \Modules\Core\Modul\Logs();       
-                $logger->loging('css', "['ошибка'] файл не найден {$file}");
-                throw new \Exception("CSS file not found: {$file}");
-            }            
-            $content = file_get_contents($file);            
-            if ($this->minify) {
-                $content = $this->minify_css($content);
-            }            
-            $merged_default .= $content . "\n";
-        }
-        file_put_contents($this->output_default, $merged_default);
+        $this->merge_admin();
+        $this->merge_default();
+    }
 
+    public function merge_admin(){
         $merged_admin = '';
         foreach ($this->css_files_admin as $file) {
             $file = APP_ROOT.DS.$file;
@@ -63,6 +52,24 @@ class Css {
         file_put_contents($this->output_admin, $merged_admin);
     }
 
+    public function merge_default(){
+        $merged_default = '';
+        foreach ($this->css_files_default as $file) {
+            $file = APP_ROOT.DS.$file;
+            if (!file_exists($file)) {
+                $logger = new \Modules\Core\Modul\Logs();       
+                $logger->loging('css', "['ошибка'] файл не найден {$file}");
+                throw new \Exception("CSS file not found: {$file}");
+            }            
+            $content = file_get_contents($file);            
+            if ($this->minify) {
+                $content = $this->minify_css($content);
+            }            
+            $merged_default .= $content . "\n";
+        }
+        file_put_contents($this->output_default, $merged_default);
+    }
+
     private function minify_css($css){
         $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
         $css = str_replace(["\r\n", "\r", "\n", "\t", '  ', '    ', '    '], '', $css);
@@ -77,6 +84,16 @@ class Css {
     public static function merge_files(bool $minify = false){
         $merger = new self($minify);
         return $merger->merge();
+    }
+
+    public static function merge_files_admin(bool $minify = false){
+        $merger = new self($minify);
+        return $merger->merge_admin();
+    }
+
+    public static function merge_files_default(bool $minify = false){
+        $merger = new self($minify);
+        return $merger->merge_default();
     }
 
 

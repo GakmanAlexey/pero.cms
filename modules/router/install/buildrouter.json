@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-20 14:41:10",
+    "generated_at": "2025-06-20 17:26:43",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 50,
+    "routes_count": 53,
     "routes": [
         {
             "path": "/admin/",
@@ -52,6 +52,18 @@
             "path": "/ban/",
             "class": "Modules\\Core\\Controller\\Ban",
             "method": "index",
+            "module": "core"
+        },
+        {
+            "path": "/ajax/service/css/admin/",
+            "class": "Modules\\Core\\Controller\\Adminajax",
+            "method": "css_admin",
+            "module": "core"
+        },
+        {
+            "path": "/ajax/service/css/default/",
+            "class": "Modules\\Core\\Controller\\Adminajax",
+            "method": "css_default",
             "module": "core"
         },
         {
@@ -305,6 +317,12 @@
             "class": "Modules\\User\\Controller\\Adminajax",
             "method": "ban",
             "module": "user"
+        },
+        {
+            "path": "/catalog/123123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL (fallback)"
         }
     ]
 }

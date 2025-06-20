@@ -1,4 +1,6 @@
 [
     ["/", "Modules\\Core\\Controller\\Index", "index"],
-    ["/ban/", "Modules\\Core\\Controller\\Ban", "index"]
+    ["/ban/", "Modules\\Core\\Controller\\Ban", "index"],
+    ["/ajax/service/css/admin/", "Modules\\Core\\Controller\\Adminajax", "css_admin"],
+    ["/ajax/service/css/default/", "Modules\\Core\\Controller\\Adminajax", "css_default"]
 ]

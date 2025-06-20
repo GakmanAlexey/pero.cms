@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-20 14:41:10",
-    "routes_count": 50,
+    "generated_at": "2025-06-20 17:26:43",
+    "routes_count": 52,
     "routes": [
         {
             "path": "/admin/",
@@ -48,6 +48,18 @@
             "path": "/ban/",
             "class": "Modules\\Core\\Controller\\Ban",
             "method": "index",
+            "module": "core"
+        },
+        {
+            "path": "/ajax/service/css/admin/",
+            "class": "Modules\\Core\\Controller\\Adminajax",
+            "method": "css_admin",
+            "module": "core"
+        },
+        {
+            "path": "/ajax/service/css/default/",
+            "class": "Modules\\Core\\Controller\\Adminajax",
+            "method": "css_default",
             "module": "core"
         },
         {

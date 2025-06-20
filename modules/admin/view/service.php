@@ -16,7 +16,7 @@ foreach($this->data_view["list_service"] as $item_service){
     
     foreach($item_service->get_buttons() as $button){
         echo '
-        <a class="a021_service_save_btn" onclice = "get_page('.$button[1].')">
+        <a class="a021_service_save_btn" onclick="get_page(\''.$button[1].'\')">
             '.$button[0].'
         </a>';
     }
@@ -31,14 +31,6 @@ echo '
     <div class="a021_loading"  id="resul2t">
         <div class="a021_loading_spinner"></div>
     </div>    
-    <div class="a021_modal a021_modal_success" id="modal-success">
-        <div class="a021_modal_content">
-            <button class="a021_modal_close" aria-label="Закрыть">×</button>
-            <h3 class="a021_modal_title">Успешно!</h3>
-            <p class="a021_modal_text">Данные были успешно загружены.</p>
-            <button class="a021_modal_button">Принять</button>
-        </div>
-    </div>
 <!-- Ошибка -->
 <div class="a021_modal a021_modal_error" id="modal-error">
   <div class="a021_modal_content">
@@ -59,8 +51,39 @@ echo '
   </div>
 </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    document.getElementById('resul2t').style.display = 'none';
+   // document.getElementById('resul2t').style.display = 'none';
+   function get_page(url) {
+    // Показать лоадер
+    $('#resul2t').css('display', 'flex');
+    
+    // Запомнить время старта (для минимальной задержки)
+    const startTime = Date.now();
+    
+    // Отправить AJAX-запрос
+    $.ajax({
+        url: url,
+        method: 'GET',
+        success: function(response) {
+            // Вставить ответ в #result
+            $('#result').html(response);
+            
+            // Вычислить оставшееся время (чтобы лоадер был виден минимум 0.3 сек)
+            const elapsedTime = Date.now() - startTime;
+            const minDelay = 300; // 0.3 секунды
+            const remainingTime = Math.max(0, minDelay - elapsedTime);
+            
+            // Скрыть лоадер через оставшееся время
+            setTimeout(() => {
+                $('#resul2t').hide();
+            }, remainingTime);
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', error);
+            $('#resul2t').hide(); // Скрыть лоадер при ошибке
+        }
+    });
+}
 </script>
 
