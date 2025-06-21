@@ -7,5 +7,7 @@
     ["/brandblock/", "Modules\\Shop\\Controller\\Brand", "block"],
     ["/admin/shop/categor/", "Modules\\Shop\\Controller\\Admin", "categor"],
     ["/admin/shop/categor/new/", "Modules\\Shop\\Controller\\Admin", "newcategor"],
-    ["/admin/shop/categor/edit/", "Modules\\Shop\\Controller\\Admin", "editcategor"]
+    ["/admin/shop/categor/edit/", "Modules\\Shop\\Controller\\Admin", "editcategor"],
+    ["/catalog/", "Modules\\Shop\\Controller\\Catalog", "main"],
+    ["/catalog/test/", "Modules\\Shop\\Controller\\Catalog", "open"]
 ]
