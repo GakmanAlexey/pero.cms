@@ -102,7 +102,7 @@ class Catalogservice{
         
         if($categor->get_id() >= 1){
             $router = new \Modules\Router\Modul\Manager;
-            $router->create($categor->get_url_full(),"\Modules\Shop\Controller\Catalog","index");
+            $router->create($categor->get_url_full(),"\Modules\Shop\Controller\Catalog","open");
             //todo  добавить в роутер и хеадер
 
             $page = new \Modules\Seo\Modul\Page;

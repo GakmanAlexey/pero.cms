@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-22 16:54:00",
+    "generated_at": "2025-06-22 19:24:26",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 59,
+    "routes_count": 61,
     "routes": [
         {
             "path": "/admin/",
@@ -137,6 +137,12 @@
             "class": "Modules\\Permission\\Controller\\Admin",
             "method": "edit",
             "module": "permission"
+        },
+        {
+            "path": "/ajax/service/router/start/",
+            "class": "Modules\\Router\\Controller\\Adminajax",
+            "method": "start",
+            "module": "router"
         },
         {
             "path": "/admin/site/seo/",
@@ -358,6 +364,12 @@
             "path": "/catalog/dasddas/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "index",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/catalog/dasddas-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
             "source": "SQL (fallback)"
         }
     ]

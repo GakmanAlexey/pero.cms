@@ -1,0 +1,10 @@
+[
+    {
+        "img":"",
+        "name":"Сборщик роутера",
+        "description":"Собирает роутеры из модулей и sql",
+        "buttons":[
+            ["Заупустить","/ajax/service/router/start/"]
+        ]
+    }
+]

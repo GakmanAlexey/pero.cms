@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-22 16:54:00",
-    "routes_count": 56,
+    "generated_at": "2025-06-22 19:24:26",
+    "routes_count": 57,
     "routes": [
         {
             "path": "/admin/",
@@ -133,6 +133,12 @@
             "class": "Modules\\Permission\\Controller\\Admin",
             "method": "edit",
             "module": "permission"
+        },
+        {
+            "path": "/ajax/service/router/start/",
+            "class": "Modules\\Router\\Controller\\Adminajax",
+            "method": "start",
+            "module": "router"
         },
         {
             "path": "/admin/site/seo/",
