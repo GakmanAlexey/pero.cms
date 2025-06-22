@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-21 22:45:30",
+    "generated_at": "2025-06-22 16:54:00",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 57,
+    "routes_count": 59,
     "routes": [
         {
             "path": "/admin/",
@@ -344,6 +344,18 @@
         },
         {
             "path": "/catalog/123123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/catalog/12321213123/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/catalog/dasddas/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "index",
             "source": "SQL (fallback)"

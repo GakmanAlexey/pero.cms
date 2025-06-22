@@ -1,9 +1,21 @@
 {
-    "generated_at": "2025-06-21 22:45:30",
-    "routes_count": 1,
+    "generated_at": "2025-06-22 16:54:00",
+    "routes_count": 3,
     "routes": [
         {
             "path": "/catalog/123123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/12321213123/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/dasddas/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "index",
             "source": "SQL_Database"

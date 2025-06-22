@@ -10,7 +10,9 @@ class Catalogservice{
         $categor ->set_id(0)
             ->set_parent_id(-1)
             ->set_name("main")
-            ->set_name_ru("Корневая категория");
+            ->set_name_ru("Корневая категория")
+            ->set_url_full($this->main_url)
+            ->set_url_block($this->main_url);
 
         return $categor;
     }
@@ -122,7 +124,7 @@ class Catalogservice{
     }
     
     public function init_save(\Modules\Shop\Modul\Catalog $categor){
-        
+        $father_categor = $this->select_item($categor->get_parent_id());
         $categor->set_name(\Modules\Core\Modul\Cleanstring::sanitize($categor->get_name_ru(), false, 240));
         $categor->set_url_block(\Modules\Core\Modul\Url::generate($categor->get_name(),"shop_catalog" , "url_block"));
         $categor->set_url_full("/".$this->main_url."/".$categor->get_url_block()."/");
@@ -183,4 +185,44 @@ class Catalogservice{
         return  $categor;
     }
     
+    public function select_item($id){
+        $categor = new \Modules\Shop\Modul\Catalog;
+        $categor->set_id($id);
+        if($categor->get_id() >= 1){
+            $categor = $this->select_item_data($categor);
+        }else{
+            $categor = $this->add_father();
+        }
+
+        return $categor;
+        
+    }
+    public function select_item_data(\Modules\Shop\Modul\Catalog $categor){
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+        $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_catalog WHERE id=?");
+        $stmt2->execute([$categor->get_id()]);
+        $categor_data = $stmt2->fetch(\PDO::FETCH_ASSOC);        
+        $categor->set_id($categor_data["id"])
+            ->set_parent_id($categor_data["parent_id"])
+            ->set_name($categor_data["name"])
+            ->set_name_ru($categor_data["name_ru"])
+            ->set_description($categor_data["description"])
+            ->set_is_active($categor_data["is_active"])
+            ->set_create_at($categor_data["create_at"])
+            ->set_updated_at($categor_data["updated_at"])
+            ->set_code($categor_data["code"])
+            ->set_external_guid($categor_data["external_guid"])
+            ->set_url_full($categor_data["url_full"])
+            ->set_url_block($categor_data["url_block"])
+            ->set_img($categor_data["img"])
+            ->set_text($categor_data["text"])
+            ->set_sync_date($categor_data["sync_date"])
+            ->set_is_sync_with_1c($categor_data["is_sync_with_1c"])
+            ->set_external_code($categor_data["external_code"])
+            ->set_view_count($categor_data["view_count"])
+            ->set_product_count($categor_data["product_count"])
+            ->set_parent_guid($categor_data["parent_guid"]);
+
+        return $categor;
+    }
 }
