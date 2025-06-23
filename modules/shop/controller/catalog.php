@@ -20,7 +20,9 @@ Class Catalog extends \Modules\Abs\Controller{
         if($this->cache_isset) return ;
         \Modules\Core\Modul\Head::load();
         $this->type_show = "default";
-        \Modules\Core\Modul\Resource::load_conf($this->type_show);        
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);  
+        $taker = new \Modules\Shop\Modul\Takecatalog;  
+        $this->data_view["categor_list"] = $taker->take_categor_main();  
         $this->list_file[] = APP_ROOT."/modules/shop/view/catalog_main.php";
         $this->show();
         $this->cashe_end();
