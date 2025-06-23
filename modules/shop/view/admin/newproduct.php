@@ -1,7 +1,7 @@
-<form action="" method="post">
+<form action="/admin/shop/product/new/" method="post">
     <div class="a023_header_block">
         <div class="a023_header_title">Товар #1</div>
-        <button name="save_boot" value="save" class="a023_add_button">
+        <button name="save_boot_new_product" value="save" class="a023_add_button">
             Сохранить
         </button>
     </div>
@@ -18,9 +18,26 @@
             <span class="a023_toast_text">Ошибка сохранения</span>
         </div>
     </div>
-
     <div class="a023_form_box_in_user">
         <div class="a023_form_box">
+             <div class="a023_input_group">
+                <div class="a023_input_wrapper">
+                    <select class="a024_input_field_select" name="category">
+<?php
+foreach($this->data_view["categor_list"] as $item_cat){
+    if($item_cat->get_is_active() == 1){
+        $class = "a024_green";
+    }else{
+        $class = "a024_grey";
+    }
+    echo '<option class="'.$class.'" value="'.$item_cat->get_id().'">'.$item_cat->get_name_ru().'</option>';
+}
+?>
+                    </select>
+                    <label class="a024_input_label" for="category">Категория</label>
+                    <div class="a024_error_text hd">Пожалуйста, выберите значение</div>
+                </div>
+            </div>
             <div class="a023_input_group">
                 <div class="a023_input_wrapper">
                     <input class="a023_input_field" type="text" name="name" placeholder="Простой текст" value="">
@@ -46,17 +63,25 @@
                 </div>
             </div>
             <div class="a023_input_group">
+                <div class="a023_input_wrapper">
+                    <input class="a023_input_field" type="text" name="main_photo" placeholder="Простой текст" value="">
+                    <label class="a023_input_label" for="main_photo">Номер основного изображения</label>
+                    <div class="a023_error_text hd">Пожалуйста, заполните это поле</div>
+                </div>
+                <div class="a023_input_wrapper">
+                    <input class="a023_input_field" type="text" name="nomber_photo" placeholder="Простой текст" value="">
+                    <label class="a023_input_label" for="nomber_photo">Номера дополнительных изображения (через запятую)</label>
+                    <div class="a023_error_text hd">Пожалуйста, заполните это поле</div>
+                </div>
+            </div>
+            <div class="a023_input_group">
                 <div class="a023_checkbox_wrapper">
                     <label class="a023_checkbox_label">
                         <input type="checkbox" class="a023_checkbox_field" name="agree">
                         Активный
                     </label>
                 </div>
-                 <div class="a023_input_wrapper">
-                    <input class="a023_input_field" type="text" name="nomber_photo" placeholder="Простой текст" value="">
-                    <label class="a023_input_label" for="nomber_photo">Номер изображения</label>
-                    <div class="a023_error_text hd">Пожалуйста, заполните это поле</div>
-                </div>
+                
             </div>
         </div>
     </div>

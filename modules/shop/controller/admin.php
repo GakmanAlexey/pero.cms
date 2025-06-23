@@ -97,6 +97,8 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $service = new \Modules\Shop\Modul\Catalogservice;
+        $this->data_view["categor_list"] = $service->show_list();
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newproduct.php";
         $this->show();
         $this->cashe_end();
