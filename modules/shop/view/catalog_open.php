@@ -4,7 +4,7 @@
     <div class="win flex1">
         <div class="container">
             <h2 class="b023_title_block">
-                Измерительный инструмент
+                <?php echo $this->data_view["categor_list"]->get_name_ru();?>
             </h2>   
             <div class="b023_kategori_box">
                 
