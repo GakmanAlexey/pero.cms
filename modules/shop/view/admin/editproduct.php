@@ -21,7 +21,18 @@
 
     <div class="a024_form_box_in_user">
         <div class="a024_form_box">
-            <div class="a024_input_group">
+             <div class="a024_input_group">
+                <div class="a024_input_wrapper">
+                    <select class="a024_input_field_select" name="category">
+                        <option value="" disabled selected>Выберите категорию</option>
+                        <option class="a024_green" value="option1">Опция 1</option>
+                        <option class="a024_grey" value="option2">Опция 2</option>
+                    </select>
+                    <label class="a024_input_label" for="category">Категория</label>
+                    <div class="a024_error_text hd">Пожалуйста, выберите значение</div>
+                </div>
+            </div>
+             <div class="a024_input_group">
                 <div class="a024_input_wrapper">
                     <input class="a024_input_field" type="text" name="name" placeholder="Простой текст" value="">
                     <label class="a024_input_label" for="name">Название</label>

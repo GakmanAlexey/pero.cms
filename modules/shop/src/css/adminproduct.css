@@ -522,3 +522,11 @@
     accent-color: #2F6BF2; /* Современный способ стилизации checkbox */
     cursor: pointer;
 }
+
+.a024_green{
+  background-color: #c1e7d0;
+}
+
+.a024_grey{
+  background-color: #dddddd;
+}
