@@ -77,5 +77,40 @@ Class Admin extends \Modules\Abs\Controller{
         $this->show();
         $this->cashe_end();
     }
+
+    
+
+    public function product(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/product.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function newproduct(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newproduct.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function editproduct(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/editproduct.php";
+        $this->show();
+        $this->cashe_end();
+    }
     
 }

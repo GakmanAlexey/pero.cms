@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-23 10:11:14",
-    "routes_count": 57,
+    "generated_at": "2025-06-23 10:41:54",
+    "routes_count": 60,
     "routes": [
         {
             "path": "/admin/",
@@ -228,6 +228,24 @@
             "path": "/catalog/test/",
             "class": "Modules\\Shop\\Controller\\Catalog",
             "method": "open",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/product/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "product",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/product/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "newproduct",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/product/edit/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "editproduct",
             "module": "shop"
         },
         {

@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-23 10:11:14",
+    "generated_at": "2025-06-23 10:41:54",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 65,
+    "routes_count": 68,
     "routes": [
         {
             "path": "/admin/",
@@ -232,6 +232,24 @@
             "path": "/catalog/test/",
             "class": "Modules\\Shop\\Controller\\Catalog",
             "method": "open",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/product/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "product",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/product/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "newproduct",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/product/edit/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "editproduct",
             "module": "shop"
         },
         {
