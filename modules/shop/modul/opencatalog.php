@@ -3,8 +3,8 @@
 namespace Modules\Shop\Modul;
 
 class Opencatalog extends \Modules\Shop\Modul\Catalog{
-    private list_catalog = [];
-    private list_product = [];
+    private $list_catalog = [];
+    private $list_product = [];
 
     public function set_list_catalog($list_catalog){
         $this->list_catalog = $list_catalog;
@@ -36,7 +36,7 @@ class Opencatalog extends \Modules\Shop\Modul\Catalog{
 
     
 
-    public function count_сatalogs(){
+    public function count_catalogs(){
         return count($this->list_catalog);
     }    
 

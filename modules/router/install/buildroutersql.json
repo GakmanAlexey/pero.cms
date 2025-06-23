@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-22 19:24:26",
-    "routes_count": 4,
+    "generated_at": "2025-06-23 10:11:14",
+    "routes_count": 8,
     "routes": [
         {
             "path": "/catalog/123123-1/",
@@ -22,6 +22,30 @@
         },
         {
             "path": "/catalog/dasddas-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/izmeritelnye-instrumenty/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/pirometry/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/multimetry/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/tokovye-kleschi/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "open",
             "source": "SQL_Database"
