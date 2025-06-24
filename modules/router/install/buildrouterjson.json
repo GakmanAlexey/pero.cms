@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-24 16:05:25",
-    "routes_count": 60,
+    "generated_at": "2025-06-24 17:55:56",
+    "routes_count": 61,
     "routes": [
         {
             "path": "/admin/",
@@ -246,6 +246,12 @@
             "path": "/admin/shop/product/edit/",
             "class": "Modules\\Shop\\Controller\\Admin",
             "method": "editproduct",
+            "module": "shop"
+        },
+        {
+            "path": "/catalog/test/test1/",
+            "class": "Modules\\Shop\\Controller\\Product",
+            "method": "open",
             "module": "shop"
         },
         {

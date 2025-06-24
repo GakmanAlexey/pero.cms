@@ -1,0 +1,240 @@
+/*filter*/
+
+.b026_filter_left {
+    min-width: 220px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+.b026_filter_box {
+    border-bottom: 1px solid #DCDCDC;
+    margin-bottom: 0;
+    padding: 0 0 20px 0;
+}
+
+.b026_filter_title {
+    font-size: 18px;    
+    margin: 20px 0 15px 0;
+}
+
+.b026_range_container {
+    width: 100%;
+    margin: 10px 0 30px 0;
+}
+
+.b026_range_inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.b026_range_inputs input[type="number"] {
+    max-width: 100px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(41, 52, 77, 0.08);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(41, 52, 77, 0.08);
+    box-shadow: 0px 0px 9px 0px rgba(41, 52, 77, 0.08);
+    text-align: center;
+}
+
+.b026_range_inputs input[type="number"]:focus {
+    outline: #2F6BF2 1px solid;
+}
+
+.b026_range_bar_container {
+    position: relative;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.b026_range_fill {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #2F6BF2;
+    border-radius: 3px;
+}
+
+.b026_range_thumb {
+    position: absolute;
+    top: -7px;
+    width: 20px;
+    height: 20px;
+    background: #2F6BF2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.b026_filter_tire {
+    width: 18px;
+    height: 2px;
+    background-color: #000;
+}
+
+.b026_radio_box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.b026_checkbox_box {
+    height: 130px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.b026_checkbox_box::-webkit-scrollbar {
+    width: 4px;
+}
+
+.b026_checkbox_box::-webkit-scrollbar-thumb {
+    background-color: #2F6BF2;
+}
+
+.b026_checkbox_box::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+.b026_padio_elem {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* input[type="radio"] и input[type="checkbox"] остаются без префикса, т.к. это теги */
+/* Но если в JS используются классы чекбоксов, префикс добавлен в HTML */
+
+input[type="radio"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+/* Стилизация метки радиокнопки */
+input[type="radio"] + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+/* Кастомная радиокнопка */
+input[type="radio"] + label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    border: 1px solid #858585;
+    border-radius: 50%;
+}
+/* Состояние выбранной радиокнопки */
+input[type="radio"]:checked + label::before {
+    background-color: #2F6BF2;
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+    border: 1px solid #2F6BF2;
+}
+
+input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #2F6BF2;
+    border: 1px solid #2F6BF2;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "\2714";
+    position: absolute;
+    top: -4px;
+    left: 1px;
+    border-width: 0 3px 3px 0;
+    color: #fff;
+}
+
+input[type="checkbox"] {
+    accent-color: #fff; /* Green color */
+}
+
+.b026_filtre_btn {
+    width: 100%;
+}
+
+.b026_mobile_filter {
+    display: none;
+}
+
+.b026_link_filter {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    width: 100%;
+    color: #858585;
+}
+
+.b026_katalog_box {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.b026_product_katalog {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.b026_hidden {
+    display: none;
+}
+
+.b026_closed_filter {
+    display: none;
+    text-align: end;
+}
+
+
+.b026_btn_form{
+    background-color: #2F6BF2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 100%;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s ease;
+}
+
+.b026_btn_form:hover{
+    background-color: #2B3431;
+
+}
+
+
+.katalog_box{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
