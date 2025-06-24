@@ -20,6 +20,8 @@ class Product{
     private $brand_id;
     private $category_id;
     private $main_image;
+    private $url_full;
+    private $url_block;
     private $images = [];
     private $sync_date;
     private $is_sync_with_1c;
@@ -88,6 +90,22 @@ class Product{
         return $this;
     }
 
+    public function set_url_full($url_full){
+        $this->url_full = $url_full;
+        return $this;
+    }
+    public function get_url_full(){
+        return $this->url_full;
+    }
+
+    public function set_url_block($url_block){
+        $this->url_block = $url_block;
+        return $this;
+    }
+    public function get_url_block(){
+        return $this->url_block;
+    }
+
     public function get_description() {
         return $this->description;
     }
@@ -105,7 +123,7 @@ class Product{
     }
 
     public function get_price() {
-        return $this->price;
+        return number_format((float)$this->price, 2, '.', '');
     }
     public function set_price($price) {
         $this->price = $price;
@@ -113,7 +131,7 @@ class Product{
     }
 
     public function get_old_price() {
-        return $this->old_price;
+        return $this->old_price === null ? null : (float)$this->old_price;
     }
     public function set_old_price($old_price) {
         $this->old_price = $old_price;
@@ -179,6 +197,11 @@ class Product{
     public function get_images() {
         return $this->images;
     }
+
+    public function get_images_str() {
+
+        return serialize($this->images);
+    }
     public function set_images(array $images) {
         $this->images = $images;
         return $this;
@@ -205,7 +228,8 @@ class Product{
     }
 
     public function get_has_variations() {
-        return $this->has_variations;
+        if($this->has_variations) return 1;
+        return 0;
     }
     public function set_has_variations($has_variations) {
         $this->has_variations = $has_variations;

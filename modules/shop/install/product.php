@@ -14,6 +14,8 @@ class Product  extends \Modules\Abs\Install{
             `article` varchar(100) DEFAULT NULL,
             `name` varchar(255) NOT NULL,
             `name_ru` varchar(255) DEFAULT NULL,
+            `url_full` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+            `url_block` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
             `description` text DEFAULT NULL,
             `text` longtext DEFAULT NULL,
             `price` decimal(12,2) NOT NULL ,

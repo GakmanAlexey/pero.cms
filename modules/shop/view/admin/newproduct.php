@@ -5,18 +5,23 @@
             Сохранить
         </button>
     </div>
-    <div id="box_msg">    
-        <!-- Успешно -->
-        <div class="a023_toast a023_toast_success">
+    <div id="box_msg">   
+<?php
+if($this->data_view["result_add"]["job"]){
+    if($this->data_view["result_add"]["result"]){
+echo '  <div class="a023_toast a023_toast_success">
             <span class="a023_toast_icon">✔</span>
-            <span class="a023_toast_text">Данные успешно сохранены</span>
-        </div>
-
-        <!-- Ошибка -->
-        <div class="a023_toast a023_toast_error">
+            <span class="a023_toast_text">Данные успешно сохранены id: '.$this->data_view["result_add"]["id"].'</span>
+        </div>';
+    }else{
+        
+echo '  <div class="a023_toast a023_toast_error">
             <span class="a023_toast_icon">✖</span>
-            <span class="a023_toast_text">Ошибка сохранения</span>
-        </div>
+            <span class="a023_toast_text"'.$this->data_view["result_add"]["msg"].'</span>
+        </div>';
+    }
+}
+?> 
     </div>
     <div class="a023_form_box_in_user">
         <div class="a023_form_box">
