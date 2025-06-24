@@ -150,6 +150,20 @@ class Productservice{
         }
 
         if( $product->get_id() >= 1){
+            $router = new \Modules\Router\Modul\Manager;
+            $router->create($product->get_url_full(),"\Modules\Shop\Controller\Product","open");
+            //todo  добавить в роутер и хеадер
+
+            $page = new \Modules\Seo\Modul\Page;
+            $page->set_url($product->get_url_full())
+                -> set_title("Продукт")
+                -> set_description("Описание каталога")
+                -> set_name("Категория")
+                -> set_keys("ключ");
+
+            $builder = new \Modules\Router\Modul\Builder();                
+        $builder->start();
+
             return [
                 'job' => true,
                 'result' => true,

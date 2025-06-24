@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-24 15:05:16",
+    "generated_at": "2025-06-24 16:05:25",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 68,
+    "routes_count": 69,
     "routes": [
         {
             "path": "/admin/",
@@ -411,6 +411,12 @@
         {
             "path": "/catalog/tokovye-kleschi/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/catalog/tokovye-kleschi/123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Product",
             "method": "open",
             "source": "SQL (fallback)"
         }

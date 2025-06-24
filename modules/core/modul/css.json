@@ -8,7 +8,8 @@
         "modules/user/src/css/user.css",
         "modules/news/src/css/news.css",
         "modules/shop/src/css/brand.css",
-        "modules/shop/src/css/catalog.css"
+        "modules/shop/src/css/catalog.css",
+        "modules/shop/src/css/product.css"
     ],
     "admin":[
         "modules/admin/src/css/admin.css",
