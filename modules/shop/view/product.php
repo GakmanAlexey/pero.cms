@@ -26,6 +26,12 @@
     <img src="/src/img/image-6.png" alt="" class="b027_thumb active" data-index="0">
     <img src="/src/img/image-7.png" alt="" class="b027_thumb" data-index="1">
     <img src="/src/img/image-8.png" alt="" class="b027_thumb" data-index="2">
+    <img src="/src/img/image-6.png" alt="" class="b027_thumb" data-index="3">
+    <img src="/src/img/image-7.png" alt="" class="b027_thumb" data-index="4">
+    <img src="/src/img/image-8.png" alt="" class="b027_thumb" data-index="5">
+    <img src="/src/img/image-6.png" alt="" class="b027_thumb" data-index="6">
+    <img src="/src/img/image-7.png" alt="" class="b027_thumb" data-index="7">
+    <img src="/src/img/image-8.png" alt="" class="b027_thumb" data-index="8">
   </div>
 </div>
 
@@ -143,6 +149,12 @@
 
 <script>
   const images = [
+    '/src/img/image-6.png',
+    '/src/img/image-7.png',
+    '/src/img/image-8.png',
+    '/src/img/image-6.png',
+    '/src/img/image-7.png',
+    '/src/img/image-8.png',
     '/src/img/image-6.png',
     '/src/img/image-7.png',
     '/src/img/image-8.png'
