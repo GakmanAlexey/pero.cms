@@ -39,16 +39,18 @@ class Taker{
         $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "files WHERE id = ?");
         $stmt->execute([$id]);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-        $row['metadata'] = json_decode($row['metadata'], true);
-        $row['path'] = str_replace(APP_ROOT, '', $row['path']);
         $fl = new \Modules\Files\Modul\File;
-                $fl->set_id($row['id'])
-                    ->set_name($row['name'])
-                    ->set_type($row['type'])
-                    ->set_size($row['size'])
-                    ->set_path($row['path'])
-                    ->set_extension($row['extension'])
-                    ->set_metadata($row['metadata']);
+        if(isset($row["id"])){
+            $row['metadata'] = json_decode($row['metadata'], true);
+            $row['path'] = str_replace(APP_ROOT, '', $row['path']);
+            $fl->set_id($row['id'])
+                ->set_name($row['name'])
+                ->set_type($row['type'])
+                ->set_size($row['size'])
+                ->set_path($row['path'])
+                ->set_extension($row['extension'])
+                ->set_metadata($row['metadata']);
+        }
         return $fl;
     }
 

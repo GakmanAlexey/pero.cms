@@ -7,7 +7,7 @@ class File{
     private $name;
     private $type;
     private $size;
-    private $path;
+    private $path = NULL;
     private $extension;
     private $metadata = [];
 
@@ -67,6 +67,9 @@ class File{
     }
 
     public function get_path(){
+        if($this->path == NULL){
+            $this -> absent();
+        }
         $this->path = str_replace('\\', '/', $this->path);
         $this->path = preg_replace('~(?<!:)/+~', '/', $this->path);
         return $this->path;
@@ -88,6 +91,12 @@ class File{
         return $this->type === 'application/pdf';
     }
 
+    public function  absent(){
+        $this->set_name("noimg.svg");
+        $this->set_type("image/svg+xml");
+        $this->set_size("11893");
+        $this->set_path(DS.'modules'.DS.'files'.DS.'src'.DS.'img'.DS.'noimg.svg');
+    }
 }
 
     
