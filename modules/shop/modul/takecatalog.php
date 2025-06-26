@@ -98,4 +98,6 @@ class Takecatalog{
         }
         return $opencategor;
     }
+    
+    
 }

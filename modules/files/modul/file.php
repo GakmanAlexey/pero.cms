@@ -67,6 +67,8 @@ class File{
     }
 
     public function get_path(){
+        $this->path = str_replace('\\', '/', $this->path);
+        $this->path = preg_replace('~(?<!:)/+~', '/', $this->path);
         return $this->path;
     }
 

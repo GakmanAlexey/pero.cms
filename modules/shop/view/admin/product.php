@@ -22,12 +22,15 @@
     </table>
 
     <div class="a022_tbody">
+<?php
+foreach($this->data_view["show_all"] as $product){
+echo '
         <table class="a022_table">
             <tr class="a022_tr_body">
-                <td class="a022_td a022_td_id">1</td>
-                <td class="a022_td a022_td_name">Самсунг</td>
-                <td class="a022_td a022_td_price">1000</td>                
-                <td class="a022_td a022_td_art">001134</td>
+                <td class="a022_td a022_td_id">'.$product->get_id().'</td>
+                <td class="a022_td a022_td_name">'.$product->get_name_ru().'</td>
+                <td class="a022_td a022_td_price">'.$product->get_price().'</td>                
+                <td class="a022_td a022_td_art">'.$product->get_article().'</td>
                 <td class="a022_td">
                 <div class="a022_actions">
                     <a href="" class="a022_action_button" title="Редактировать">
@@ -57,5 +60,9 @@
                 </td>
             </tr>
         </table>
+';
+}
+?>
+        
     </div>
 </div>

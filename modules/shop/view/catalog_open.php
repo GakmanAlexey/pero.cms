@@ -22,5 +22,3 @@ foreach($this->data_view["categor_list"]-> get_list_catalog() as $item_list_cat)
 
         </div>
     </div>
-
-

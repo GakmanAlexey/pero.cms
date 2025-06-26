@@ -1,3 +1,10 @@
+<?php
+//var_dump($this->data_view["product"]);
+$file = \Modules\Files\Modul\Taker:: take($this->data_view["product"]->get_main_image());
+
+?>
+
+
 <div class="b027_win">
     <div class="сontainer">
         <div class="b027_tovar">
@@ -11,7 +18,7 @@
                     </button>
 
                     <div class="b027_tovar_image_box">
-                    <img src="/src/img/image-6.png" alt="" id="b027_main_img">
+                    <img src="<?php echo $file->get_path(); ?>" alt="" id="b027_main_img">
                     </div>
 
                     <button class="b027_slider_arrow b027_next">
@@ -23,15 +30,17 @@
                 </div>
 
   <div class="b027_slider_thumbnails">
-    <img src="/src/img/image-6.png" alt="" class="b027_thumb active" data-index="0">
-    <img src="/src/img/image-7.png" alt="" class="b027_thumb" data-index="1">
-    <img src="/src/img/image-8.png" alt="" class="b027_thumb" data-index="2">
-    <img src="/src/img/image-6.png" alt="" class="b027_thumb" data-index="3">
-    <img src="/src/img/image-7.png" alt="" class="b027_thumb" data-index="4">
-    <img src="/src/img/image-8.png" alt="" class="b027_thumb" data-index="5">
-    <img src="/src/img/image-6.png" alt="" class="b027_thumb" data-index="6">
-    <img src="/src/img/image-7.png" alt="" class="b027_thumb" data-index="7">
-    <img src="/src/img/image-8.png" alt="" class="b027_thumb" data-index="8">
+    <?php
+    $x = 1;
+    echo '<img src="'.$file->get_path().'" alt="" class="b027_thumb" data-index="'.$x.'">';
+foreach($this->data_view["product"]->get_images() as $img){
+    
+   $file2 = \Modules\Files\Modul\Taker::take($img);
+   echo '<img src="'.$file2->get_path().'" alt="" class="b027_thumb" data-index="'.$x.'">';
+   $x++;
+}
+    ?>
+    
   </div>
 </div>
 
@@ -40,7 +49,7 @@
             <div class="b027_tovar_info">
                 <div class="b027_tovar_info_box">
                     <div class="b027_title_block">
-                        Стабилизаторы Бастион
+                    <?php echo $this->data_view["product"]->get_name_ru();?>
                     </div>
 
                     <div class="b027_logo_company">
@@ -50,8 +59,8 @@
 
                 <div class="b027_tovar_info_box b027_derect_col">
                     <div class="b027_tovar_info_box_price_box">
-                        <div class="b027_tovar_info_box_price">156 000 ₽</div>
-                        <div class="b027_tovar_info_box_old_price">264 000 ₽</div>
+                        <div class="b027_tovar_info_box_price"><?php echo $this->data_view["product"]->get_price();?> ₽</div>
+                        <div class="b027_tovar_info_box_old_price"><?php echo $this->data_view["product"]->get_old_price();?> ₽</div>
                     </div>
 
                     <div class="b027_tovar_info_box_by_box">
@@ -65,7 +74,7 @@
                 </div>
                 <div class="b027_tovar_info_box b027_margin_min">
                     <div class="b027_slider__item_counter b027_tovar_info_box_counter">
-                        В наличии:  <div class="b027_slider__item_counter_numb"> 20 шт.</div> 
+                        В наличии:  <div class="b027_slider__item_counter_numb"> <?php echo $this->data_view["product"]->get_currency();?> шт.</div> 
                     </div>
                 </div>
 
@@ -82,13 +91,7 @@
                     Описание
                 </p>
                 <p class="b027_tovar_info_box_text">
-                    Стабилизатор напряжения настенного исполнения для квартиры, офиса. Мощность нагрузки — до 
-                    5 кВА., 16 ступеней регулирования. Точность стабилизации — 3,5%. Рабочий диапазон напряжения сети — 120...280 В.
-                    Расширенный диапазон напряжение сети — 80...295 В. 4 температурных датчика для защиты от перегрева. Тройная защита
-                    от перегрузки. Микропроцессорное управление и «мягкое» переключение ступеней. Стабилизация вольтдобавочного типа 
-                    на симисторных ключах с запасом по мощности. Цифровой дисплей отображает реальное напряжение, ток, мощность по входу 
-                    и выходу. Конвективное охлаждение обеспечивают бесшумную работу стабилизатора.
-                    Защитное отключение при аварийно низком/высоком напряжении с автоматическим восстановлением. Металлический корпус.
+                    <?php echo $this->data_view["product"]->get_description();?>
                 </p>
             </div>
 
@@ -149,15 +152,17 @@
 
 <script>
   const images = [
-    '/src/img/image-6.png',
-    '/src/img/image-7.png',
-    '/src/img/image-8.png',
-    '/src/img/image-6.png',
-    '/src/img/image-7.png',
-    '/src/img/image-8.png',
-    '/src/img/image-6.png',
-    '/src/img/image-7.png',
-    '/src/img/image-8.png'
+    '<?php echo $file->get_path();?>'
+    <?php
+    $x = 1;
+   
+foreach($this->data_view["product"]->get_images() as $img){    
+   $file2 = \Modules\Files\Modul\Taker::take($img);
+   echo ',
+   \''.$file2->get_path().'\'';
+   $x++;
+}
+    ?>
   ];
 
   let currentIndex = 0;

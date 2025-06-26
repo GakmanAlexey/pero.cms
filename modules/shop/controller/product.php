@@ -9,7 +9,9 @@ Class Product extends \Modules\Abs\Controller{
         if($this->cache_isset) return ;
         \Modules\Core\Modul\Head::load();
         $this->type_show = "default";
-        \Modules\Core\Modul\Resource::load_conf($this->type_show);      
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);  
+        $prod = new \Modules\Shop\Modul\Takerproduct;
+        $this->data_view["product"] = $prod->take_data_prod();
         $this->list_file[] = APP_ROOT."/modules/shop/view/product.php";
         $this->show();
         $this->cashe_end();
