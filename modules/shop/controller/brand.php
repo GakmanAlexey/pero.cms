@@ -28,8 +28,10 @@ Class Brand extends \Modules\Abs\Controller{
         if($this->cache_isset) return ;
         \Modules\Core\Modul\Head::load();
         $this->type_show = "default";
-        \Modules\Core\Modul\Resource::load_conf($this->type_show);        
-        $this->list_file[] = APP_ROOT."/modules/shop/view/test.php";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);    
+        $manager = new \Modules\Shop\Modul\Brandmanager;  
+        $this->data_view = $manager->select_from_url();
+        $this->list_file[] = APP_ROOT."/modules/shop/view/brand.php";
         $this->show();
         $this->cashe_end();
     }
