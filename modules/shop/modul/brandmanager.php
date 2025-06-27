@@ -52,7 +52,7 @@ class Brandmanager{
             ->set_is_active($brand_data["is_active"])
             ->set_create_at($brand_data["created_at"])
             ->set_updated_at($brand_data["updated_at"])
-            ->set_external_guid($brand_data["external_guid "])
+            ->set_external_guid($brand_data["external_guid"])
             ->set_url_full($brand_data["url_full"])
             ->set_url_block($brand_data["url_block"])
             ->set_img($brand_data["img"])

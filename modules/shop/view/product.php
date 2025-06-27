@@ -1,6 +1,7 @@
 <?php
 //var_dump($this->data_view["product"]);
 $file = \Modules\Files\Modul\Taker:: take($this->data_view["product"]->get_main_image());
+$file_brand = \Modules\Files\Modul\Taker:: take($this->data_view["brand"]->get_img());
 
 ?>
 
@@ -52,9 +53,9 @@ foreach($this->data_view["product"]->get_images() as $img){
                     <?php echo $this->data_view["product"]->get_name_ru();?>
                     </div>
 
-                    <div class="b027_logo_company">
-                        <img src="/src/img/Rectangle 122186.png" alt="">
-                    </div>
+                    <a class="b027_logo_company" href ="<?php echo $this->data_view["brand"]->get_url_full();?>"> 
+                        <img src="<?php echo $file_brand->get_path();?>" alt="">
+</a>
                 </div>
 
                 <div class="b027_tovar_info_box b027_derect_col">
