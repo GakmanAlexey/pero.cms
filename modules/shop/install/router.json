@@ -13,5 +13,8 @@
     ["/admin/shop/product/", "Modules\\Shop\\Controller\\Admin", "product"],
     ["/admin/shop/product/new/", "Modules\\Shop\\Controller\\Admin", "newproduct"],
     ["/admin/shop/product/edit/", "Modules\\Shop\\Controller\\Admin", "editproduct"],
-    ["/catalog/test/test1/", "Modules\\Shop\\Controller\\Product", "open"]
+    ["/catalog/test/test1/", "Modules\\Shop\\Controller\\Product", "open"],
+    ["/admin/shop/variation/", "Modules\\Shop\\Controller\\Admin", "variation"],
+    ["/admin/shop/variation/new/", "Modules\\Shop\\Controller\\Admin", "newvariation"],
+    ["/admin/shop/variation/edit/", "Modules\\Shop\\Controller\\Admin", "editvariation"]
 ]

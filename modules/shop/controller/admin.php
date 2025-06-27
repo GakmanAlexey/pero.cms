@@ -120,5 +120,46 @@ Class Admin extends \Modules\Abs\Controller{
         $this->show();
         $this->cashe_end();
     }
+
+    
+
+    public function variation(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $prod_service = new \Modules\Shop\Modul\Productservice;
+        $this->data_view["show_all"] = $prod_service->show_all();
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/variation.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function newvariation(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $service = new \Modules\Shop\Modul\Catalogservice;
+        $this->data_view["categor_list"] = $service->show_list();
+        $prod_service = new \Modules\Shop\Modul\Productservice;
+        $this->data_view["result_add"] = $prod_service->create_new();
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newvariation.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function editvariation(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/editvariation.php";
+        $this->show();
+        $this->cashe_end();
+    }
     
 }

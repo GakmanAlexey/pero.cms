@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-27 12:43:40",
+    "generated_at": "2025-06-27 18:12:39",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 72,
+    "routes_count": 75,
     "routes": [
         {
             "path": "/admin/",
@@ -256,6 +256,24 @@
             "path": "/catalog/test/test1/",
             "class": "Modules\\Shop\\Controller\\Product",
             "method": "open",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/variation/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "variation",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/variation/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "newvariation",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/variation/edit/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "editvariation",
             "module": "shop"
         },
         {

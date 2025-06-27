@@ -43,6 +43,17 @@ Class Lmenu extends \Modules\Abs\Lmenu{
             1,                          //TODO Вид действия
             $ico_site,                    //Иконка
             "admin"         //Привелегии
+        );  
+
+        \Modules\Admin\Modul\Buildermenu::add_element(
+            "shop",                        //Родитель   
+            "variation",              //Название на латинице
+            "Вариации" ,     //Название на Русском
+            "variation",              //Url адрес
+            5,                          //Приоритет
+            1,                          //TODO Вид действия
+            $ico_site,                    //Иконка
+            "admin"         //Привелегии
         );
     }
 }
