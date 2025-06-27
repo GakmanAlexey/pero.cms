@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-06-26 14:23:49",
+    "generated_at": "2025-06-27 12:43:40",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 71,
+    "routes_count": 72,
     "routes": [
         {
             "path": "/admin/",
@@ -429,6 +429,12 @@
         {
             "path": "/catalog/tokovye-kleschi/ntcn/",
             "class": "\\Modules\\Shop\\Controller\\Product",
+            "method": "open",
+            "source": "SQL (fallback)"
+        },
+        {
+            "path": "/brand/dsadsd-1/",
+            "class": "\\Modules\\Shop\\Controller\\Brand",
             "method": "open",
             "source": "SQL (fallback)"
         }

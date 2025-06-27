@@ -23,6 +23,8 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $bs = new \Modules\Shop\Modul\Brandservice;
+        $this->data_view = $bs->create_new();
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newbrand.php";
         $this->show();
         $this->cashe_end();

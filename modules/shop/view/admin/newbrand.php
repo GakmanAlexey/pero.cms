@@ -1,23 +1,34 @@
 <form action="" method="post">
     <div class="a016_header_block">
-        <div class="a016_header_title">Бренд #1</div>
+        <div class="a016_header_title">Создание бренда</div>
         <button name="save_boot_new_brand" value="save" class="a016_add_button">
             Сохранить
         </button>
     </div>
-    <div id="box_msg">    
+<?php
+if($this->data_view['job']){
+    if($this->data_view['status']){
+        echo '<div id="box_msg">    
         <!-- Успешно -->
         <div class="a016_toast a016_toast_success">
             <span class="a016_toast_icon">✔</span>
-            <span class="a016_toast_text">Данные успешно сохранены</span>
+            <span class="a016_toast_text">Данные успешно сохранены '.$this->data_view['id'].'</span>
         </div>
+    </div>';
+    }else{
+        echo '<div id="box_msg"> 
 
         <!-- Ошибка -->
         <div class="a016_toast a016_toast_error">
             <span class="a016_toast_icon">✖</span>
-            <span class="a016_toast_text">Ошибка сохранения</span>
+            <span class="a016_toast_text">'.$this->data_view['msg'].'</span>
         </div>
-    </div>
+    </div>';
+    }
+   
+}
+?>
+    
 
     <div class="a016_form_box_in_user">
         <div class="a016_form_box">

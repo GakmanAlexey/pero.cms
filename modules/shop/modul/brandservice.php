@@ -30,8 +30,60 @@ class Brandservice{
                 ->set_product_count($brand_data["product_count"]);
             $this->brand_array[] = $brand;
         }
-
+        
         return  $this->brand_array;
+    }
+
+    public function create_new(){
+        if(!isset($_POST["save_boot_new_brand"])){
+            return [
+                'job' => false,
+                'status' => false,
+                'id' => 0,
+                'msg' => 'Не заполнены все данные'
+            ];
+        }
+        if(!isset($_POST["name"])){
+            return [
+                'job' => true,
+                'status' => false,
+                'id' => 0,
+                'msg' => 'Не заполнены все данные'
+            ];
+        }
+        if(!isset($_POST["nomber_photo"])){
+            return [
+                'job' => true,
+                'status' => false,
+                'id' => 0,
+                'msg' => 'Не заполнены все данные'
+            ];
+        }
+        if(!isset($_POST["mini_discription"])){
+            return [
+                'job' => true,
+                'status' => false,
+                'id' => 0,
+                'msg' => 'Не заполнены все данные'
+            ];
+        }
+        if(!isset($_POST["discription"])){
+            return [
+                'job' => true,
+                'status' => false,
+                'id' => 0,
+                'msg' => 'Не заполнены все данные'
+            ];
+        }
+        $brand = new  \Modules\Shop\Modul\Brand();
+        $brand->set_name_ru($_POST["name"])
+            ->set_description($_POST["mini_discription"])
+            ->set_is_active(1)
+            ->set_img($_POST["nomber_photo"])
+            ->set_text($_POST["discription"]);
+
+        $manager = new \Modules\Shop\Modul\Brandmanager;
+        return $manager->create($brand);
     }
     
 }
