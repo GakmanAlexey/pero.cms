@@ -1,0 +1,567 @@
+
+.a025_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a025_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a025_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a025_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+  
+  .a025_add_icon_blue {
+    width: 20px;
+    height: 20px;
+    fill: #2F6BF2;
+  }
+
+
+  
+.a025_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a025_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a025_thead {
+  }
+
+  .a025_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a025_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a025_tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .a025_tr_body {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a025_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a025_action_button_long{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #007bff;
+
+  }
+
+  .a025_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .a025_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a025_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .a025_td_id{
+    width: 60px;
+  }
+
+  .a025_td_status_active{
+    color: #0A7E23;
+  }
+
+  .a025_td_status_deseible{
+    color: #636363;
+  }
+
+  
+.a025_nested_table_wrapper {
+  margin-top: -15px;
+  background-color: #dfdfdf; /* необязательно — лёгкий фон для отличия */
+  border-radius: 0 0 8px 8px;
+    border-left: #007bff 4px solid;
+
+}
+
+.a025_wrap_variation{
+  margin-left: -4px;
+}
+
+  .a025_tr_body_variable {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  
+  /* Для textarea */
+.a026_input_textarea {
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    background: none;
+    height: 18px;
+    order: 2;
+    outline: none;
+}
+
+.a026_input_textarea:focus + .a006_input_label {
+    color: #2F6BF2;
+}
+
+  .a026_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a026_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a026_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+.a026_input_group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.a026_input_wrapper {
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 0 0 calc(50% - 32px); /* если 1 — займет 50% ширины */
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+}
+
+.a026_input_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a026_input_label {
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s linear;
+}
+
+.a026_input_field {
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+}
+
+
+.a026_input_field_select {
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+    appearance: none; /* Убираем стандартную стрелку в большинстве браузеров */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232F6BF2" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+
+.a026_input_field:focus + .a008_input_label {
+    color: #2F6BF2;
+}
+
+
+
+/* Ошибочный стиль */
+.a026_has_error {
+  border-color: #FF4D4F;
+}
+
+.a026_has_error .a008_input_label {
+  color: #FF4D4F;
+}
+
+/* Текст ошибки */
+.a026_error_text {
+  color: #FF4D4F;
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+
+
+
+
+.a026_toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  width: calc(100% - 32px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.a026_toast_icon {
+  font-size: 18px;
+}
+
+.a026_toast_success {
+  background-color: #e6f6eb;
+  color: #2e7d32;
+  border: 1px solid #c1e7d0;
+}
+
+.a026_toast_error {
+  background-color: #fdecea;
+  color: #c62828;
+  border: 1px solid #f5c6c6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.a026_checkbox_wrapper {    
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 0 0 calc(50% - 32px); /* если 1 — займет 50% ширины */
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+    justify-content: center;
+}
+
+.a026_checkbox_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a026_checkbox_label {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.a026_checkbox_field {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    accent-color: #2F6BF2; /* Современный способ стилизации checkbox */
+    cursor: pointer;
+}
+
+
+
+  
+  /* Для textarea */
+.a027_input_textarea {
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    background: none;
+    height: 18px;
+    order: 2;
+    outline: none;
+}
+
+.a027_input_textarea:focus + .a006_input_label {
+    color: #2F6BF2;
+}
+
+  .a027_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a027_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a027_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+.a027_input_group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.a027_input_wrapper {
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 0 0 calc(50% - 32px); /* если 1 — займет 50% ширины */
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+}
+
+.a027_input_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a027_input_label {
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s linear;
+}
+
+.a027_input_field {
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+}
+
+
+.a027_input_field_select {
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+    appearance: none; /* Убираем стандартную стрелку в большинстве браузеров */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232F6BF2" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+
+.a027_input_field:focus + .a008_input_label {
+    color: #2F6BF2;
+}
+
+
+
+/* Ошибочный стиль */
+.a027_has_error {
+  border-color: #FF4D4F;
+}
+
+.a027_has_error .a008_input_label {
+  color: #FF4D4F;
+}
+
+/* Текст ошибки */
+.a027_error_text {
+  color: #FF4D4F;
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+
+
+
+
+.a027_toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  width: calc(100% - 32px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.a027_toast_icon {
+  font-size: 18px;
+}
+
+.a027_toast_success {
+  background-color: #e6f6eb;
+  color: #2e7d32;
+  border: 1px solid #c1e7d0;
+}
+
+.a027_toast_error {
+  background-color: #fdecea;
+  color: #c62828;
+  border: 1px solid #f5c6c6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.a027_checkbox_wrapper {    
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    flex: 0 0 calc(50% - 32px); /* если 1 — займет 50% ширины */
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+    justify-content: center;
+}
+
+.a027_checkbox_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a027_checkbox_label {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.a027_checkbox_field {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    accent-color: #2F6BF2; /* Современный способ стилизации checkbox */
+    cursor: pointer;
+}
+
+.a027_green{
+  background-color: #c1e7d0;
+}
+
+.a027_grey{
+  background-color: #dddddd;
+}

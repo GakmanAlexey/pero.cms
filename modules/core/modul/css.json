@@ -27,6 +27,7 @@
         "modules/shop/src/css/admincategor.css",
         "modules/admin/src/css/service.css",
         "modules/group/src/css/groupadmin.css",
-        "modules/shop/src/css/adminproduct.css"
+        "modules/shop/src/css/adminproduct.css",
+        "modules/shop/src/css/adminvariation.css"
     ]
 }
