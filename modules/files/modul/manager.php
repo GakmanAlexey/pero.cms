@@ -112,8 +112,7 @@ HTML	text/html
         $extension = pathinfo($file_data['name'], PATHINFO_EXTENSION);
         $service = new \Modules\Files\Modul\Service;
         $new_file_name = $service->generate_random_filename(40) . ($extension ? '.' . $extension : '');
-        $destination = rtrim($real_dir, '/') . '/' . $new_file_name;
-
+        $destination = rtrim($upload_dir, '/') . '/' . $new_file_name;
         if (!move_uploaded_file($file_data['tmp_name'], $destination)) {
             $this->log("Не удалось переместить загруженный файл в '$destination'");
             return null;
@@ -122,7 +121,7 @@ HTML	text/html
         $file->set_name($file_data['name'])
              ->set_type($file_data['type'])
              ->set_size($file_data['size'])
-             ->set_path($destination)
+             ->set_path('/'.$destination)
              ->set_extension($extension)
              ->add_metadata('original_tmp_name', $file_data['tmp_name']);
 
