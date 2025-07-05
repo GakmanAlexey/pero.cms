@@ -19,5 +19,6 @@
     ["/admin/shop/variation/edit/", "Modules\\Shop\\Controller\\Admin", "editvariation"],
     ["/admin/shop/specific/", "Modules\\Shop\\Controller\\Admin", "specific"],
     ["/admin/shop/specific/new/", "Modules\\Shop\\Controller\\Admin", "newspecific"],
-    ["/admin/shop/specific/edit/", "Modules\\Shop\\Controller\\Admin", "editspecific"]
+    ["/admin/shop/specific/edit/", "Modules\\Shop\\Controller\\Admin", "editspecific"],
+    ["/admin/shop/product/specific/", "Modules\\Shop\\Controller\\Admin", "productspecific"]
 ]
