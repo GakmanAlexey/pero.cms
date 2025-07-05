@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-06-27 21:40:39",
-    "routes_count": 64,
+    "generated_at": "2025-07-05 11:03:42",
+    "routes_count": 67,
     "routes": [
         {
             "path": "/admin/",
@@ -270,6 +270,24 @@
             "path": "/admin/shop/variation/edit/",
             "class": "Modules\\Shop\\Controller\\Admin",
             "method": "editvariation",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/specific/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "specific",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/specific/new/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "newspecific",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/specific/edit/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "editspecific",
             "module": "shop"
         },
         {

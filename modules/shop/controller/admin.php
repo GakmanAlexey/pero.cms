@@ -116,6 +116,10 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $prod_service = new \Modules\Shop\Modul\Productservice;
+        $product_list= $prod_service->show_all();
+
+        $this->data_view["show_all"]=$product_list;
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/editproduct.php";
         $this->show();
         $this->cashe_end();
@@ -158,6 +162,43 @@ Class Admin extends \Modules\Abs\Controller{
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/editvariation.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+
+    
+    public function specific(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $prod_service = new \Modules\Shop\Modul\Productservice;
+        $this->data_view["show_all"] = $prod_service->show_all();
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/specific.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function newspecific(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/newspecific.php";
+        $this->show();
+        $this->cashe_end();
+    }
+
+    public function editspecific(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "admin";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);
+        $this->list_file[] = APP_ROOT."/modules/shop/view/admin/editspecific.php";
         $this->show();
         $this->cashe_end();
     }
