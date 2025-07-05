@@ -23,14 +23,17 @@
     </table>
 
     <div class="a028_tbody">
+        <?php
+foreach ($this->data_view["list"] as $item_spec){
+    echo '
         <table class="a028_table">
             <tr class="a028_tr_body">
-                <td class="a028_td a028_td_id">1</td>
-                <td class="a028_td a028_td_name">Количество</td>
-                <td class="a028_td a028_td_unit">шт</td>    
+                <td class="a028_td a028_td_id">'.$item_spec->get_id().'</td>
+                <td class="a028_td a028_td_name">'.$item_spec->get_name_ru().'</td>
+                <td class="a028_td a028_td_unit">'.$item_spec->get_unit().'</td>    
                 <td class="a028_td">
                 <div class="a028_actions">
-                    <a href="" class="a028_action_button" title="Редактировать">
+                    <a href="/admin/shop/specific/edit/?id='.$item_spec->get_id().'" class="a028_action_button" title="Редактировать">
                         <svg viewBox="0 0 24 24" fill="#2F6BF2">
                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM21.41 6.34a1.25 1.25 0 000-1.77l-2-2a1.25 1.25 0 00-1.77 0l-1.83 1.83 3.75 3.75 1.85-1.81z"/>
                         </svg>
@@ -51,6 +54,8 @@
                 </div>
                 </td>
             </tr>
-        </table>
+        </table>';
+}
+        ?>
     </div>
 </div>

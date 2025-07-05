@@ -174,8 +174,8 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Head::load();
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
-        $prod_service = new \Modules\Shop\Modul\Productservice;
-        $this->data_view["show_all"] = $prod_service->show_all();
+        $service = new \Modules\Shop\Modul\Specificservice;
+        $this->data_view["list"] = $service->show_all();
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/specific.php";
         $this->show();
         $this->cashe_end();
