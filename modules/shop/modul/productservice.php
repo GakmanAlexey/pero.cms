@@ -127,7 +127,7 @@ class Productservice{
                 ':attributes' => "", 
                 ':tags' => ""
             ];
-            var_dump($product->get_old_price());
+            //var_dump($product->get_old_price());
             foreach ($params as $key => $value) {
                 $paramType = \PDO::PARAM_STR; // По умолчанию
                 
