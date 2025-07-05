@@ -522,3 +522,484 @@
   .a028_td_status_deseible{
     color: #636363;
   }
+
+
+  
+.a032_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a032_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a032_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a032_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+  
+.a032_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a032_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a032_thead {
+  }
+
+  .a032_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a032_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a032_tbody {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    margin-top: 10px;
+
+  }
+
+  .a032_tr_body {
+    display: table;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a032_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a032_actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .a032_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a032_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .a032_td_id{
+    width: 320px;
+  }
+
+  .a032_td_status_active{
+    color: #0A7E23;
+  }
+
+  .a032_td_status_deseible{
+    color: #636363;
+  }
+
+
+
+  
+  /* Для textarea */
+.a032_input_textarea {
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    background: none;
+    height: 18px;
+    order: 2;
+    outline: none;
+}
+
+.a032_input_textarea:focus + .a006_input_label {
+    color: #2F6BF2;
+}
+
+  .a032_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a032_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a032_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+.a032_input_group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.a032_input_wrapper {
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 300px;
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+}
+
+.a032_input_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a032_input_label {
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s linear;
+}
+
+.a032_input_field {
+    border: none;
+    padding: 2px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+}
+
+
+.a032_input_field_select {
+    border: none;
+    padding: 2px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+    appearance: none; /* Убираем стандартную стрелку в большинстве браузеров */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232F6BF2" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+
+.a032_input_field:focus + .a008_input_label {
+    color: #2F6BF2;
+}
+
+
+.a032_btn_box_in{
+    display: flex;
+    justify-content: start;
+    margin-top: 30px;
+}
+
+.a032_actions_wrap{
+    width: 40px;
+}
+
+
+.a031_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a031_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a031_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .a031_add_icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+
+  
+.a031_table_wrapper {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .a031_table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+  }
+
+  .a031_thead {
+  }
+
+  .a031_tr_header {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .a031_th {
+    padding: 10px 15px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .a031_tbody {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    margin-top: 10px;
+
+  }
+
+  .a031_tr_body {
+    display: table;
+    table-layout: fixed;
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .a031_td {
+    padding: 10px 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+  .a031_actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .a031_action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .a031_action_button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .a031_td_id{
+    width: 320px;
+  }
+
+  .a031_td_status_active{
+    color: #0A7E23;
+  }
+
+  .a031_td_status_deseible{
+    color: #636363;
+  }
+
+
+
+  
+  /* Для textarea */
+.a031_input_textarea {
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    background: none;
+    height: 18px;
+    order: 2;
+    outline: none;
+}
+
+.a031_input_textarea:focus + .a006_input_label {
+    color: #2F6BF2;
+}
+
+  .a031_header_block {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+  }
+
+  .a031_header_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+
+  .a031_add_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 26px;
+    background: #2F6BF2;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+.a031_input_group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.a031_input_wrapper {
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #E8E8ED;
+    transition: all 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 300px;
+    min-width: 250px; /* можно регулировать под ваш дизайн */
+}
+
+.a031_input_wrapper:hover {
+    border-color: #c5c5c5;
+}
+
+.a031_input_label {
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s linear;
+}
+
+.a031_input_field {
+    border: none;
+    padding: 2px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+}
+
+
+.a031_input_field_select {
+    border: none;
+    padding: 2px 0;
+    font-size: 14px;
+    background: none;
+    order: 2;
+    outline: none;
+    appearance: none; /* Убираем стандартную стрелку в большинстве браузеров */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%232F6BF2" height="10" viewBox="0 0 24 24" width="10" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+
+.a031_input_field:focus + .a008_input_label {
+    color: #2F6BF2;
+}
+
+
+.a031_btn_box_in{
+    display: flex;
+    justify-content: start;
+    margin-top: 30px;
+}
+
+.a031_actions_wrap{
+    width: 40px;
+}
