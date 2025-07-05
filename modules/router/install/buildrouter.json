@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-07-05 18:22:48",
+    "generated_at": "2025-07-05 18:25:45",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 80,
+    "routes_count": 81,
     "routes": [
         {
             "path": "/admin/",
@@ -298,6 +298,12 @@
             "path": "/admin/shop/product/specific/",
             "class": "Modules\\Shop\\Controller\\Admin",
             "method": "productspecific",
+            "module": "shop"
+        },
+        {
+            "path": "/admin/shop/variation/specific/",
+            "class": "Modules\\Shop\\Controller\\Admin",
+            "method": "variationspecific",
             "module": "shop"
         },
         {
