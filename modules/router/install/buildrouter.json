@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-07-05 18:25:45",
+    "generated_at": "2025-07-06 10:32:59",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 81,
+    "routes_count": 71,
     "routes": [
         {
             "path": "/admin/",
@@ -421,73 +421,13 @@
             "module": "user"
         },
         {
-            "path": "/catalog/123123-1/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "index",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/12321213123/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "index",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/dasddas/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "index",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/dasddas-1/",
+            "path": "/catalog/gbg/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "open",
             "source": "SQL (fallback)"
         },
         {
-            "path": "/catalog/izmeritelnye-instrumenty/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/pirometry/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/multimetry/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/tokovye-kleschi/",
-            "class": "\\Modules\\Shop\\Controller\\Catalog",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/tokovye-kleschi/123-1/",
-            "class": "\\Modules\\Shop\\Controller\\Product",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/tokovye-kleschi/ntcn/",
-            "class": "\\Modules\\Shop\\Controller\\Product",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/brand/dsadsd-1/",
-            "class": "\\Modules\\Shop\\Controller\\Brand",
-            "method": "open",
-            "source": "SQL (fallback)"
-        },
-        {
-            "path": "/catalog/ssas/",
+            "path": "/catalog/1/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "open",
             "source": "SQL (fallback)"

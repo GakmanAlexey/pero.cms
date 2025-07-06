@@ -79,6 +79,12 @@ foreach($this->data_view["show_all"] as $product){
                     <td class="a025_td a025_td_art">001134-B</td>
                     <td class="a025_td">
                     <div class="a025_actions">
+
+                    <a href="" class="a022_action_button" title="бургер">
+                        <svg viewBox="0 0 24 24" fill="#2F6BF2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm0 7h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm0 7h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2z"></path>
+                        </svg>
+                    </a>
                     <a href="" class="a025_action_button" title="Редактировать">
                         <svg viewBox="0 0 24 24" fill="#2F6BF2">
                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM21.41 6.34a1.25 1.25 0 000-1.77l-2-2a1.25 1.25 0 00-1.77 0l-1.83 1.83 3.75 3.75 1.85-1.81z"/>
