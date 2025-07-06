@@ -212,7 +212,10 @@ Class Admin extends \Modules\Abs\Controller{
         $this->type_show = "admin";
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
         $service = new \Modules\Shop\Modul\Specificservice;
+        $this->data_view["result_add"] = $service->save_product();
         $this->data_view["list_all"] = $service->show_all();
+        $this->data_view["show_data_product"] = $service->show_data_product();
+        $this->data_view["show_data_vacant"] = $service->clear_no_active($this->data_view["list_all"],$this->data_view["show_data_product"]);
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/productspecific.php";
         $this->show();
         $this->cashe_end();
