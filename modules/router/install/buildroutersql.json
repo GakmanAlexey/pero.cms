@@ -1,16 +1,82 @@
 {
-    "generated_at": "2025-07-06 10:32:59",
-    "routes_count": 2,
+    "generated_at": "2025-07-07 20:57:53",
+    "routes_count": 13,
     "routes": [
         {
-            "path": "/catalog/gbg/",
+            "path": "/catalog/123123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/12321213123/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/dasddas/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "index",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/dasddas-1/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
             "method": "open",
             "source": "SQL_Database"
         },
         {
-            "path": "/catalog/1/",
+            "path": "/catalog/izmeritelnye-instrumenty/",
             "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/pirometry/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/multimetry/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/tokovye-kleschi/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/tokovye-kleschi/123-1/",
+            "class": "\\Modules\\Shop\\Controller\\Product",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/tokovye-kleschi/ntcn/",
+            "class": "\\Modules\\Shop\\Controller\\Product",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/brand/dsadsd-1/",
+            "class": "\\Modules\\Shop\\Controller\\Brand",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/ssas/",
+            "class": "\\Modules\\Shop\\Controller\\Catalog",
+            "method": "open",
+            "source": "SQL_Database"
+        },
+        {
+            "path": "/catalog/multimetry/1/",
+            "class": "\\Modules\\Shop\\Controller\\Product",
             "method": "open",
             "source": "SQL_Database"
         }
