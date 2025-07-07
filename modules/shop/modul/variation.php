@@ -106,6 +106,10 @@ class Variation
         $this->is_active = $is_active;
         return $this;
     }
+    public function get_is_active_sql(){
+        if($this->is_active) return 1;
+        return 0;
+    }
 
     public function get_images() {
         return $this->images;
@@ -113,6 +117,11 @@ class Variation
     public function set_images(array $images) {
         $this->images = $images;
         return $this;
+    }
+
+    public function get_images_str() {
+
+        return serialize($this->images);
     }
     public function add_image($image) {
         $this->images[] = $image;

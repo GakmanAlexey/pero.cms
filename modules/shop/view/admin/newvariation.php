@@ -1,22 +1,34 @@
 <form action="" method="post">
     <div class="a026_header_block">
         <div class="a026_header_title">Товар #1</div>
-        <button name="save_boot" value="save" class="a026_add_button">
+        <button name="save_boot_new_variation" value="save" class="a026_add_button">
             Сохранить
         </button>
     </div>
-    <div id="box_msg">    
-        <!-- Успешно -->
+    <?php
+//var_dump($this->data_view["result_add"]);
+    ?>
+    <div id="box_msg"> 
+<?php
+if($this->data_view["result_add"]["job"]){
+    if($this->data_view["result_add"]["result"]){
+        echo '
         <div class="a026_toast a026_toast_success">
             <span class="a026_toast_icon">✔</span>
-            <span class="a026_toast_text">Данные успешно сохранены</span>
-        </div>
-
-        <!-- Ошибка -->
+            <span class="a026_toast_text">Данные успешно сохранены id: '.$this->data_view["result_add"]["id"].'</span>
+        </div>';
+    }else{
+    echo '
         <div class="a026_toast a026_toast_error">
             <span class="a026_toast_icon">✖</span>
-            <span class="a026_toast_text">Ошибка сохранения</span>
-        </div>
+            <span class="a026_toast_text">'.$this->data_view["result_add"]["msg"].'</span>
+        </div>';
+    } 
+}  
+    ?>
+        <!-- Успешно -->
+
+        <!-- Ошибка -->
     </div>
 
     <div class="a026_form_box_in_user">
