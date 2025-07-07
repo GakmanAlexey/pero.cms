@@ -49,6 +49,7 @@ foreach($product->get_variations() as $variant){
                     <td class="a025_td">
                     <div class="a025_actions">
                     <a href="" class="a022_action_button" title="бургер">
+                    
                         <svg viewBox="0 0 24 24" fill="#2F6BF2" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3 6h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm0 7h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm0 7h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2z"></path>
                         </svg>
