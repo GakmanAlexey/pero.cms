@@ -135,6 +135,8 @@ Class Admin extends \Modules\Abs\Controller{
         \Modules\Core\Modul\Resource::load_conf($this->type_show);
         $prod_service = new \Modules\Shop\Modul\Productservice;
         $this->data_view["show_all"] = $prod_service->show_all();
+        $variant_service = new \Modules\Shop\Modul\Variationservice;
+        $this->data_view["show_all"] = $variant_service->show_prod_and_variant($this->data_view["show_all"]);
         $this->list_file[] = APP_ROOT."/modules/shop/view/admin/variation.php";
         $this->show();
         $this->cashe_end();
