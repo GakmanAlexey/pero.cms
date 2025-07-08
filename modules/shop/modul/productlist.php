@@ -10,7 +10,9 @@ class Productlist{
         $pdo = \Modules\Core\Modul\Sql::connect(); 
         $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_product WHERE category_id = ? and is_active = 1");
         $stmt2->execute([$categor_id]);
+        
         while($product_data = $stmt2->fetch(\PDO::FETCH_ASSOC)){
+            $spec = new \Modules\Shop\Modul\Specificservice;
             $product = new  \Modules\Shop\Modul\Product();
             $product->set_id($product_data["id"])
                 ->set_external_guid($product_data["external_guid"])
@@ -48,6 +50,7 @@ class Productlist{
                 ->set_created_at($product_data["created_at"])
                 ->set_updated_at($product_data["updated_at"])
                 ->set_deleted_at($product_data["deleted_at"]);
+                $product->set_specific($spec->show_data_product_id( $product->get_id()));                
             $product_list[] = $product;
         }
         return $product_list;

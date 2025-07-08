@@ -34,7 +34,6 @@ class Takerproduct{
                 ->set_sync_date($product_data["sync_date"])
                 ->set_is_sync_with_1c($product_data["is_sync_with_1c"])
                 ->set_has_variations($product_data["has_variations"])
-                ->set_variations([])
                 ->set_attributes([])
                 ->set_tags([])
                 ->set_sku($product_data["sku"])
