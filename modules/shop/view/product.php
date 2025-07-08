@@ -101,50 +101,19 @@ foreach($this->data_view["product"]->get_images() as $img){
                     Характеристики
                 </p>
                 <table class="b027_custom-table">
-                    <tr>
-                        <td>Новинка</td>
-                        <td>Нет</td>
-                    </tr>
+                    <?php
+foreach($this->data_view["product"]->get_specific()->get_specific() as $item_spec){
+    if( $item_spec[7] == 1){
+        echo '      <tr>
+                        <td>'.$item_spec[3].'</td>
+                        <td>'.$item_spec[4].' '.$item_spec[5].'</td>
+                    </tr>';
+    }
+}
+                    ?>
                     
-                    <tr>
-                        <td>Акции</td>
-                        <td>Нет</td>
-                    </tr>
-
-                    <tr>
-                        <td>Вид изделия</td>
-                        <td>Стабилизатор напряжения</td>
-                    </tr>
-
-                    <tr>
-                        <td>Производитель</td>
-                        <td>Бастион</td>
-                    </tr>
-
-                    <tr>
-                        <td>Ток нагрузки, А</td>
-                        <td>не более 14А</td>
-                    </tr>
-
-                    <tr>
-                        <td>Артикул</td>
-                        <td>SE00090988</td>
-                    </tr>
-
-                    <tr>
-                        <td>Спецпредложение</td>
-                        <td>Нет</td>
-                    </tr>
-
-                    <tr>
-                        <td>Габаритные размеры</td>
-                        <td>310x240x485 мм</td>
-                    </tr>
-
-                    <tr>
-                        <td>Мощность номинальная нагрузки</td>
-                        <td>3000 ВА</td>
-                    </tr>
+                    
+                    
                 </table>
             </div>
         </div>

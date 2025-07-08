@@ -41,6 +41,7 @@ class Product{
     private $variations = [];
     private $attributes = [];
     private $tags = [];
+    private $specific;
 
     public function get_id() {
         return $this->id;
@@ -361,6 +362,15 @@ class Product{
         $this->deleted_at = $deleted_at;
         return $this;
     }
+        
+    public function get_specific() {
+        return $this->specific;
+    }
+    public function set_specific($specific) {
+        $this->specific = $specific;
+        return $this;
+    }
+
 }
 
     

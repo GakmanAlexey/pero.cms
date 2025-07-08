@@ -26,6 +26,35 @@ class Specificservice{
         
         return $specific_list;
     }
+
+    public function show_data_product_id($id_product){
+        $spec = new \Modules\Shop\Modul\Specific;
+        $spec->set_product_id($id_product);
+        $spec->set_variant_id(0);
+        $pdo = \Modules\Core\Modul\Sql::connect(); 
+        $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_specific_data WHERE (product_id = ?) and (varianr_id = 0)");
+        $stmt->execute([$spec->get_product_id()]);
+        $prod_data = [];
+        while($product_specific_data = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $prod_data[] = [$product_specific_data["specific_id"],$product_specific_data["value"],$product_specific_data["id"]];
+        }
+        foreach( $prod_data as  $prod_data_item) {
+            $stmt2 =  $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_specific_list WHERE id = ? LIMIT 1");
+            $stmt2->execute([$prod_data_item[0]]);
+            $product_specific_data_val = $stmt2->fetch(\PDO::FETCH_ASSOC);
+            $spec->add_specific_item(
+                $product_specific_data_val["id"],
+                $prod_data_item[2],
+                $product_specific_data_val["name"],
+                $product_specific_data_val["name_ru"],
+                $prod_data_item[1],
+                $product_specific_data_val["unit"],
+                $product_specific_data_val["is_filter"]
+                ,$product_specific_data_val["is_visible"]
+            );
+        }
+        return  $spec;
+    }
     
     public function show_data_product(){
         if(!isset($_GET["id"])){
