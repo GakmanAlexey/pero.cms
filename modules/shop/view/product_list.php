@@ -1,8 +1,23 @@
     <div class="b024_product_katalog">
         
-<?php
+<?php    
+    $fil = new \Modules\Shop\Modul\Filtermenedger;
+    $fil->init_job_array($this->data_view["product_list"]->get_list_product());
+    //var_dump($fil->filter->get_prise());
+
+    
+// Получаем данные через геттеры
+$unique_specs = $fil->filter->get_unique_specifications();
+$spec_values = $fil->filter->get_specification_values();
+
+echo "<pre>";
+print_r($unique_specs);
+print_r($spec_values);
+echo "</pre>";
 //var_dump($this->data_view["product_list"]);
 foreach($this->data_view["product_list"]->get_list_product() as $product){
+
+    //var_dump($product);
         $file = \Modules\Files\Modul\Taker:: take($product->get_main_image());
     echo '
         <div class="b024_product_item">
