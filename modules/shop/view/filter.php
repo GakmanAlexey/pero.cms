@@ -1,4 +1,9 @@
-<div class="katalog_box">
+<?php
+    $fil = new \Modules\Shop\Modul\Filtermenedger;
+    $fil->init_job_array($this->data_view["product_list"]->get_list_product());
+    $unique_specs = $fil->filter->get_unique_specifications();
+    $spec_values = $fil->filter->get_specification_values();
+?><div class="katalog_box">
     <a class="b026_mobile_filter" href="">
 
         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,25 +95,34 @@
                 </div> 
             </div>                        
         </div>
-
         <div class="b026_filter_box">
-            <div class="b026_filter_title">
-                Выходное напряжение Uвых
+<?php
+$pam1 = 0;
+foreach($unique_specs as $item_name => $item_param){
+    $pam1++;
+    echo '<div class="b026_filter_title">
+               '.$item_param["name"].'
             </div>                        
             <div class="b026_checkbox_box">
                 <div class="b026_padio_elem">
-                    <input type="checkbox" id="selectAll2" onclick="document.querySelectorAll('.b026_chek_e2').forEach(checkbox => checkbox.checked = this.checked)">
+                    <input type="checkbox" id="selectAll2" onclick="document.querySelectorAll(\'.class_tov_'.$pam1.'\').forEach(checkbox => checkbox.checked = this.checked)">
                     <label for="selectAll2">Выбрать все</label>
-                </div>
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e2" id="22" name="" value="1">
-                    <label for="22">205...235 В</label>
-                </div>
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e2" id="33" name="" value="2">
-                    <label for="33">212...228 В</label>
-                </div>                            
-            </div>                        
+                </div>';
+                $pam2 =0;
+                foreach($spec_values[$item_param["key"]] as $spec_values_item){
+                    $pam2++;
+                    echo '
+                    <div class="b026_padio_elem">
+                        <input type="checkbox" class="b026_custom-checkbox b026_chek_e2 class_tov_'.$pam1.'" id="22" name="'.$item_param["key"].'" value="'.$pam2.'">
+                        <label for="22">'.$spec_values_item.' '.$item_param["unit"].'</label>
+                    </div> ';
+                }                       
+           echo '</div>   ';
+}
+?>
+            
+<?php
+?>                     
         </div>
 
         <button class="b026_btn_form b026_filtre_btn">Поиск по фильтрам</button>
