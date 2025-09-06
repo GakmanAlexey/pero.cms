@@ -3,6 +3,9 @@
     $fil->init_job_array($this->data_view["product_list"]->get_list_product());
     $unique_specs = $fil->filter->get_unique_specifications();
     $spec_values = $fil->filter->get_specification_values();
+    $min_price =  (int)$fil->filter->get_price_min();
+    $max_price =  (int)$fil->filter->get_price_max();
+
 ?><div class="katalog_box">
     <a class="b026_mobile_filter" href="">
 
@@ -29,9 +32,9 @@
             </div>                        
             <div class="b026_range_container">
                 <div class="b026_range_inputs">
-                    <input type="number" id="min_input" value="99" min="0" max="1000" />
+                    <input type="number" id="min_input" value="<?php echo $min_price;?>" min="<?php echo $min_price;?>" max="<?php echo $max_price;?>" />
                     <div class="b026_filter_tire"></div>
-                    <input type="number" id="max_input" value="35000" min="0" max="35000" />
+                    <input type="number" id="max_input" value="<?php echo $max_price;?>" min="<?php echo $min_price;?>" max="<?php echo $max_price;?>" />
                 </div>
                 <div class="b026_range_bar_container">
                     <div class="b026_range_fill" id="range_fill"></div>
