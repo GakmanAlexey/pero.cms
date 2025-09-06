@@ -114,4 +114,14 @@ class Filters{
         return $this->unique_specifications[$param_key] ?? null;
     }
     
+    public function load_brend_data(){
+        $br_list_add = [];
+        foreach($this->brand_list as $brand){
+            $br = new \Modules\Shop\Modul\Brand;
+            $br->set_id($brand);
+            $brands_manager = new \Modules\Shop\Modul\Brandmanager;
+            $br_list_add[] =$brands_manager->select($br);
+        }
+        $this->brand_list = $br_list_add;
+    }
 }

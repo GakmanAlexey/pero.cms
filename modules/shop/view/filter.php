@@ -52,30 +52,16 @@
                     <input type="checkbox" id="selectAll" onclick="document.querySelectorAll('.b026_chek_e').forEach(checkbox => checkbox.checked = this.checked)">
                     <label for="selectAll">Выбрать все</label>
                 </div>
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="Dormer" name="Dormer" value="1">
-                    <label for="Dormer">Dormer</label>
-                </div>
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="Guhring" name="Guhring" value="2">
-                    <label for="Guhring">Guhring</label>
-                </div>                            
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="Hoffmann" name="Hoffmann" value="3">
-                    <label for="Hoffmann">Hoffmann</label>
-                </div> 
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="IZAR" name="IZAR" value="4">
-                    <label for="IZAR">IZAR</label>
-                </div> 
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="Korloy" name="Korloy" value="5">
-                    <label for="Korloy">Korloy</label>
-                </div> 
-                <div class="b026_padio_elem">
-                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="Dormer2" name="Dormer" value="6">
-                    <label for="Dormer2">Dormer2</label>
-                </div> 
+                <?php
+foreach($fil->filter->get_brand() as $i_brand){
+    echo '      <div class="b026_padio_elem">
+                    <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="'.$i_brand->get_name().'" name="'.$i_brand->get_name().'" value="'.$i_brand->get_id().'">
+                    <label for="'.$i_brand->get_name().'">'.$i_brand->get_name_ru().'</label>
+                </div>';
+}
+                ?>
+                
+                
             </div>                        
         </div>
 

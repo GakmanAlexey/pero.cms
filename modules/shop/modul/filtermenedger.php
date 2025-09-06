@@ -10,6 +10,7 @@ class Filtermenedger{
             $this->init_job($product);
         } 
         $this->filter->sort_specification_values();  
+        $this->filter->load_brend_data();  
     }
 
     public function init_job(\Modules\Shop\Modul\Product $product){
