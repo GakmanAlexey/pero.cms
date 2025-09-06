@@ -19,7 +19,7 @@
         </svg>                            
 
     </a>
-    <form method="post" class="b026_filter_left">
+    <form method="get" class="b026_filter_left">
         <div class="b026_filter_box">
             <a class="b026_closed_filter" href="">
                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
