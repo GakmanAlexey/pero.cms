@@ -45,6 +45,8 @@ Class Catalog extends \Modules\Abs\Controller{
         $this->data_view["categor_list_filter"] = new \Modules\Shop\Modul\Filtermenedger;
         $this->data_view["categor_list_filter"]->init_job_array($this->data_view["product_list"]->get_list_product());
 
+        $fjob = new \Modules\Shop\Modul\Filterjob;
+        $this->data_view["product_list"] = $fjob->get_Apply($this->data_view["product_list"]);
         $this->list_file[] = APP_ROOT."/modules/shop/view/catalog_open.php" ; 
         $this->list_file[] = APP_ROOT."/modules/shop/view/filter.php";
         $this->list_file[] = APP_ROOT."/modules/shop/view/product_list.php";

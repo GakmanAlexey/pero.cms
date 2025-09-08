@@ -113,7 +113,7 @@ foreach($unique_specs as $item_name => $item_param){
         </div>
 
         <button class="b026_btn_form b026_filtre_btn">Поиск по фильтрам</button>
-        <a class="b026_link_filter" href="">Сбросить все фильтры</a>
+        <a class="b026_link_filter" href="<?php echo strtok($_SERVER["REQUEST_URI"], '?'); ?>">Сбросить все фильтры</a>
     </form>
 
     <script>
@@ -187,3 +187,156 @@ foreach($unique_specs as $item_name => $item_param){
 
     updateUI();
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для получения всех значений параметра (включая массивы)
+    function getQueryParamValues(paramName) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.getAll(paramName);
+    }
+
+    // Функция для получения всех параметров
+    function getAllQueryParams() {
+        const params = {};
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        for (let [key, value] of urlParams) {
+            if (params[key] === undefined) {
+                params[key] = value;
+            } else {
+                // Если параметр уже существует, преобразуем в массив
+                if (!Array.isArray(params[key])) {
+                    params[key] = [params[key]];
+                }
+                params[key].push(value);
+            }
+        }
+        
+        return params;
+    }
+
+    // Получаем все параметры
+    const params = getAllQueryParams();
+    
+    // Восстанавливаем значения цен
+    if (params.min_price) {
+        document.getElementById('min_input').value = params.min_price;
+        document.getElementById('min_input').setAttribute('name', 'min_price');
+    }
+    if (params.max_price) {
+        document.getElementById('max_input').value = params.max_price;
+        document.getElementById('max_input').setAttribute('name', 'max_price');
+    }
+    
+    // Восстанавливаем радио-кнопки "Наличие"
+    if (params.options) {
+        const radio = document.querySelector(`input[name="options"][value="${params.options}"]`);
+        if (radio) radio.checked = true;
+    }
+    
+    // Восстанавливаем чекбоксы брендов
+    const brandCheckboxes = document.querySelectorAll('.b026_chek_e');
+    brandCheckboxes.forEach(checkbox => {
+        const paramName = checkbox.name;
+        const paramValue = checkbox.value;
+        
+        // Получаем все значения для этого параметра
+        const paramValues = getQueryParamValues(paramName);
+        
+        // Проверяем, есть ли значение в параметрах
+        if (paramValues.includes(paramValue)) {
+            checkbox.checked = true;
+        }
+    });
+    
+    // Восстанавливаем чекбоксы характеристик
+    const specCheckboxes = document.querySelectorAll('.b026_chek_e2');
+    specCheckboxes.forEach(checkbox => {
+        const paramName = checkbox.name;
+        const paramValue = checkbox.value;
+        
+        // Получаем все значения для этого параметра
+        const paramValues = getQueryParamValues(paramName);
+        
+        // Проверяем, есть ли значение в параметрах
+        if (paramValues.includes(paramValue)) {
+            checkbox.checked = true;
+        }
+    });
+    
+    // Обновляем UI ползунка цен
+    if (typeof updateUI === 'function') {
+        setTimeout(updateUI, 100);
+    }
+    
+    // Добавляем name атрибуты к полям цены, если их нет
+    const minInput = document.getElementById('min_input');
+    const maxInput = document.getElementById('max_input');
+    if (!minInput.getAttribute('name')) {
+        minInput.setAttribute('name', 'min_price');
+    }
+    if (!maxInput.getAttribute('name')) {
+        maxInput.setAttribute('name', 'max_price');
+    }
+
+    
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для сброса всех фильтров
+    function resetAllFilters() {
+        // Очищаем GET-параметры в URL
+        const urlWithoutParams = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, urlWithoutParams);
+        
+        // Сбрасываем значения цены
+        const minInput = document.getElementById('min_input');
+        const maxInput = document.getElementById('max_input');
+        if (minInput && maxInput) {
+            minInput.value = minInput.getAttribute('min');
+            maxInput.value = minInput.getAttribute('max');
+            if (typeof updateUI === 'function') {
+                updateUI();
+            }
+        }
+        
+        // Сбрасываем радио-кнопки "Наличие"
+        const option1 = document.getElementById('option1');
+        if (option1) option1.checked = true;
+        
+        // Сбрасываем все чекбоксы брендов
+        const brandCheckboxes = document.querySelectorAll('.b026_chek_e');
+        brandCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+        // Сбрасываем все чекбоксы характеристик
+        const specCheckboxes = document.querySelectorAll('.b026_chek_e2');
+        specCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+        // Обновляем состояние "Выбрать все"
+        if (typeof initSelectAllObservers === 'function') {
+            setTimeout(initSelectAllObservers, 100);
+        }
+        
+        // Перезагружаем страницу без параметров
+        window.location.href = urlWithoutParams;
+    }
+    
+    // Назначаем обработчик на кнопку "Сбросить все фильтры"
+    const resetButton = document.querySelector('.b026_link_filter');
+    if (resetButton) {
+        resetButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            resetAllFilters();
+        });
+        
+        // Обновляем href для поддержки открытия в новой вкладке
+        resetButton.href = window.location.origin + window.location.pathname;
+    }
+});
+</script>

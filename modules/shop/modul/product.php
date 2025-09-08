@@ -43,6 +43,8 @@ class Product{
     private $tags = [];
     private $specific;
 
+    private $status_filter = true;
+
     public function get_id() {
         return $this->id;
     }
@@ -369,6 +371,20 @@ class Product{
     public function set_specific($specific) {
         $this->specific = $specific;
         return $this;
+    }
+
+    public function set_status_filter_true(){
+        $this->status_filter = true;
+        return $this;
+    }
+    
+    public function set_status_filter_false(){
+        $this->status_filter = false;
+        return $this;        
+    }
+
+    public function get_status_filter(){
+        return $this->status_filter;
     }
 
 }

@@ -19,6 +19,8 @@ class Variation
     private $sync_date;
     private $is_sync_with_1c;
 
+    private $status_filter = true;
+
     // ID
     public function get_id() {
         return $this->id;
@@ -164,5 +166,19 @@ class Variation
         $this->sync_date = date('Y-m-d H:i:s');
         $this->is_sync_with_1c = true;
         return $this;
+    }
+
+    public function set_status_filter_true(){
+        $this->status_filter = true;
+        return $this;
+    }
+    
+    public function set_status_filter_false(){
+        $this->status_filter = false;
+        return $this;        
+    }
+
+    public function get_status_filter(){
+        return $this->status_filter;
     }
 }

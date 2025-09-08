@@ -7,6 +7,7 @@ foreach($this->data_view["product_list"]->get_list_product() as $product){
 
     //var_dump($product);
         $file = \Modules\Files\Modul\Taker:: take($product->get_main_image());
+        if($product->get_status_filter()){
     echo '
         <div class="b024_product_item">
             <a class="b024_product_item_link" href="'.$product->get_url_full().'">
@@ -37,11 +38,12 @@ foreach($this->data_view["product_list"]->get_list_product() as $product){
                 </svg>                                    
             </a>
             </div>
-        </div>';
+        </div>';}
         //var_dump($product->get_specific());
 
         if($product->get_variations() != []){
             foreach($product->get_variations() as $variant){
+                if($variant->get_status_filter()){
                 echo '
                 <div class="b024_product_item">
                     <a class="b024_product_item_link" href="'.$product->get_url_full().'?variant='.$variant->get_id().'">
@@ -72,7 +74,7 @@ foreach($this->data_view["product_list"]->get_list_product() as $product){
                         </svg>                                    
                     </a>
                     </div>
-                </div>';
+                </div>';}
             }
         }
 }
