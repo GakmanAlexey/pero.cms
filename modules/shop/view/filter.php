@@ -1,12 +1,10 @@
 <?php
-    $fil = new \Modules\Shop\Modul\Filtermenedger;
-    $fil->init_job_array($this->data_view["product_list"]->get_list_product());
-    $unique_specs = $fil->filter->get_unique_specifications();
-    $spec_values = $fil->filter->get_specification_values();
-    $min_price =  (int)$fil->filter->get_price_min();
-    $max_price =  (int)$fil->filter->get_price_max();
-
-?><div class="katalog_box">
+    $unique_specs = $this->data_view["categor_list_filter"]->filter->get_unique_specifications();
+    $spec_values = $this->data_view["categor_list_filter"]->filter->get_specification_values();
+    $min_price =  (int)$this->data_view["categor_list_filter"]->filter->get_price_min();
+    $max_price =  (int)$this->data_view["categor_list_filter"]->filter->get_price_max();
+?>
+<div class="katalog_box">
     <a class="b026_mobile_filter" href="">
 
         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +51,7 @@
                     <label for="selectAll">Выбрать все</label>
                 </div>
                 <?php
-foreach($fil->filter->get_brand() as $i_brand){
+foreach($this->data_view["categor_list_filter"]->filter->get_brand() as $i_brand){
     echo '      <div class="b026_padio_elem">
                     <input type="checkbox" class="b026_custom-checkbox b026_chek_e" id="'.$i_brand->get_name().'" name="'.$i_brand->get_name().'" value="'.$i_brand->get_id().'">
                     <label for="'.$i_brand->get_name().'">'.$i_brand->get_name_ru().'</label>
@@ -117,3 +115,75 @@ foreach($unique_specs as $item_name => $item_param){
         <button class="b026_btn_form b026_filtre_btn">Поиск по фильтрам</button>
         <a class="b026_link_filter" href="">Сбросить все фильтры</a>
     </form>
+
+    <script>
+        const minInput = document.getElementById("min_input");
+    const maxInput = document.getElementById("max_input");
+    const rangeFill = document.getElementById("range_fill");
+    const minThumb = document.getElementById("min_thumb");
+    const maxThumb = document.getElementById("max_thumb");
+
+    const minRange = <?php echo $min_price;?>;
+    const maxRange = <?php echo $max_price;?>;
+
+    function updateUI() {
+        const minValue = parseInt(minInput.value);
+        const maxValue = parseInt(maxInput.value);
+
+        // Рассчитываем проценты относительно диапазона
+        const minPercent = ((minValue - minRange) / (maxRange - minRange)) * 95;
+        const maxPercent = ((maxValue - minRange) / (maxRange - minRange)) * 95;
+
+        rangeFill.style.left = `${minPercent}%`;
+        rangeFill.style.width = `${maxPercent - minPercent}%`;
+
+        minThumb.style.left = `${minPercent}%`;
+        maxThumb.style.left = `${maxPercent}%`;
+    }
+
+    function clamp(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+    }
+
+    minInput.addEventListener("input", () => {
+        minInput.value = clamp(parseInt(minInput.value), minRange, parseInt(maxInput.value) - 1);
+        updateUI();
+    });
+
+    maxInput.addEventListener("input", () => {
+        maxInput.value = clamp(parseInt(maxInput.value), parseInt(minInput.value) + 1, maxRange);
+        updateUI();
+    });
+
+    function onDrag(thumb, isMinThumb) {
+        const bar = thumb.parentElement;
+        const rect = bar.getBoundingClientRect();
+
+        function moveHandler(e) {
+            const percent = clamp((e.clientX - rect.left) / rect.width, 0, 1);
+            // Преобразуем процент в значение в пределах диапазона
+            const value = Math.round(percent * (maxRange - minRange) + minRange);
+
+            if (isMinThumb) {
+                minInput.value = clamp(value, minRange, parseInt(maxInput.value) - 1);
+            } else {
+                maxInput.value = clamp(value, parseInt(minInput.value) + 1, maxRange);
+            }
+
+            updateUI();
+        }
+
+        function upHandler() {
+            document.removeEventListener("mousemove", moveHandler);
+            document.removeEventListener("mouseup", upHandler);
+        }
+
+        document.addEventListener("mousemove", moveHandler);
+        document.addEventListener("mouseup", upHandler);
+    }
+
+    minThumb.addEventListener("mousedown", () => onDrag(minThumb, true));
+    maxThumb.addEventListener("mousedown", () => onDrag(maxThumb, false));
+
+    updateUI();
+    </script>

@@ -41,6 +41,10 @@ Class Catalog extends \Modules\Abs\Controller{
         $this->data_view["product_list"] = $product_list->logic_open_categor();  
         $variant = new \Modules\Shop\Modul\Variationservice;
         $res = $variant->show_prod_and_variant($this->data_view["product_list"]->get_list_product());  
+        
+        $this->data_view["categor_list_filter"] = new \Modules\Shop\Modul\Filtermenedger;
+        $this->data_view["categor_list_filter"]->init_job_array($this->data_view["product_list"]->get_list_product());
+
         $this->list_file[] = APP_ROOT."/modules/shop/view/catalog_open.php" ; 
         $this->list_file[] = APP_ROOT."/modules/shop/view/filter.php";
         $this->list_file[] = APP_ROOT."/modules/shop/view/product_list.php";
