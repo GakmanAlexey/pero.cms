@@ -157,6 +157,7 @@ class Filterjob{
         }
         
         return false;
+        
     }
     // Вспомогательные методы
     
