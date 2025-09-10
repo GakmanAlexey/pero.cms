@@ -11,7 +11,7 @@
                 <form action="">
                     <div class="b030_wrap_info">
                         <div class="b005_input_wrapper">
-                            <input class="b005_input" type="text" placeholder="ФИО" name="username">
+                            <input class="b005_input" type="text" placeholder="ФИО" name="client">
                             <div class="b005_error_message"></div>
                         </div>
                          <div class="b005_input_wrapper">
@@ -19,7 +19,7 @@
                             <div class="b005_error_message"></div>
                         </div>
                          <div class="b005_input_wrapper">
-                            <input class="b005_input" type="text" placeholder="E-mail" name="mail ">
+                            <input class="b005_input" type="text" placeholder="E-mail" name="mail">
                             <div class="b005_error_message"></div>
                         </div>
                     </div>
