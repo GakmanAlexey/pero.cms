@@ -34,7 +34,7 @@ foreach(\Modules\Core\Modul\Menu::get_element("nav") as $element){
                     </div>
                   </form>
 
-                  <a href="" class="cart_icon nav_btn_box_link">
+                    <a href="/card/" class="cart_icon nav_btn_box_link">
                         <svg class="nav_btn_box_svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.66675 2.66669H4.98676C6.42676 2.66669 7.56008 3.90669 7.44008 5.33335L6.33341 18.6133C6.14675 20.7867 7.86674 22.6533 10.0534 22.6533H24.2534C26.1734 22.6533 27.8534 21.08 28.0001 19.1734L28.7201 9.17336C28.8801 6.96003 27.2001 5.16001 24.9734 5.16001H7.76009" stroke="#171717" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M21.6667 29.3333C22.5871 29.3333 23.3333 28.5871 23.3333 27.6667C23.3333 26.7462 22.5871 26 21.6667 26C20.7462 26 20 26.7462 20 27.6667C20 28.5871 20.7462 29.3333 21.6667 29.3333Z" stroke="#171717" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
