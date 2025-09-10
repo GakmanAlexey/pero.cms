@@ -1,0 +1,422 @@
+.b030_title_block{
+    font-size: 34px;
+    margin-bottom: 15px;
+    font-family: 'inter-semi-bold';
+    margin-top: 28px;
+}
+
+.b030_sposob_oplaty {
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    flex-direction: column;    
+    margin-bottom: 30px;
+}
+
+.b030_oplata_box {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.b030_wrap_oplata {
+    flex: 1;
+}
+
+.b030_form_radio_btn {
+	display: inline-block;
+	margin-right: 10px;
+}
+.b030_form_radio_btn input[type=radio] {
+	display: none;
+}
+.b030_form_radio_btn label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 0;
+    margin-right: 0;
+	line-height: 18px;
+	user-select: none;
+	padding: 20px 15px 20px 40px;
+	border: 1px solid #E6EAF4;
+	border-radius: 6px;
+    width: calc(100% - 60px);
+}
+
+
+.b030_form_radio_btn label:before {
+	content: "";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	left: 10px;
+	background: url(src/img/rad1.svg) 0 0 no-repeat;
+}
+
+
+/* Checked */
+.b030_form_radio_btn input[type=radio]:checked + label:before {
+	background: url(src/img/rad2.png) 0 0 no-repeat;
+}
+
+
+.b030_form_radio_btn label:active{
+	border-color: #2F6BF2;
+}
+ 
+/* Hover */
+.b030_form_radio_btn label:hover:before {
+}
+ 
+/* Disabled */
+.b030_form_radio_btn input[type=radio]:disabled + label:before {
+}
+
+
+.b030_all_price{
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    flex-direction: column;    
+}
+
+.b030_line{
+    flex: 1;
+    height: 2px;
+    background-color: #d4d4d4;
+    margin-bottom: 3px;
+}
+
+.b030_all_price_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 10px;
+}
+.b030_all_price_row_element {
+    color: #7b7b7b;
+}
+.b030_itog_pay {
+    font-size: 24px;
+    color: #1F1F1F;
+    margin-top: 10px;
+}
+
+.b030_oplata_tovar{
+    width: calc(100% - 60px);
+    border-radius: 20px;
+    padding: 30px;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+
+}
+
+.b030_oplata_tovar_image{
+    max-width: 140px;
+    max-height: 140px;
+}
+
+.b030_oplata_tovar_image  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.b030_oplata_tovar_card_price_box {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.b030_oplata_tovar_card_price {
+    font-size: 18px;
+    font-family: 'semibold';
+}
+
+
+.b030_oplata_tovar_card_old_price {
+    font-size: 18px;
+    font-family: 'semibold';
+    color: #9A9A9A;
+}
+
+.b030_oplata_tovar_card_old_price{
+    position: relative;
+    color: #9A9A9A;
+    }
+    
+    .b030_oplata_tovar_card_old_price::after{
+        content: '';
+              position: absolute;
+              left: 0;
+              top:0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              height: 100%;
+              background-image: url('data:image/svg+xml;utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%3E%0A%20%20%20%20%3Cline%20x1%3D%220%22%20y1%3D%22100%25%22%20x2%3D%22100%25%22%20y2%3D%220%22%20stroke%3D%22%23F00%22%20stroke-width%3D%222%22%2F%3E%0A%3C%2Fsvg%3E');
+              background-size: cover;
+              margin: 0;
+
+    }
+
+.b030_oplata_tovar_name{
+    max-width: 290px;
+    font-size: 18px;
+}
+
+
+.b030_itog_pay {
+    font-size: 24px !important;
+    color: #1F1F1F !important;
+    margin-top: 10px !important;
+}
+
+.b030_btn_form{
+    background-color: #2F6BF2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 100%;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s ease;
+    border-radius: 5px;
+}
+
+
+.b030_tovar_info_box_by_box_conter{
+    padding: 2px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid #2F6BF2;
+    border-radius: 5px;
+}
+
+.b030_oplata_tovar_numb_by_box_conter_quantity_btn{
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    
+}
+.b030_oplata_tovar_numb_by_box_conter_quantity_btn{
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+
+}
+
+.b030_oplata_tovar_numb_by_box_conter_quantity_input{
+    width: 30px;
+    height: 20px;
+
+}
+
+.b030_quantity-btn{
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    transition: background-color 0.3s ease;
+
+}
+
+.b030_quantity-input{
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    cursor: default;
+}
+
+.b030_oplata_tovar_price_numb{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.b030_oplata_tovar_numb{
+    margin-top: 10px;
+}
+
+.b030_oplata_tovar_center_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+}
+
+.b030_delite_tovar{
+    color: #979797;
+    font-size: 14px;
+    display: flex;
+    gap: 5px;
+}
+
+
+.b030_opis_radio{
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+
+.b030_form_wrapper{
+    display: flex;
+    gap: 20px;    
+}
+
+.b030_wrap_sposoby{
+    border-radius: 20px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    flex-direction: column;    
+    margin-bottom: 30px;
+}
+
+.b030_radio_parent{
+    width:168px;
+    height: 98px;
+    background: #fff;
+    border: 2px solid #3B404F;
+    padding: 5px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    opacity: 1 !important;
+    z-index: 1 !important;
+}
+
+
+.b030_radio_parent input{
+   display: inline-block;
+   margin: 0;
+   width: 16px;
+   height: 16px;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+   vertical-align: baseline;
+   appearance: none;
+}
+
+
+.b030_radio_parent input:checked{
+    content: '';
+    background-image: url(/modules/card/src/img/chek.svg);
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    vertical-align: baseline;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    margin: 5px;
+    border: none;
+    opacity: 1 !important;
+}
+
+
+.b030_radio_parent:active{
+    border: 1px solid #2F6BF2;
+}
+
+.b030_radio_parent:focus{
+    border: 1px solid #2F6BF2;
+}
+
+.b030_parent_sposoby{
+    margin-bottom: 50px;
+}
+
+.b030_form_wrapper{    
+}
+
+.b030_wrap_info{
+    border-radius: 20px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    flex-direction: column;    
+    margin-bottom: 30px;
+
+}
+
+
+
+
+  .b030_no_tovar {
+    border-radius: 20px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #D8D8D8;
+    flex-direction: column;    
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .b030_empty_cart_notification {
+    text-align: center;
+  }
+  
+  .b030_empty_cart_notification p {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .b030_catalog_button {
+    background-color: #2F6BF2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 100%;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s ease;
+    border-radius: 5px;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .b030_catalog_button:hover {
+    background-color: #1a56d9;
+  }
