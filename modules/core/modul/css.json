@@ -10,7 +10,8 @@
         "modules/shop/src/css/brand.css",
         "modules/shop/src/css/catalog.css",
         "modules/shop/src/css/product.css",
-        "modules/shop/src/css/filter.css"
+        "modules/shop/src/css/filter.css",
+        "modules/card/src/css/card.css"
     ],
     "admin":[
         "modules/admin/src/css/admin.css",

@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-07-07 20:57:53",
+    "generated_at": "2025-09-10 11:43:09",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 82,
+    "routes_count": 90,
     "routes": [
         {
             "path": "/admin/",
@@ -41,6 +41,54 @@
             "class": "Modules\\Admin\\Controller\\Service",
             "method": "index",
             "module": "admin"
+        },
+        {
+            "path": "/card/",
+            "class": "Modules\\Card\\Controller\\Index",
+            "method": "index",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/add/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "add",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/remove/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "remove",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/delete/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "delete",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/coupon/",
+            "class": "Modules\\Card\\Controller\\Coupon",
+            "method": "index",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/count/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "count",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/price/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "price",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/info/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "info",
+            "module": "card"
         },
         {
             "path": "/",
