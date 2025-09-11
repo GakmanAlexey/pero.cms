@@ -25,12 +25,16 @@ class Guest{
         $_SESSION["guest"] = $randomString;
         setcookie('guest', $randomString, time() + (365 * 24 * 60 * 60), '/');
         self::$id = $randomString;
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit();
     }
     
     public static function destroy() {
         self::$id = null;
         unset($_SESSION["guest"]);
         setcookie('guest', '', time() - 3600, '/');
+        header("Location: " . $_SERVER['REQUEST_URI']);
+        exit();
     }
     
     public static function getId() {

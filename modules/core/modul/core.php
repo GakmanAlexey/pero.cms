@@ -22,9 +22,9 @@ class Core  extends \Modules\Abs\Handler{
             session_start();
             $auth_token = new \Modules\User\Modul\Service;
             $auth_token->auth_to_cookie();
-            \Modules\Core\Modul\Menu::build();            
+            \Modules\Core\Modul\Menu::build();   
+            \Modules\User\Modul\Guest::start();         
             \Modules\Router\Modul\Router::start();
-            \Modules\User\Modul\Guest::start();
    
         } catch (\Throwable $e) {
             $this->e500([
