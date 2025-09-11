@@ -18,6 +18,7 @@ class Card  extends \Modules\Abs\Install{
         `commission_included` tinyint(1) NOT NULL DEFAULT 0,
         
         `user_id` int(11) DEFAULT NULL, 
+        `guest_id` varchar(40) DEFAULT NULL, 
         `product_list` text DEFAULT NULL,
         
         `created_at` datetime NOT NULL DEFAULT current_timestamp(),

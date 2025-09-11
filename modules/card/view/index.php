@@ -4,7 +4,10 @@
             Оформление заказа
         </div>
     </div>
-
+<?php
+$cm = new \Modules\Card\Modul\Cardmeneger;
+$cm->load();
+?>
     <div class="container">
         <div class="b030_oplata_box">
             <div class="b030_wrap_oplata col_5">
