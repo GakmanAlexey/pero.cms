@@ -24,6 +24,7 @@ class Core  extends \Modules\Abs\Handler{
             $auth_token->auth_to_cookie();
             \Modules\Core\Modul\Menu::build();            
             \Modules\Router\Modul\Router::start();
+            \Modules\User\Modul\Guest::start();
    
         } catch (\Throwable $e) {
             $this->e500([
