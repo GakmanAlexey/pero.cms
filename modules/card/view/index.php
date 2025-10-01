@@ -6,7 +6,19 @@
     </div>
 <?php
 $cm = new \Modules\Card\Modul\Cardmeneger;
-$cm->load();
+$cm::load();
+?>
+
+
+<?php
+
+$oper = new \Modules\Card\Modul\Cardoperation;
+$card = $cm::$card; 
+$product = new \Modules\Shop\Modul\Product;
+$product->set_id(2);
+$count = 4;
+$oper->addToCart($card, $product, $count);
+$oper->addToCart($card, $product, $count);
 ?>
     <div class="container">
         <div class="b030_oplata_box">

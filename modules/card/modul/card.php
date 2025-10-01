@@ -143,6 +143,10 @@ class Card{
     public function get_product_list(){
         return $this->product_list;
     }
+    public function add_product_list($product){
+        $this->product_list[] = $product;
+        return $this;
+    }
     
     public function set_created_at($created_at){
         $this->created_at = $created_at;

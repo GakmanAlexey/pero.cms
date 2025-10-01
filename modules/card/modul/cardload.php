@@ -25,6 +25,22 @@ class Cardload{
     
     public function load_no_auth(\Modules\Card\Modul\Card $card){
         $card->set_guest(\Modules\User\Modul\Guest::getId());
+        $card = $this->sql_load_no_auth($card);
+        return $card;
+    }
+    
+    public function sql_load_no_auth(\Modules\Card\Modul\Card $card){
+        $pdo = \Modules\Core\Modul\Sql::connect();
+        $stmt = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_card WHERE guest_id  = ? LIMIT 1");
+        $stmt->execute([$card->get_guest()]);
+        while($sql_data_card = $stmt->fetch(\PDO::FETCH_ASSOC)){
+            $card = $this->sql_to_card($card, $sql_data_card);
+            return $card;
+        }
+        $sql_create = new \Modules\Card\Modul\Cardcreate;
+        $card = $sql_create->create_no_auth($card);
+        return $card;
+
     }
 
 

@@ -44,7 +44,15 @@ class Product{
     private $specific;
 
     private $status_filter = true;
-
+    
+    private $count_buy_in_card = 0;
+    public function get_count_buy_in_card(){
+        return $this->count_buy_in_card;
+    }
+    public function set_count_buy_in_card($count){
+        $this->count_buy_in_card = $count;
+        return $this;
+    }
     public function get_id() {
         return $this->id;
     }
