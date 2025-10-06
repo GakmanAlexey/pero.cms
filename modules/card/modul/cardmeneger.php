@@ -15,6 +15,10 @@ class Cardmeneger{
         }
     }
 
+    public static function save($card){
+
+    }
+
     
 }
 

@@ -16,7 +16,7 @@ class Cardoperation{
         }
         
         if(!$found){
-            $newProduct = clone $product; // Важно клонировать!
+            $newProduct = clone $product; 
             $newProduct->set_count_buy_in_card($count);
             $card->add_product_list($newProduct);
         }

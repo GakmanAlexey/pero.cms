@@ -190,6 +190,9 @@ class Card{
     }
     
     public function get_currency(){
+        if (empty($this->currency)) {
+            $this->currency = "RUB"; // или ваша валюта по умолчанию
+        }
         return $this->currency;
     }
     
@@ -199,6 +202,9 @@ class Card{
     }
     
     public function get_total_weight(){
+        if (empty($this->total_weight) && $this->total_weight !== 0) {
+            $this->total_weight = 0.000; // значение по умолчанию как в БД
+        }
         return $this->total_weight;
     }
     
@@ -208,6 +214,9 @@ class Card{
     }
     
     public function get_items_count(){
+        if ($this->items_count === null || $this->items_count === '') {
+            $this->items_count = 0;
+        }
         return $this->items_count;
     }
     
@@ -217,6 +226,9 @@ class Card{
     }
     
     public function get_total_quantity(){
+        if ($this->total_quantity === null || $this->total_quantity === '') {
+            $this->total_quantity = 0;
+        }
         return $this->total_quantity;
     }
     
@@ -235,7 +247,10 @@ class Card{
     }
     
     public function get_coupon_discount(){
-        return $this->coupon_discount;
+        if ($this->coupon_discount === null || $this->coupon_discount === '') {
+            $this->coupon_discount = 0.00;
+        }
+        return (float)$this->coupon_discount;
     }
     
     public function set_tax_amount($tax_amount){
@@ -244,7 +259,10 @@ class Card{
     }
     
     public function get_tax_amount(){
-        return $this->tax_amount;
+        if ($this->tax_amount === null || $this->tax_amount === '') {
+            $this->tax_amount = 0.00;
+        }
+        return (float)$this->tax_amount;
     }
     
     public function set_notes($notes){

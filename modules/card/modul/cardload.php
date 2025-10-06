@@ -46,6 +46,7 @@ class Cardload{
 
 
     public function sql_to_card(\Modules\Card\Modul\Card $card, $sql){
+        //var_dump(unserialize($sql["product_list"]));
         $card
             ->set_id($sql["id"])
             ->set_user($sql["user_id"])
@@ -58,13 +59,24 @@ class Cardload{
             ->set_shipping_included($sql["shipping_included"])
             ->set_commission_bank($sql["commission_bank"])
             ->set_commission_included($sql["commission_included"])
-            ->set_product_list(unserialize($sql["product_list"]))
+            ->set_product_list($this->unserializeProduct($sql["product_list"]))
             ->set_created_at($sql["created_at"])
             ->set_updated_at($sql["updated_at"])
             ->set_expires_at($sql["expires_at"])
             ->set_ip_address($sql["ip_address"])
             ->set_user_agent($sql["user_agent"]);
         return $card;
+    }
+
+    public function unserializeProduct($productListSerial){
+        $arrayProductObject = [];
+        $prodList = unserialize($productListSerial);
+        foreach($prodList as $productItem){
+            $productObject =  new \Modules\Shop\Modul\Product;
+            $productObject->set_id($productItem[0])->set_count_buy_in_card($productItem[1]);
+            $arrayProductObject[] = $productObject;
+        }
+        return $arrayProductObject;
     }
 
     
