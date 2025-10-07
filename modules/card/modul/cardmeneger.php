@@ -19,6 +19,15 @@ class Cardmeneger{
 
     }
 
+    public static function countProduct($card){
+        $productList = $card->get_product_list();
+        $count = 0;
+        foreach($productList as $product){
+            $count = $count + $product->get_count_buy_in_card();
+        }
+        return $count;
+    }
+
     
 }
 

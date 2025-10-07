@@ -17,11 +17,10 @@ $card = $cm::$card;
 $product = new \Modules\Shop\Modul\Product;
 $product->set_id(2);
 $count = 4;
-$oper->addToCart($card, $product, $count);
-$oper->addToCart($card, $product, $count);
+//$oper->addToCart($card, $product, $count);
+//$oper->addToCart($card, $product, $count);
 
-var_dump("<pre>",$card,"<pre>");
-
+//var_dump("<pre>",$this->data_view["countData"],"<pre>");
 $saveCard = new \Modules\Card\Modul\Cardsave;
 $saveCard->save($card);
 ?>

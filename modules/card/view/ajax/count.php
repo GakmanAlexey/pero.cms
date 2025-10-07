@@ -2,10 +2,10 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
-$cartCount = "19";
+$cartCount = $this->data_view["countData"];
 echo json_encode([
     'success' => true,
-    'cart_count' => $cartCount,
+    'cart_count' => $this->data_view["countData"],
     'timestamp' => date('Y-m-d H:i:s')
 ]);
 

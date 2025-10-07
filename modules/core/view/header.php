@@ -43,7 +43,10 @@ foreach(\Modules\Core\Modul\Menu::get_element("nav") as $element){
                         </svg>
 
                         <div class="nomber_cart">
-                            99
+                            <?php                                
+                            $cardAjax =  new \Modules\Card\Modul\Cardajax;
+                            echo $cardAjax->viewCountProduct();
+                            ?>
                         </div>
                     </a>
                 </div>
