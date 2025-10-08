@@ -23,6 +23,11 @@ $count = 4;
 //var_dump("<pre>",$this->data_view["countData"],"<pre>");
 $saveCard = new \Modules\Card\Modul\Cardsave;
 $saveCard->save($card);
+
+
+$s = new \Modules\Shop\Modul\Service;
+$p = $s->getProductVariation(1, 6);
+var_dump($p);
 ?>
     <div class="container">
         <div class="b030_oplata_box">

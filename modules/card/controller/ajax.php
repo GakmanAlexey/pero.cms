@@ -18,7 +18,7 @@ Class Ajax extends \Modules\Abs\Controller{
         $this->list_file[] = APP_ROOT."/modules/card/view/ajax/delete.php";
         $this->show();
     }
-    public function count(){   //
+    public function count(){   //готово
         $this->type_show = "ajax";        
         $cardAjax =  new \Modules\Card\Modul\Cardajax;
         $this->data_view["countData"] = $cardAjax->viewCountProduct();

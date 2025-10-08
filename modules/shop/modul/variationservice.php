@@ -129,5 +129,24 @@ class Variationservice{
 
         return $product_list;
     }
+
+    public function getProductVariantData($product, $variant_id){
+        
+        $pdo = \Modules\Core\Modul\Sql::connect();
+        $stmt2 = $pdo->prepare("SELECT * FROM " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_variation WHERE (product_id = ? AND id=?)");        
+        $stmt2->execute([$product->get_id(),$variant_id]);
+        $variant_data = $stmt2->fetch(\PDO::FETCH_ASSOC);
+        $variant = new \Modules\Shop\Modul\Variation;
+            $variant->set_id($variant_data["id"])
+                ->set_name($variant_data["name"])
+                ->set_price($variant_data["price"])
+                ->set_old_price($variant_data["old_price"])
+                ->set_sku($variant_data["sku"])
+                ->set_images(unserialize($variant_data["images"]))
+                ->set_is_active($variant_data["is_active"]);
+        $product->add_variation($variant);
+
+        return $product;
+    }
     
 }
