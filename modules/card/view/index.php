@@ -26,7 +26,7 @@ $saveCard->save($card);
 
 
 $s = new \Modules\Shop\Modul\Service;
-$p = $s->getProductVariation(1, 6);
+$p = $s->getProductVariation(2, 0);
 var_dump($p);
 ?>
     <div class="container">
