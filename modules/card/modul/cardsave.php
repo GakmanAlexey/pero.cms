@@ -2,8 +2,8 @@
 
 namespace Modules\Card\Modul;
 
-class Cardsave{    
-    public function save(\Modules\Card\Modul\Card $card){
+class Cardsave {    
+    public function save(\Modules\Card\Modul\Card $card) {
         $array_card = [];
         
         $array_card["status"] = $card->get_status();
@@ -16,8 +16,8 @@ class Cardsave{
         $array_card["commission_included"] = $card->get_commission_included();
         $array_card["user_id"] = $card->get_user();
         $array_card["guest_id"] = $card->get_guest();
-        $array_card["product_list"] =  $this->convertProductToArray($card->get_product_list());
-        $array_card["updated_at"] =$card->get_updated_at();
+        $array_card["product_list"] = $this->convertProductToArray($card->get_product_list());
+        $array_card["updated_at"] = $card->get_updated_at();
         $array_card["expires_at"] = $card->get_expires_at();
         $array_card["session_id"] = $card->get_session_id();
         $array_card["currency"] = $card->get_currency();
@@ -35,54 +35,81 @@ class Cardsave{
         $array_card["delivery_address"] = "";////////////////
         $array_card["contact_phone"] = "";////////////////
         $array_card["contact_email"] = "";////////////////
-        $reuslt = $this->saveToSql($card->get_id(), $array_card);
+        
+        $result = $this->saveToSql($card->get_id(), $array_card);
+        return $result;
     } 
 
-    public function convertProductToArray($productArray){
-        if($productArray == []){
-            return [];
+    public function convertProductToArray($productArray) {
+        if (empty($productArray)) {
+            return serialize([]);
         }
+        
         $newArrayProduct = [];
-        foreach($productArray as $product){
-            $newArrayProduct[] = [$product->get_id(),$product->get_count_buy_in_card()];
+        foreach ($productArray as $product) {
+            $productData = [
+                'product_id' => $product->get_id(),
+                'quantity' => $product->get_count_buy_in_card(),
+                'variations' => $this->convertVariationsToArray($product->get_variations())
+            ];
+            $newArrayProduct[] = $productData;
         }
-        return  serialize($newArrayProduct);
+        
+        return serialize($newArrayProduct);
     }
 
-    public function saveToSql($id, $array_card){
+    private function convertVariationsToArray($variations) {
+        if (empty($variations)) {
+            return [];
+        }
+        
+        $variationIds = [];
+        foreach ($variations as $variation) {
+            if ($variation instanceof \Modules\Shop\Modul\Variation) {
+                // Сохраняем только ID вариации
+                $variationIds[] = $variation->get_id();
+            }
+            // Пустые строки, null и не-объекты игнорируем
+        }
+        
+        return $variationIds;
+    }
+
+    public function saveToSql($id, $array_card) {
         try {
             $pdo = \Modules\Core\Modul\Sql::connect();
             $stmt = $pdo->prepare("UPDATE " . \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_card SET 
-                status  = ?, 
-                price  = ?, 
-                old_price  = ?, 
-                discount  = ?, 
-                shipping_price  = ?, 
-                shipping_included  = ?, 
-                commission_bank  = ?, 
-                commission_included  = ?, 
-                user_id   = ?, 
-                guest_id  = ?, 
-                product_list  = ?, 
-                updated_at  = ?,  
-                expires_at   = ?,  
-                session_id   = ?,  
-                currency  = ?,  
-                total_weight  = ?,  
-                items_count  = ?,  
-                total_quantity  = ?,  
-                coupon_code  = ?,  
-                coupon_discount  = ?,  
-                tax_amount  = ?,  
-                notes  = ?,  
-                ip_address  = ?,  
-                user_agent  = ?, 
-                delivery_type  = ?, 
-                payment_method  = ?, 
-                delivery_address  = ?, 
-                contact_phone  = ?, 
-                contact_email  = ? 
-                              WHERE id = ?");
+                status = ?, 
+                price = ?, 
+                old_price = ?, 
+                discount = ?, 
+                shipping_price = ?, 
+                shipping_included = ?, 
+                commission_bank = ?, 
+                commission_included = ?, 
+                user_id = ?, 
+                guest_id = ?, 
+                product_list = ?, 
+                updated_at = ?,  
+                expires_at = ?,  
+                session_id = ?,  
+                currency = ?,  
+                total_weight = ?,  
+                items_count = ?,  
+                total_quantity = ?,  
+                coupon_code = ?,  
+                coupon_discount = ?,  
+                tax_amount = ?,  
+                notes = ?,  
+                ip_address = ?,  
+                user_agent = ?, 
+                delivery_type = ?, 
+                payment_method = ?, 
+                delivery_address = ?, 
+                contact_phone = ?, 
+                contact_email = ? 
+                WHERE id = ?");
+                
             $result = $stmt->execute([
                 $array_card["status"],
                 $array_card["price"],
@@ -115,31 +142,63 @@ class Cardsave{
                 $array_card["contact_email"],
                 $id
             ]);
+            
             if ($stmt->rowCount() > 0) {                
                 return [
                     'success' => true,
                     'new_status' => 'Корзина сохранена'
-                    ];
+                ];
             } else {                
                 return [
                     'success' => false,
                     'new_status' => 'Сбой сохранения корзины'
-                    ];
+                ];
             }
              
         } catch (\PDOException $e) {              
-                return [
-                    'success' => false,
-                    'new_status' => 'Неизвестная ошибка' . $e->getMessage()
-                    ];
+            return [
+                'success' => false,
+                'new_status' => 'Неизвестная ошибка: ' . $e->getMessage()
+            ];
         }
     }
     
-    
+    // Метод для загрузки корзины (добавь в класс Cardmeneger или здесь)
+    public function loadProductFromArray($serializedData) {
+        $productArray = unserialize($serializedData);
+        $products = [];
+        
+        if (empty($productArray)) {
+            return $products;
+        }
+        
+        foreach ($productArray as $item) {
+            $product = new \Modules\Shop\Modul\Product;
+            $product->set_id($item['product_id']);
+            $product->set_count_buy_in_card($item['quantity']);
+            
+            // Восстанавливаем вариации
+            if (!empty($item['variations'])) {
+                $variations = $this->restoreVariationsFromArray($item['variations']);
+                $product->set_variations($variations);
+            }
+            
+            $products[] = $product;
+        }
+        
+        return $products;
+    }
 
-    
-
-    
+    private function restoreVariationsFromArray($variationIds) {
+        $variations = [];
+        
+        foreach ($variationIds as $variationId) {
+            // Создаем объект Variation только с ID
+            $variation = new \Modules\Shop\Modul\Variation;
+            $variation->set_id($variationId);
+            $variations[] = $variation;
+        }
+        
+        return $variations;
+    }
 }
-
-    

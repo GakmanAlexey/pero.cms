@@ -12,6 +12,10 @@ class Cardajax{
         $count = $cardManager->countProduct($card);
         return $count;
     }
+
+    public function addProductToCard($productId,$variantId,$count = 0){
+        
+    }
     
 }
 
