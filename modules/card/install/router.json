@@ -3,6 +3,7 @@
     ["/ajax/card/add/", "Modules\\Card\\Controller\\Ajax", "add"],
     ["/ajax/card/remove/", "Modules\\Card\\Controller\\Ajax", "remove"],
     ["/ajax/card/delete/", "Modules\\Card\\Controller\\Ajax", "delete"],
+    ["/ajax/card/update_quantity/", "Modules\\Card\\Controller\\Ajax", "update_quantity"],
     ["/ajax/card/coupon/", "Modules\\Card\\Controller\\Coupon", "index"],
     ["/ajax/card/count/", "Modules\\Card\\Controller\\Ajax", "count"],
     ["/ajax/card/price/", "Modules\\Card\\Controller\\Ajax", "price"],

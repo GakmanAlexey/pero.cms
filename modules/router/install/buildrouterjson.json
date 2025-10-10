@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-09-11 10:48:05",
-    "routes_count": 77,
+    "generated_at": "2025-10-10 23:26:34",
+    "routes_count": 78,
     "routes": [
         {
             "path": "/admin/",
@@ -60,6 +60,12 @@
             "path": "/ajax/card/delete/",
             "class": "Modules\\Card\\Controller\\Ajax",
             "method": "delete",
+            "module": "card"
+        },
+        {
+            "path": "/ajax/card/update_quantity/",
+            "class": "Modules\\Card\\Controller\\Ajax",
+            "method": "update_quantity",
             "module": "card"
         },
         {
