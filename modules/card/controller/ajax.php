@@ -14,9 +14,10 @@ Class Ajax extends \Modules\Abs\Controller{
         $cardAjax = new \Modules\Card\Modul\Cardajax;
         $result = $cardAjax->addToCart($productId, $variationId, $quantity);
         
-        $this->data_view["result"] = $result;
-        $this->list_file[] = APP_ROOT."/modules/card/view/ajax/add.php";
-        $this->show();
+        // Устанавливаем заголовок JSON и выводим результат
+        header('Content-Type: application/json');
+        echo json_encode($result);
+        exit;
     }
     
     public function remove(){   

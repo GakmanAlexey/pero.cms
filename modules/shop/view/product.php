@@ -70,7 +70,21 @@ foreach($this->data_view["product"]->get_images() as $img){
                             <input type="text" class="b027_quantity-input" value="1">
                             <button class="b027_quantity-btn b027_increment">+</button>
                         </div>
-                        <a href="#" class="b027_btn_form">Купить</a>
+<?php 
+$productId = $this->data_view["product"]->get_id();
+$variant = $this->data_view["product"]->get_variations();
+if (!empty($variations)) {
+    $variationId = $variations[0]->get_id();
+}else{
+    $variationId = 0;
+}
+?>                        
+                        <a class="b027_btn_form" 
+                            data-product-id="<?php echo $productId;?>" 
+                            data-variation-id="<?php echo $variationId;?>" 
+                            data-quantity="1">
+                            Купить
+                        </a>
                     </div>
                 </div>
                 <div class="b027_tovar_info_box b027_margin_min">
@@ -120,7 +134,174 @@ foreach($this->data_view["product"]->get_specific()->get_specific() as $item_spe
     </div>
 </div>
 
-<script>
+<script>function addToCartCustom(productId, variationId = null, quantity = 1) {
+    // Проверяем наличие productId
+    if (!productId) {
+        showCartNotification('Ошибка: ID товара не указан', 'error');
+        return;
+    }
+    
+    // Создаем параметры запроса
+    const params = new URLSearchParams({
+        product_id: productId,
+        quantity: quantity
+    });
+    
+    // Добавляем variation_id если он есть и не равен 0
+    if (variationId && variationId !== '0') {
+        params.append('variation_id', variationId);
+    }
+    
+    const url = `/ajax/card/add/?${params.toString()}`;
+    
+    // Отправляем AJAX запрос
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        showCartNotification('Товар добавлен в корзину!');
+        // Обновляем счетчик корзины после успешного добавления
+        updateCartCount();
+    })
+    .catch(error => {
+        showCartNotification('Ошибка при добавлении товара', 'error');
+    });
+}
+
+// Функция для обновления счетчика корзины
+function updateCartCount() {
+    fetch('/ajax/card/count/', {
+        method: 'GET',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success && data.cart_count !== undefined) {
+            // Обновляем все элементы с счетчиком корзины
+            const counterElements = document.querySelectorAll('.nomber_cart');
+            counterElements.forEach(element => {
+                element.textContent = data.cart_count;
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Ошибка при обновлении счетчика корзины:', error);
+    });
+}
+
+// Функция для показа уведомления
+function showCartNotification(message, type = 'success') {
+    // Создаем элемент уведомления
+    const notification = document.createElement('div');
+    notification.className = `cart-notification ${type}`;
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+        color: white;
+        border-radius: 4px;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Удаляем уведомление через 3 секунды
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Функция для обновления количества в кнопке "Купить"
+function updateBuyButtonQuantity(quantity) {
+    const buyButton = document.querySelector('.b027_btn_form');
+    if (buyButton) {
+        buyButton.setAttribute('data-quantity', quantity);
+    }
+}
+
+// Обработчики для счетчика количества
+document.addEventListener('DOMContentLoaded', function() {
+    const quantityInput = document.querySelector('.b027_quantity-input');
+    const decrementBtn = document.querySelector('.b027_decrement');
+    const incrementBtn = document.querySelector('.b027_increment');
+    
+    if (!quantityInput || !decrementBtn || !incrementBtn) return;
+    
+    // Обработчик для уменьшения количества
+    decrementBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value) || 1;
+        if (currentValue > 1) {
+            currentValue--;
+            quantityInput.value = currentValue;
+            updateBuyButtonQuantity(currentValue);
+        }
+    });
+    
+    // Обработчик для увеличения количества
+    incrementBtn.addEventListener('click', function() {
+        let currentValue = parseInt(quantityInput.value) || 1;
+        currentValue++;
+        quantityInput.value = currentValue;
+        updateBuyButtonQuantity(currentValue);
+    });
+    
+    // Обработчик для ручного ввода
+    quantityInput.addEventListener('input', function() {
+        let value = parseInt(this.value) || 1;
+        if (value < 1) value = 1;
+        this.value = value;
+        updateBuyButtonQuantity(value);
+    });
+    
+    // Обработчик для потери фокуса (если ввели не число)
+    quantityInput.addEventListener('blur', function() {
+        let value = parseInt(this.value) || 1;
+        if (value < 1) value = 1;
+        this.value = value;
+        updateBuyButtonQuantity(value);
+    });
+    
+    // ОДИН обработчик для кнопок "Купить" (без дублирования)
+    const buttons = document.querySelectorAll('.b027_btn_form');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Получаем актуальное количество из data-атрибута
+            const productId = this.getAttribute('data-product-id');
+            const variationId = this.getAttribute('data-variation-id');
+            const quantity = this.getAttribute('data-quantity') || 1;
+            
+            // Вызываем функцию добавления в корзину
+            addToCartCustom(productId, variationId, quantity);
+        });
+    });
+});
+
+
   const images = [
     '<?php echo $file->get_path();?>'
     <?php
