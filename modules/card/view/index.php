@@ -6,6 +6,13 @@
     </div>
     <?php
 
+            $cm = new \Modules\Card\Modul\Cardmeneger;
+            $cm::load();
+            $card = $cm::$card;
+
+            $cardLoadData = new \Modules\Card\Modul\Cardloaddata;
+            $crad = $cardLoadData->load($card);
+            //var_dump($card->get_product_list());
 ?>
     <div class="container">
         <div class="b030_oplata_box">
@@ -101,153 +108,60 @@
                             <button class="b030_catalog_button">Перейти в каталог</button>
                         </div>
                     </div>
-                    <div class="b030_oplata_tovar">
-                        <div class="b030_oplata_tovar_image">
-                            <img src="src/img/image-11.png" alt="">
-                        </div>
-                            <div class="b030_oplata_tovar_center_wrap">
-                                <div class="b030_oplata_tovar_name">Стабилизаторы Бастион</div>
-                                <a href="" class="b030_delite_tovar">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.0835 4.14163L7.26683 3.04996C7.40016 2.25829 7.50016 1.66663 8.9085 1.66663H11.0918C12.5002 1.66663 12.6085 2.29163 12.7335 3.05829L12.9168 4.14163" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M8.6084 13.75H11.3834" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.9165 10.4166H12.0832" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    Удалить
-                                </a>
-                            </div>
-                            <div class="b030_oplata_tovar_price_numb">
-                                <div class="b030_oplata_tovar_card_price_box">
-                                    <div class="b030_oplata_tovar_card_price">
-                                        100 ₽
-                                    </div>
-                                    <div class="b030_oplata_tovar_card_old_price">
-                                        200 ₽
-                                    </div>
-                                </div>
-        
-                                <div class="b030_oplata_tovar_numb">
-                                        <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
-                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn">-</button>
-                                            <input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="1">
-                                            <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn">+</button>
-                                        </div>
-                                </div>
-                            </div>        
-                    </div>
-                    <div class="b030_oplata_tovar">
-                        <div class="b030_oplata_tovar_image">
-                            <img src="src/img/image-11.png" alt="">
-                        </div>
-                            <div class="b030_oplata_tovar_center_wrap">
-                                <div class="b030_oplata_tovar_name">Стабилизаторы Бастион</div>
-                                <a href="" class="b030_delite_tovar">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.0835 4.14163L7.26683 3.04996C7.40016 2.25829 7.50016 1.66663 8.9085 1.66663H11.0918C12.5002 1.66663 12.6085 2.29163 12.7335 3.05829L12.9168 4.14163" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M8.6084 13.75H11.3834" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.9165 10.4166H12.0832" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    Удалить
-                                </a>
-                            </div>
-                            <div class="b030_oplata_tovar_price_numb">
-                                <div class="b030_oplata_tovar_card_price_box">
-                                    <div class="b030_oplata_tovar_card_price">
-                                        100 ₽
-                                    </div>
-                                    <div class="b030_oplata_tovar_card_old_price">
-                                        200 ₽
-                                    </div>
-                                </div>
-        
-                                <div class="b030_oplata_tovar_numb">
-                                        <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
-                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn">-</button>
-                                            <input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="1">
-                                            <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn">+</button>
-                                        </div>
-                                </div>
-                            </div>        
-                    </div>
-                    <div class="b030_oplata_tovar">
-                        <div class="b030_oplata_tovar_image">
-                            <img src="src/img/image-11.png" alt="">
-                        </div>
-                            <div class="b030_oplata_tovar_center_wrap">
-                                <div class="b030_oplata_tovar_name">Стабилизаторы Бастион</div>
-                                <a href="" class="b030_delite_tovar">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.0835 4.14163L7.26683 3.04996C7.40016 2.25829 7.50016 1.66663 8.9085 1.66663H11.0918C12.5002 1.66663 12.6085 2.29163 12.7335 3.05829L12.9168 4.14163" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M8.6084 13.75H11.3834" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.9165 10.4166H12.0832" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    Удалить
-                                </a>
-                            </div>
-                            <div class="b030_oplata_tovar_price_numb">
-                                <div class="b030_oplata_tovar_card_price_box">
-                                    <div class="b030_oplata_tovar_card_price">
-                                        100 ₽
-                                    </div>
-                                    <div class="b030_oplata_tovar_card_old_price">
-                                        200 ₽
-                                    </div>
-                                </div>
-        
-                                <div class="b030_oplata_tovar_numb">
-                                        <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
-                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn">-</button>
-                                            <input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="1">
-                                            <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn">+</button>
-                                        </div>
-                                </div>
-                            </div>        
-                    </div>
-                    <div class="b030_oplata_tovar">
-                        <div class="b030_oplata_tovar_image">
-                            <img src="src/img/image-11.png" alt="">
-                        </div>
-                            <div class="b030_oplata_tovar_center_wrap">
-                                <div class="b030_oplata_tovar_name">Стабилизаторы Бастион</div>
-                                <a href="" class="b030_delite_tovar">
-                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.0835 4.14163L7.26683 3.04996C7.40016 2.25829 7.50016 1.66663 8.9085 1.66663H11.0918C12.5002 1.66663 12.6085 2.29163 12.7335 3.05829L12.9168 4.14163" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M8.6084 13.75H11.3834" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M7.9165 10.4166H12.0832" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    Удалить
-                                </a>
-                            </div>
-                            <div class="b030_oplata_tovar_price_numb">
-                                <div class="b030_oplata_tovar_card_price_box">
-                                    <div class="b030_oplata_tovar_card_price">
-                                        100 ₽
-                                    </div>
-                                    <div class="b030_oplata_tovar_card_old_price">
-                                        200 ₽
-                                    </div>
-                                </div>
-        
-                                <div class="b030_oplata_tovar_numb">
-                                        <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
-                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn">-</button>
-                                            <input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="1">
-                                            <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn">+</button>
-                                        </div>
-                                </div>
-                            </div>        
-                    </div>
+<?php
+foreach($card->get_product_list() as $product){
+    $productId = $product->get_id();
+    $variations = $product->get_variations();
+    if (!empty($variations)) {
+        $variationId = $variations[0]->get_id();
+    }else{
+        $variationId = 0;
+    }
+    echo $productId. " ". $variationId;
 
+    //var_dump($product);
+?>
+                    <div class="b030_oplata_tovar">
+                        <div class="b030_oplata_tovar_image">
+                            <img src="src/img/image-11.png" alt="">
+                        </div>
+                            <div class="b030_oplata_tovar_center_wrap">
+                                <div class="b030_oplata_tovar_name"><?php echo $product->get_name_ru();?></div>
+                                <a href="" class="b030_delite_tovar">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.0835 4.14163L7.26683 3.04996C7.40016 2.25829 7.50016 1.66663 8.9085 1.66663H11.0918C12.5002 1.66663 12.6085 2.29163 12.7335 3.05829L12.9168 4.14163" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15.7082 7.6167L15.1665 16.0084C15.0748 17.3167 14.9998 18.3334 12.6748 18.3334H7.32484C4.99984 18.3334 4.92484 17.3167 4.83317 16.0084L4.2915 7.6167" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8.6084 13.75H11.3834" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M7.9165 10.4166H12.0832" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    Удалить
+                                </a>
+                            </div>
+                            <div class="b030_oplata_tovar_price_numb">
+                                <div class="b030_oplata_tovar_card_price_box">
+                                    <div class="b030_oplata_tovar_card_price">
+                                        <?php echo $product->get_price();?> ₽
+                                    </div>
+                                    <div class="b030_oplata_tovar_card_old_price">
+                                        <?php echo $product->get_old_price();?>  ₽
+                                    </div>
+                                </div>
+        
+                                <div class="b030_oplata_tovar_numb">
+                                        <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
+                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn">-</button>
+                                            <input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="<?php echo $product->get_count_buy_in_card();?>">
+                                            <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn">+</button>
+                                        </div>
+                                </div>
+                            </div>        
+                        </div>
+<?php
+};
+?>
                     
-                </div>
+                    </div>
         </div>
     </div>
 </div>
