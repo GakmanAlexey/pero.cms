@@ -102,14 +102,11 @@
             </div>
             
            <div class="b030_wrap_oplata col_6">
-                    <div class="b030_no_tovar">
-                        <div class="b030_empty_cart_notification">
-                            <p>Ваша корзина пуста</p>
-                            <button class="b030_catalog_button">Перейти в каталог</button>
-                        </div>
-                    </div>
+                    
 <?php
+$count_prod = 0;
 foreach($card->get_product_list() as $product){
+    $count_prod++;
     $productId = $product->get_id();
     $variations = $product->get_variations();
     if (!empty($variations)) {
@@ -165,6 +162,14 @@ foreach($card->get_product_list() as $product){
                         </div>
 <?php
 };
+if($count_prod == 0){
+    echo '<div class="b030_no_tovar">
+                        <div class="b030_empty_cart_notification">
+                            <p>Ваша корзина пуста</p>
+                            <a href="/catalog/" class="b030_catalog_button">Перейти в каталог</a>
+                        </div>
+                    </div>';
+}
 ?>
                     
                     </div>
