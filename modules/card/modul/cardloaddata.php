@@ -42,7 +42,36 @@ class Cardloaddata {
     }
 
     public function updateOtherData(\Modules\Card\Modul\Card $card){
+        $card = $this->calculatePrice($card);
+        $card = $this->calculateDiscount($card);
+        return $card;
+    }
 
+    public function calculatePrice(\Modules\Card\Modul\Card $card){
+        $productList = $card->get_product_list();
+        $priceFull = 0;
+        $priceOldFull = 0;
+        foreach ($productList as $product) {
+            $productId = $product->get_id();
+            $quantity = $product->get_count_buy_in_card();            
+            $variations = $product->get_variations();
+            if (!empty($variations)) {
+                $price = $variations[0]->get_price();
+                $priceOld = $variations[0]->get_old_price();
+            }else{
+                $price = $product->get_price();
+                $priceOld = $product->get_old_price();
+            }
+            $priceFull = $priceFull + ($price * $quantity);
+            $priceOldFull = $priceOldFull + ($priceOld * $quantity);
+        }
+        $card->set_price($priceFull);
+        $card->set_old_price($priceOldFull);
+        return $card;
+    }
+
+    public function calculateDiscount(\Modules\Card\Modul\Card $card){
+        $card->set_discount(($card->get_old_price() - $card->get_price()));
         return $card;
     }
 }

@@ -68,7 +68,7 @@
 
                             </div>
                             <div class="b030_all_price_row_element">
-                                200₽
+                                <?php echo $card->get_old_price();?>₽
                             </div>
                         </div>
                         <div class="b030_all_price_row">
@@ -80,7 +80,7 @@
                                 
                             </div>
                             <div class="b030_all_price_row_element">
-                                100₽
+                                 <?php echo $card->get_discount();?>₽
                             </div>
                         </div>
                         
@@ -93,7 +93,7 @@
                                 
                             </div>
                             <div class="b030_all_price_row_element b030_itog_pay">
-                                100₽
+                                <?php echo $card->get_price();?>₽
                             </div>
                         </div>
                         <button class="b030_btn_form btn">Оплатить</button>
