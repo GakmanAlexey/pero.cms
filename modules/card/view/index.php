@@ -114,16 +114,19 @@ foreach($card->get_product_list() as $product){
     $variations = $product->get_variations();
     if (!empty($variations)) {
         $variationId = $variations[0]->get_id();
+        $im = $variations[0]->get_images();
+        $file = \Modules\Files\Modul\Taker:: take($im[0]);
     }else{
-        $variationId = 0;
+        $variationId = 0;        
+        $file = \Modules\Files\Modul\Taker:: take($product->get_main_image());
     }
-    echo $productId. " ". $variationId;
+    //echo $productId. " ". $variationId;
 
     //var_dump($product);
 ?>
                     <div class="b030_oplata_tovar">
                         <div class="b030_oplata_tovar_image">
-                            <img src="src/img/image-11.png" alt="">
+                            <img src="<?php echo $file->get_path(); ?>" alt="">
                         </div>
                             <div class="b030_oplata_tovar_center_wrap">
                                 <div class="b030_oplata_tovar_name"><?php echo $product->get_name_ru();?></div>
@@ -145,6 +148,9 @@ foreach($card->get_product_list() as $product){
                                     </div>
                                     <div class="b030_oplata_tovar_card_old_price">
                                         <?php echo $product->get_old_price();?>  ₽
+                                    </div>
+                                    <div class="b030_oplata_tovar_card_price">
+                                        Итого: <?php echo ($product->get_price()*$product->get_count_buy_in_card());?>  ₽
                                     </div>
                                 </div>
         
