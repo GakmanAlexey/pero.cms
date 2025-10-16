@@ -26,7 +26,7 @@ class Servicewidget{
     /** @var array Request metrics */
     private $metrics;
 
-    public function __construct($login, $secret, $baseUrl = 'https://api.cdek.ru/v2')
+    public function __construct($login, $secret, $baseUrl = 'https://api.edu.cdek.ru/v2')
     {
         $this->login = $login;
         $this->secret = $secret;
@@ -205,7 +205,7 @@ class Servicewidget{
         $result = json_decode($token['result'], true);
 
         if (!isset($result['access_token'])) {
-            throw new RuntimeException('Server not authorized to CDEK API');
+            throw new \RuntimeException('Server not authorized to CDEK API');
         }
 
         $this->authToken = $result['access_token'];
@@ -260,7 +260,7 @@ class Servicewidget{
         $addedHeaders = $this->getHeaderValue($headers);
 
         if ($result === false) {
-            throw new RuntimeException(curl_error($ch), curl_errno($ch));
+            throw new \RuntimeException(curl_error($ch), curl_errno($ch));
         }
 
         return array('result' => $result, 'addedHeaders' => $addedHeaders);

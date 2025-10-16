@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-10-16 12:50:52",
+    "generated_at": "2025-10-16 13:14:20",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 93,
+    "routes_count": 94,
     "routes": [
         {
             "path": "/admin/",
@@ -98,6 +98,12 @@
         },
         {
             "path": "/api/cdek/widget/",
+            "class": "Modules\\Cdek\\Controller\\Widget",
+            "method": "start",
+            "module": "cdek"
+        },
+        {
+            "path": "/service.php/",
             "class": "Modules\\Cdek\\Controller\\Widget",
             "method": "start",
             "module": "cdek"

@@ -10,7 +10,8 @@
   <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', () => {
           window.widget = new window.CDEKWidget({
-                                                    apiKey: 'f4e034c2-8c37-4168-8b97-99b6b3b268d7',
+                                                    apiKey: '<?php echo \Modules\Core\Modul\Env::get("YA_API_MAP");?>',
+                                                    servicePath: '/api/cdek/widget/',
                                                     popup: true,
                                                     defaultLocation: 'Новосибирск',
                                                     from: 'Казань',
