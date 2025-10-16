@@ -37,12 +37,23 @@
                             <p class="b030_opis_radio">Выберите способ доставки </p>
                             <div class="b030_form_wrapper">
                                 <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/sdek.svg);" for="huey">
-                                        <input class="radio" type="radio" id="huey" name="drone1" value="huey" checked />
+                                        <input class="radio" type="radio" id="huey" name="drone1" value="huey"  />
                                 </label>  
 
-                                <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/porf.svg);" for="hue1y">
+                                <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/porf.svg);" for="hue1y" onclick="widjet.open()">
                                         <input class="radio" type="radio" id="hue1y" name="drone1" value="huey"  />
-                                </label>  
+                                </label> 
+                                 
+                            </div>
+                            <div class=""><br>
+                                <div class="b005_input_wrapper">
+                                    <input class="b005_input" type="text" placeholder="Код ПВЗ" name="pvz">
+                                    <div class="b005_error_message"></div>
+                                </div>
+                                <div class="b005_input_wrapper">
+                                    <input class="b005_input" type="text" placeholder="E-Адрес ПВЗ" name="address">
+                                    <div class="b005_error_message"></div>
+                                </div>
                             </div>
                         </div>
                         

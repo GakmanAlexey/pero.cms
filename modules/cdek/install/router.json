@@ -1,0 +1,4 @@
+[
+    ["/api/cdek/widget/", "Modules\\Cdek\\Controller\\Widget", "start"],
+    ["/api/cdek/widget/test/", "Modules\\Cdek\\Controller\\Widget", "test"]
+]

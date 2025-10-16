@@ -1,6 +1,6 @@
 {
-    "generated_at": "2025-10-10 23:26:34",
-    "routes_count": 78,
+    "generated_at": "2025-10-16 12:50:52",
+    "routes_count": 80,
     "routes": [
         {
             "path": "/admin/",
@@ -91,6 +91,18 @@
             "class": "Modules\\Card\\Controller\\Ajax",
             "method": "info",
             "module": "card"
+        },
+        {
+            "path": "/api/cdek/widget/",
+            "class": "Modules\\Cdek\\Controller\\Widget",
+            "method": "start",
+            "module": "cdek"
+        },
+        {
+            "path": "/api/cdek/widget/test/",
+            "class": "Modules\\Cdek\\Controller\\Widget",
+            "method": "test",
+            "module": "cdek"
         },
         {
             "path": "/",
