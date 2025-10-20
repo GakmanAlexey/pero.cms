@@ -1,0 +1,19 @@
+[
+    ["/d20/", "Modules\\D20\\Controller\\Index", "index"],
+    ["/d20/player/", "Modules\\D20\\Controller\\Index", "player"],
+    ["/d20/player/open/", "Modules\\D20\\Controller\\Index", "playerOpen"],
+    ["/d20/npc/", "Modules\\D20\\Controller\\Index", "npc"],
+    ["/d20/npc/open/", "Modules\\D20\\Controller\\Index", "npcOpen"],
+    ["/d20/town/", "Modules\\D20\\Controller\\Index", "town"],
+    ["/d20/town/open/", "Modules\\D20\\Controller\\Index", "townOpen"],
+    ["/d20/mobs/", "Modules\\D20\\Controller\\Index", "mobs"],
+    ["/d20/mobs/open/", "Modules\\D20\\Controller\\Index", "mobsOpen"],
+    ["/d20/quests/", "Modules\\D20\\Controller\\Index", "quests"],
+    ["/d20/quests/open/", "Modules\\D20\\Controller\\Index", "questsOpen"],
+    ["/d20/factions/", "Modules\\D20\\Controller\\Index", "factions"],
+    ["/d20/factions/open/", "Modules\\D20\\Controller\\Index", "factionsOpen"],
+    ["/d20/items/", "Modules\\D20\\Controller\\Index", "items"],
+    ["/d20/items/open/", "Modules\\D20\\Controller\\Index", "itemsOpen"],
+    ["/d20/skils/", "Modules\\D20\\Controller\\Index", "skils"],
+    ["/d20/skils/open/", "Modules\\D20\\Controller\\Index", "skilsOpen"]
+]
