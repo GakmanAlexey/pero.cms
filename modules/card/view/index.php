@@ -6,13 +6,8 @@
     </div>
     <?php
 
-            $cm = new \Modules\Card\Modul\Cardmeneger;
-            $cm::load();
-            $card = $cm::$card;
-
-            $cardLoadData = new \Modules\Card\Modul\Cardloaddata;
-            $crad = $cardLoadData->load($card);
-            //var_dump($card->get_product_list());
+$showCard = new \Modules\Card\Modul\Cardshow;
+$card = $showCard-> cardLoad();
 ?>
     <div class="container">
         <div class="b030_oplata_box">
@@ -124,9 +119,15 @@ foreach($card->get_product_list() as $product){
         $variationId = $variations[0]->get_id();
         $im = $variations[0]->get_images();
         $file = \Modules\Files\Modul\Taker:: take($im[0]);
+                $price = $variations[0]->get_price();
+                $priceOld = $variations[0]->get_old_price();
+                $name  =$variations[0]->get_name();
     }else{
         $variationId = 0;        
         $file = \Modules\Files\Modul\Taker:: take($product->get_main_image());
+                $price = $product->get_price();
+                $priceOld = $product->get_old_price();
+                $name  =$product->get_name_ru();
     }
     //echo $productId. " ". $variationId;
 
@@ -137,7 +138,7 @@ foreach($card->get_product_list() as $product){
                             <img src="<?php echo $file->get_path(); ?>" alt="">
                         </div>
                             <div class="b030_oplata_tovar_center_wrap">
-                                <div class="b030_oplata_tovar_name"><?php echo $product->get_name_ru();?></div>
+                                <div class="b030_oplata_tovar_name"><?php echo $name;?></div>
                                 <a href="" class="b030_delite_tovar">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -152,13 +153,13 @@ foreach($card->get_product_list() as $product){
                             <div class="b030_oplata_tovar_price_numb">
                                 <div class="b030_oplata_tovar_card_price_box">
                                     <div class="b030_oplata_tovar_card_price">
-                                        <?php echo $product->get_price();?> ₽
+                                        <?php echo $price;?> ₽
                                     </div>
                                     <div class="b030_oplata_tovar_card_old_price">
-                                        <?php echo $product->get_old_price();?>  ₽
+                                        <?php echo $priceOld;?>  ₽
                                     </div>
                                     <div class="b030_oplata_tovar_card_price">
-                                        Итого: <?php echo ($product->get_price()*$product->get_count_buy_in_card());?>  ₽
+                                        Итого: <?php echo ($price*$product->get_count_buy_in_card());?>  ₽
                                     </div>
                                 </div>
         
