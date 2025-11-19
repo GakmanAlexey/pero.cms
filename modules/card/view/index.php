@@ -139,7 +139,7 @@ foreach($card->get_product_list() as $product){
                         </div>
                             <div class="b030_oplata_tovar_center_wrap">
                                 <div class="b030_oplata_tovar_name"><?php echo $name;?></div>
-                                <a href="" class="b030_delite_tovar">
+                                <a href="javascript:void(0)" class="b030_delite_tovar" onclick="deleteProduct(<?php echo $productId; ?>, <?php echo $variationId; ?>)">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M7.0835 4.14163L7.26683 3.04996C7.40016 2.25829 7.50016 1.66663 8.9085 1.66663H11.0918C12.5002 1.66663 12.6085 2.29163 12.7335 3.05829L12.9168 4.14163" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -147,7 +147,7 @@ foreach($card->get_product_list() as $product){
                                         <path d="M8.6084 13.75H11.3834" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M7.9165 10.4166H12.0832" stroke="#979797" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    Удалить
+                                    Удалить 
                                 </a>
                             </div>
                             <div class="b030_oplata_tovar_price_numb">
@@ -188,3 +188,36 @@ if($count_prod == 0){
         </div>
     </div>
 </div>
+<script>
+    function deleteProduct(productId, variationId) {
+    // Создаем AJAX запрос
+    const xhr = new XMLHttpRequest();
+    
+    // Формируем URL с параметрами
+    const url = `/ajax/card/delete/?product_id=${productId}&variation_id=${variationId}`;
+    
+    // Настраиваем запрос
+    xhr.open('GET', url, true);
+    
+    // Обрабатываем ответ
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // Успешный запрос - перезагружаем страницу
+            location.reload();
+        } else {
+            // Ошибка - можно обработать отдельно
+            console.error('Ошибка при удалении товара:', xhr.statusText);
+            // Или все равно перезагрузить страницу
+            // location.reload();
+        }
+    };
+    
+    // Обрабатываем ошибки сети
+    xhr.onerror = function() {
+        console.error('Ошибка сети при удалении товара');
+    };
+    
+    // Отправляем запрос
+    xhr.send();
+}
+</script>

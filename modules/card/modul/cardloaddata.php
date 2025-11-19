@@ -62,7 +62,6 @@ class Cardloaddata {
                 $price = $product->get_price();
                 $priceOld = $product->get_old_price();
             }
-            echo  $price."<br>";
             $priceFull = $priceFull + ($price * $quantity);
             $priceOldFull = $priceOldFull + ($priceOld * $quantity);
         }
