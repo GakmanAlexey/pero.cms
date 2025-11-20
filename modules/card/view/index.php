@@ -8,7 +8,7 @@
 
 $showCard = new \Modules\Card\Modul\Cardshow;
 $card = $showCard-> cardLoad();
-var_dump("<pre>",$card,"</pre>");
+//var_dump("<pre>",$card,"</pre>");
 ?>
     <div class="container">
         <div class="b030_oplata_box">
@@ -118,7 +118,7 @@ foreach($card->get_product_list() as $product){
     $variations = $product->get_variations();
     if (!empty($variations)) {
         $variationId = $variations[0]->get_id();
-        $im = $variations[0]->get_images();
+        $im = $variations[0]->get_images(); 
         $file = \Modules\Files\Modul\Taker:: take($im[0]);
                 $price = $variations[0]->get_price();
                 $priceOld = $variations[0]->get_old_price();
@@ -168,7 +168,9 @@ foreach($card->get_product_list() as $product){
                                         <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
                                             <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn" 
         onclick="removeProduct(<?php echo $productId; ?>, <?php echo $variationId; ?>)">-</button>
-<input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="<?php echo $product->get_count_buy_in_card();?>">
+<input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" 
+       value="<?php echo $product->get_count_buy_in_card();?>"
+       onblur="updateQuantityFromInput(this, <?php echo $productId; ?>, <?php echo $variationId; ?>)">
 <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn" 
         onclick="addProduct(<?php echo $productId; ?>, <?php echo $variationId; ?>)">+</button>
                                         </div>
@@ -234,6 +236,41 @@ function addProduct(productId, variationId) {
 function removeProduct(productId, variationId) {
     const xhr = new XMLHttpRequest();
     const url = `/ajax/card/remove/?product_id=${productId}&variation_id=${variationId}`;
+    
+    xhr.open('GET', url, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            location.reload();
+        } else {
+            console.error('Ошибка при уменьшении количества товара:', xhr.statusText);
+        }
+    };
+    
+    xhr.onerror = function() {
+        console.error('Ошибка сети при уменьшении количества товара');
+    };
+    xhr.send();
+}
+// Функция для обновления количества из инпута
+function updateQuantityFromInput(inputElement, productId, variationId) {
+    const quantity = parseInt(inputElement.value);
+    
+    // Проверяем валидность введенного значения
+    if (isNaN(quantity) || quantity < 1) {
+        // Если значение некорректное, восстанавливаем предыдущее значение
+        inputElement.value = inputElement.defaultValue;
+        alert('Введите корректное количество (не менее 1)');
+        return;
+    }
+    
+    // Если значение изменилось, отправляем запрос
+    if (quantity !== parseInt(inputElement.defaultValue)) {
+        update_quantity(productId, variationId, quantity);
+    }
+}
+function update_quantity(productId, variationId,quantity) {
+    const xhr = new XMLHttpRequest();
+    const url = `/ajax/card/update_quantity/?product_id=${productId}&variation_id=${variationId}&quantity=${quantity}`;
     
     xhr.open('GET', url, true);
     xhr.onload = function() {
