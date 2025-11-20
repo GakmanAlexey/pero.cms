@@ -318,6 +318,7 @@ class Product{
     }
         
     public function get_width() {
+        if($this->width < 10) return 10;
         return $this->width;
     }
     public function set_width($width) {
@@ -326,6 +327,7 @@ class Product{
     }
         
     public function get_height() {
+        if($this->height < 10) return 10;
         return $this->height;
     }
     public function set_height($height) {
@@ -334,6 +336,7 @@ class Product{
     }
         
     public function get_length() {
+        if($this->length < 10) return 10;
         return $this->length;
     }
     public function set_length($length) {
@@ -342,6 +345,7 @@ class Product{
     }
         
     public function get_weight() {
+        if($this->length < 10) return 1;
         return $this->weight;
     }
     public function set_weight($weight) {

@@ -1,4 +1,8 @@
-<div class="win flex1">
+<script src="https://cdn.jsdelivr.net/npm/@cdek-it/widget@3" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime" type="text/javascript"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/jquery" type="text/javascript"></script>
+  <div class="win flex1">
     <div class="container">
         <div class="b030_title_block">
             Оформление заказа
@@ -8,8 +12,40 @@
 
 $showCard = new \Modules\Card\Modul\Cardshow;
 $card = $showCard-> cardLoad();
+$cdek = new \Modules\Cdek\Modul\Cdek;
 //var_dump("<pre>",$card,"</pre>");
+$desk_data =$cdek->calculatePackageDimensions($card);
+//var_dump("<pre>",$cdek->calculatePackageDimensions($card),"</pre>");
 ?>
+
+
+  <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+          window.widget = new window.CDEKWidget({
+                                                    apiKey: '<?php echo \Modules\Core\Modul\Env::get("YA_API_MAP");?>',
+                                                    servicePath: '/api/cdek/widget/',
+                                                    popup: true,
+                                                    defaultLocation: 'Краснодар',
+                                                    from: 'Краснодар',
+                                                    goods: [ // установим данные о товарах из корзины
+                                                        { length: <?php echo $desk_data["length"];?>, width: <?php echo $desk_data["width"];?>, height: <?php echo $desk_data["height"];?>, weight: <?php echo $desk_data["weight"];?> },
+                                                    ],
+                                                    hideDeliveryOptions: {
+                                                        door: true,
+                                                    },
+                                                    onReady: function() { // на загрузку виджета отобразим информацию о доставке до ПВЗ
+                                                        $('#linkForWidjet').css('display', 'inline');
+                                                    },
+                                                    onChoose: function(_type, tariff, address) { // при выборе ПВЗ: запишем номер ПВЗ в текстовое поле и доп. информацию
+                                                        $('[name="chosenPost"]').val(address.name);
+                                                        $('[name="addresPost"]').val(address.address);
+                                                        $('[name="pricePost"]').val(tariff.delivery_sum);
+                                                        $('[name="timePost"]').val(tariff.period_max);
+                                                        this.close(); // закроем виджет
+                                                    },
+                                                });
+      });
+  </script>
     <div class="container">
         <div class="b030_oplata_box">
             <div class="b030_wrap_oplata col_5">
@@ -32,7 +68,7 @@ $card = $showCard-> cardLoad();
                         <div class="b030_wrap_sposoby">
                             <p class="b030_opis_radio">Выберите способ доставки </p>
                             <div class="b030_form_wrapper">
-                                <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/sdek.svg);" for="huey">
+                                <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/sdek.svg);" for="huey" onclick="window.widget.open()">
                                         <input class="radio" type="radio" id="huey" name="drone1" value="huey"  />
                                 </label>  
 
@@ -41,15 +77,11 @@ $card = $showCard-> cardLoad();
                                 </label> 
                                  
                             </div>
-                            <div class=""><br>
-                                <div class="b005_input_wrapper">
-                                    <input class="b005_input" type="text" placeholder="Код ПВЗ" name="pvz">
-                                    <div class="b005_error_message"></div>
-                                </div>
-                                <div class="b005_input_wrapper">
-                                    <input class="b005_input" type="text" placeholder="E-Адрес ПВЗ" name="address">
-                                    <div class="b005_error_message"></div>
-                                </div>
+                            <div id="linkForWidjet" class="hidden"><br><br>
+                                <p>Выбран пункт выдачи заказов: <input disabled name="chosenPost" type="text" value="" class="b005_input"/></p>
+                                <p>Адрес пункта: <input disabled name="addresPost" type="text" value="" class="b005_input"/></p>
+                                <p>Стоимость доставки: <input disabled name="pricePost" type="text" value="" class="b005_input"/></p>
+                                <p>Примерные сроки доставки (дней): <input disabled name="timePost" type="text" value="" class="b005_input" /></p>
                             </div>
                         </div>
                         
@@ -90,6 +122,18 @@ $card = $showCard-> cardLoad();
                                  <?php echo $card->get_discount();?>₽
                             </div>
                         </div>
+                        <div class="b030_all_price_row">
+                            <div class="b030_all_price_row_element">
+                                Доставка
+                            </div>
+                            
+                            <div class="b030_line">
+                                
+                            </div>
+                            <div class="b030_all_price_row_element" id="price_dost">
+                                 0₽
+                            </div>
+                        </div>
                         
                         <div class="b030_all_price_row">
                             <div class="b030_all_price_row_element b030_itog_pay">
@@ -99,8 +143,11 @@ $card = $showCard-> cardLoad();
                             <div class="b030_line">
                                 
                             </div>
-                            <div class="b030_all_price_row_element b030_itog_pay">
+                            <div class="b030_all_price_row_element b030_itog_pay" id="total_price_end">
                                 <?php echo $card->get_price();?>₽
+                            </div>
+                            <div class="b030_all_price_row_element b030_itog_pay" id="total_price" style="display:none;">
+                                <?php echo $card->get_price();?>
                             </div>
                         </div>
                         <button class="b030_btn_form btn">Оплатить</button>
@@ -194,6 +241,37 @@ if($count_prod == 0){
     </div>
 </div>
 <script>
+    // Функция для обновления итоговой цены
+function updateTotalPrice() {
+    // Получаем цену товаров
+    const totalPriceElement = document.getElementById('total_price');
+    const totalPrice = parseFloat(totalPriceElement.textContent) || 0;
+    
+    // Получаем цену доставки
+    const deliveryInput = document.querySelector('input[name="pricePost"]');
+    const deliveryPrice = parseFloat(deliveryInput.value) || 0;
+    
+    // Считаем итоговую сумму
+    const totalWithDelivery = totalPrice + deliveryPrice;
+    
+    // Обновляем элемент с итоговой ценой
+    const totalPriceEndElement = document.getElementById('total_price_end');
+    totalPriceEndElement.textContent = totalWithDelivery.toFixed(2) + '₽';
+        const priceDostElement = document.getElementById('price_dost');
+    if (priceDostElement) {
+        priceDostElement.textContent = deliveryPrice.toFixed(2) + '₽';
+    }
+}
+
+// Запускаем отслеживание каждые 0.2 секунды
+setInterval(updateTotalPrice, 200);
+
+// Также обновляем при изменении значения вручную (на всякий случай)
+document.querySelector('input[name="pricePost"]').addEventListener('input', updateTotalPrice);
+
+// Обновляем при загрузке страницы
+document.addEventListener('DOMContentLoaded', updateTotalPrice);
+
 function deleteProduct(productId, variationId) {
     const xhr = new XMLHttpRequest();
     
