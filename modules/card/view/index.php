@@ -8,6 +8,7 @@
 
 $showCard = new \Modules\Card\Modul\Cardshow;
 $card = $showCard-> cardLoad();
+var_dump("<pre>",$card,"</pre>");
 ?>
     <div class="container">
         <div class="b030_oplata_box">
@@ -165,9 +166,11 @@ foreach($card->get_product_list() as $product){
         
                                 <div class="b030_oplata_tovar_numb">
                                         <div class="b030_oplata_tovar_numb_by_box_conter b030_tovar_info_box_by_box_conter">
-                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn">-</button>
-                                            <input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="<?php echo $product->get_count_buy_in_card();?>">
-                                            <button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn">+</button>
+                                            <button class="b030_quantity-btn b030_decrement b030_oplata_tovar_numb_by_box_conter_quantity_btn" 
+        onclick="removeProduct(<?php echo $productId; ?>, <?php echo $variationId; ?>)">-</button>
+<input type="text" class="b030_quantity-input b030_oplata_tovar_numb_by_box_conter_quantity_input" value="<?php echo $product->get_count_buy_in_card();?>">
+<button class="b030_quantity-btn b030_increment b030_oplata_tovar_numb_by_box_conter_quantity_btn" 
+        onclick="addProduct(<?php echo $productId; ?>, <?php echo $variationId; ?>)">+</button>
                                         </div>
                                 </div>
                             </div>        
@@ -189,35 +192,61 @@ if($count_prod == 0){
     </div>
 </div>
 <script>
-    function deleteProduct(productId, variationId) {
-    // Создаем AJAX запрос
+function deleteProduct(productId, variationId) {
     const xhr = new XMLHttpRequest();
     
-    // Формируем URL с параметрами
     const url = `/ajax/card/delete/?product_id=${productId}&variation_id=${variationId}`;
     
-    // Настраиваем запрос
     xhr.open('GET', url, true);
-    
-    // Обрабатываем ответ
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
-            // Успешный запрос - перезагружаем страницу
             location.reload();
         } else {
-            // Ошибка - можно обработать отдельно
             console.error('Ошибка при удалении товара:', xhr.statusText);
-            // Или все равно перезагрузить страницу
-            // location.reload();
         }
     };
     
-    // Обрабатываем ошибки сети
     xhr.onerror = function() {
         console.error('Ошибка сети при удалении товара');
     };
+    xhr.send();
+}
+
+function addProduct(productId, variationId) {
+    const xhr = new XMLHttpRequest();
+    const url = `/ajax/card/add/?product_id=${productId}&variation_id=${variationId}&quantity=1`;
     
-    // Отправляем запрос
+    xhr.open('GET', url, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            location.reload();
+        } else {
+            console.error('Ошибка при добавлении товара:', xhr.statusText);
+        }
+    };
+    
+    xhr.onerror = function() {
+        console.error('Ошибка сети при добавлении товара');
+    };
+    xhr.send();
+}
+
+function removeProduct(productId, variationId) {
+    const xhr = new XMLHttpRequest();
+    const url = `/ajax/card/remove/?product_id=${productId}&variation_id=${variationId}`;
+    
+    xhr.open('GET', url, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            location.reload();
+        } else {
+            console.error('Ошибка при уменьшении количества товара:', xhr.statusText);
+        }
+    };
+    
+    xhr.onerror = function() {
+        console.error('Ошибка сети при уменьшении количества товара');
+    };
     xhr.send();
 }
 </script>

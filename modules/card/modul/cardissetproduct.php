@@ -76,14 +76,14 @@ class Cardissetproduct {
         $pdo = \Modules\Core\Modul\Sql::connect();        
         if($variationId == 0){
             $tableName = \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_product";  
-            $sql = "SELECT id FROM $tableName WHERE id = ? AND is_active = 1 LIMIT 1";
+            $sql = "SELECT quantity  FROM $tableName WHERE id = ? AND is_active = 1 LIMIT 1";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$productId]);            
             $stock = (int)$stmt->fetchColumn();            
             return $stock >= $quantity;
         }else{
             $tableName = \Modules\Core\Modul\Env::get("DB_PREFIX") . "shop_variation";
-            $sql = "SELECT id FROM $tableName WHERE ((product_id = ? AND id = ?) AND is_active = 1) LIMIT 1";
+            $sql = "SELECT quantity  FROM $tableName WHERE ((product_id = ? AND id = ?) AND is_active = 1) LIMIT 1";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$productId, $variationId]);            
             $stock = (int)$stmt->fetchColumn();            
