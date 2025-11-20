@@ -14,5 +14,16 @@ Class Index extends \Modules\Abs\Controller{
         $this->show();
         $this->cashe_end();
     }
+
+    public function pay(){   
+        $this->cashe_start();
+        if($this->cache_isset) return ;
+        \Modules\Core\Modul\Head::load();
+        $this->type_show = "default";
+        \Modules\Core\Modul\Resource::load_conf($this->type_show);  
+        $this->list_file[] = APP_ROOT."/modules/card/view/pay.php";
+        $this->show();
+        $this->cashe_end();
+    }
     
 }

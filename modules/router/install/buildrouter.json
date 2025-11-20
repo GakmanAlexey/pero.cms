@@ -1,10 +1,10 @@
 {
-    "generated_at": "2025-10-16 13:14:20",
+    "generated_at": "2025-11-20 05:18:15",
     "sources": {
         "json_routes": 0,
         "sql_routes": 0
     },
-    "routes_count": 94,
+    "routes_count": 112,
     "routes": [
         {
             "path": "/admin/",
@@ -97,6 +97,12 @@
             "module": "card"
         },
         {
+            "path": "/card/pay/",
+            "class": "Modules\\Card\\Controller\\Index",
+            "method": "pay",
+            "module": "card"
+        },
+        {
             "path": "/api/cdek/widget/",
             "class": "Modules\\Cdek\\Controller\\Widget",
             "method": "start",
@@ -137,6 +143,108 @@
             "class": "Modules\\Core\\Controller\\Adminajax",
             "method": "css_default",
             "module": "core"
+        },
+        {
+            "path": "/d20/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "index",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/player/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "player",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/player/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "playerOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/npc/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "npc",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/npc/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "npcOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/town/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "town",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/town/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "townOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/mobs/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "mobs",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/mobs/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "mobsOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/quests/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "quests",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/quests/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "questsOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/factions/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "factions",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/factions/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "factionsOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/items/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "items",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/items/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "itemsOpen",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/skils/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "skils",
+            "module": "d20"
+        },
+        {
+            "path": "/d20/skils/open/",
+            "class": "Modules\\D20\\Controller\\Index",
+            "method": "skilsOpen",
+            "module": "d20"
         },
         {
             "path": "/admin/site/files/",

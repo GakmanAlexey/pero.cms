@@ -49,7 +49,7 @@ $desk_data =$cdek->calculatePackageDimensions($card);
     <div class="container">
         <div class="b030_oplata_box">
             <div class="b030_wrap_oplata col_5">
-                <form action="">
+                <form action="/card/pay/"  method="post">
                     <div class="b030_wrap_info">
                         <div class="b005_input_wrapper">
                             <input class="b005_input" type="text" placeholder="ФИО" name="client">
@@ -69,11 +69,11 @@ $desk_data =$cdek->calculatePackageDimensions($card);
                             <p class="b030_opis_radio">Выберите способ доставки </p>
                             <div class="b030_form_wrapper">
                                 <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/sdek.svg);" for="huey" onclick="window.widget.open()">
-                                        <input class="radio" type="radio" id="huey" name="drone1" value="huey"  />
+                                        <input class="radio" type="radio" id="huey" name="drone1" value="cdek"  />
                                 </label>  
 
                                 <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/porf.svg);" for="hue1y" onclick="widjet.open()">
-                                        <input class="radio" type="radio" id="hue1y" name="drone1" value="huey"  />
+                                        <input class="radio" type="radio" id="hue1y" name="drone1" value="other"  />
                                 </label> 
                                  
                             </div>
@@ -89,11 +89,11 @@ $desk_data =$cdek->calculatePackageDimensions($card);
                             <p class="b030_opis_radio">Выберите способ оплаты </p>
                             <div class="b030_form_wrapper">
                                 <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/sbp.svg);" for="hue22y">
-                                        <input class="radio" type="radio" id="hue22y" name="drone2" value="huey2" checked />
+                                        <input class="radio" type="radio" id="hue22y" name="drone2" value="cbp" checked />
                                 </label>  
 
                                 <label class="b030_radio_parent" style="background-image: url(/modules/card/src/img/bank.svg);" for="hue11y">
-                                        <input class="radio" type="radio" id="hue11y" name="drone2" value="huey2"  />
+                                        <input class="radio" type="radio" id="hue11y" name="drone2" value="bank"  />
                                 </label>  
                             </div>
                         </div>

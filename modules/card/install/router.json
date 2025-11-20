@@ -7,5 +7,6 @@
     ["/ajax/card/coupon/", "Modules\\Card\\Controller\\Coupon", "index"],
     ["/ajax/card/count/", "Modules\\Card\\Controller\\Ajax", "count"],
     ["/ajax/card/price/", "Modules\\Card\\Controller\\Ajax", "price"],
-    ["/ajax/card/info/", "Modules\\Card\\Controller\\Ajax", "info"]
+    ["/ajax/card/info/", "Modules\\Card\\Controller\\Ajax", "info"],
+    ["/card/pay/", "Modules\\Card\\Controller\\Index", "pay"]
 ]
